@@ -1,0 +1,30 @@
+\BOOKMARK [1][-]{section.1}{Outline of the proof}{}% 1
+\BOOKMARK [1][-]{section.2}{First-order logic}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{\(Pre\)terms, \(pre\)formulas}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Soundness}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Completeness}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Boolean-valued semantics for first-order logic}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{The Boolean-valued soundness theorem}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Constructing Boolean-valued models of set theory}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Boolean-valued equality and membership}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Mixtures and the maximum principle}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Check-names}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.4}{Transfinite induction}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.5}{Automation and metaprogramming}{section.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.5.1}{A custom proof language for reasoning in a Boolean-valued predicate calculus}{subsection.3.5}% 14
+\BOOKMARK [3][-]{subsubsection.3.5.2}{Automating congruence lemmas with the simplifier}{subsection.3.5}% 15
+\BOOKMARK [2][-]{subsection.3.6}{The fundamental theorem of forcing}{section.3}% 16
+\BOOKMARK [1][-]{section.4}{Forcing \254CH}{}% 17
+\BOOKMARK [2][-]{subsection.4.1}{The Cohen poset and the regular open algebra}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.2}{Adding 2-many distinct Cohen reals}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.3}{Preservation of cardinal inequalities}{section.4}% 20
+\BOOKMARK [1][-]{section.5}{Transfinite combinatorics and the countable chain condition}{}% 21
+\BOOKMARK [2][-]{subsection.5.1}{The -system lemma}{section.5}% 22
+\BOOKMARK [2][-]{subsection.5.2}{The countable chain condition}{section.5}% 23
+\BOOKMARK [1][-]{section.6}{Future work}{}% 24
+\BOOKMARK [2][-]{subsection.6.1}{Applications of Boolean-valued semantics}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.2}{Proof by reflection}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.3}{Forcing with generic models}{section.6}% 27
+\BOOKMARK [2][-]{subsection.6.4}{Towards a formal proof of the independence of the continuum hypothesis}{section.6}% 28
+\BOOKMARK [1][-]{section.7}{Conclusions and future work}{}% 29
+\BOOKMARK [1][-]{section.8}{References}{}% 30

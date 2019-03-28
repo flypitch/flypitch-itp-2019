@@ -1,0 +1,290 @@
+\documentclass[a4paper,USenglish,cleveref, autoref]{lipics-v2019}
+%This is a template for producing LIPIcs articles. 
+%See lipics-manual.pdf for further information.
+%for A4 paper format use option "a4paper", for US-letter use option "letterpaper"
+%for british hyphenation rules use option "UKenglish", for american hyphenation rules use option "USenglish"
+%for section-numbered lemmas etc., use "numberwithinsect"
+%for enabling cleveref support, use "cleveref"
+%for enabling cleveref support, use "autoref"
+
+\usepackage{color}
+\definecolor{keywordcolor}{rgb}{0.7, 0.1, 0.1}   % red
+\definecolor{tacticcolor}{rgb}{0.1, 0.2, 0.6}    % blue
+\definecolor{commentcolor}{rgb}{0.4, 0.4, 0.4}   % grey
+\definecolor{symbolcolor}{rgb}{0.0, 0.1, 0.6}    % blue
+\definecolor{sortcolor}{rgb}{0.1, 0.5, 0.1}      % green
+\definecolor{attributecolor}{rgb}{0.7, 0.1, 0.1} % red
+\def\lstlanguagefiles{lstlean.tex}
+\lstset{language=lean,breakatwhitespace,xleftmargin=\parindent}
+\usepackage{mathabx}
+
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\lil}{\lstinline}
+
+
+%\graphicspath{{./graphics/}}%helpful if your graphic files are in another directory
+
+\bibliographystyle{plainurl}% the mandatory bibstyle
+
+\title{A formalization of forcing with Boolean-valued models and the consistency of the failure of the continuum hypothesis} %TODO Please add
+
+\titlerunning{A formalization of forcing with Boolean-valued models}%optional, please use if title is longer than one line
+
+\author{Jesse Michael Han\footnote{Corresponding author.}}{Department of Mathematics, University of Pittsburgh \and \url{https://www.pitt.edu/~jmh288}}{jessemichaelhan@gmail.com}{}{}%TODO mandatory, please use full name; only 1 author per \author macro; first two parameters are mandatory, other parameters can be empty. Please provide at least the name of the affiliation and the country. The full address is optional
+
+\author{Floris van Doorn}{Department of Mathematics, University of Pittsburgh}{}{}{}
+
+\authorrunning{J.\,M. Han and F.\,v. Doorn}%TODO mandatory. First: Use abbreviated first/middle names. Second (only in severe cases): Use first author plus 'et al.'
+
+\Copyright{Jesse Michael Han and Floris van Doorn}%TODO mandatory, please use full first names. LIPIcs license is "CC-BY";  http://creativecommons.org/licenses/by/3.0/
+
+\ccsdesc[100]{}
+% \ccsdesc[100]{}%TODO mandatory: Please choose ACM 2012 classifications from https://dl.acm.org/ccs/ccs_flat.cfm 
+
+\keywords{Interactive theorem proving, formal verification, set theory, forcing, independence, continuum hypothesis, Boolean-valued models}%TODO mandatory; please add comma-separated list of keywords
+
+\category{}%optional, e.g. invited paper
+
+\relatedversion{}%optional, e.g. full version hosted on arXiv, HAL, or other respository/website
+%\relatedversion{A full version of the paper is available at \url{...}.}
+
+\supplement{}%optional, e.g. related research data, source code, ... hosted on a repository like zenodo, figshare, GitHub, ...
+
+%\funding{(Optional) general funding statement \dots}%optional, to capture a funding statement, which applies to all authors. Please enter author specific funding statements as fifth argument of the \author macro.
+
+\acknowledgements{The authors would like to thank the members of the Pitt-CMU Lean group, particularly Simon Hudon, Jeremy Avigad, Mario Carneiro, and Tom Hales for their feedback and valuable suggestions; we are also grateful to Dana Scott and John Bell for their advice and correspondence.}%optional
+
+%\nolinenumbers %uncomment to disable line numbering
+
+%\hideLIPIcs  %uncomment to remove references to LIPIcs series (logo, DOI, ...), e.g. when preparing a pre-final version to be uploaded to arXiv or another public repository
+
+%Editor-only macros:: begin (do not touch as author)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\EventEditors{}
+\EventNoEds{2}
+\EventLongTitle{}
+\EventShortTitle{ITP 2019}
+\EventAcronym{ITP}
+\EventYear{2019}
+\EventDate{}
+\EventLocation{}
+\EventLogo{}
+\SeriesVolume{}
+% \ArticleNo{}
+\ArticleNo{23}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+%TODO mandatory: add short abstract of the document
+\begin{abstract}
+We describe a formalization of forcing using Boolean-valued models in the Lean 3 theorem prover, including the fundamental theorem of forcing and a deep embedding of first-order logic with a Boolean-valued soundness theorem. As an application of our framework, we specialize our construction to a Boolean completion of the Cohen poset and formally verify in the resulting model the failure of the continuum hypothesis.
+\end{abstract}
+
+% \tableofcontents %TODO(jesse)delete
+
+\section*{Introduction}
+The continuum hypothesis states that there are no sets strictly larger than the countable natural numbers and strictly smaller than the uncountable real numbers. It was introduced by Cantor in 1878 and was the very first problem on Hilbert's list of twenty-three outstanding problems in mathematics. G\"odel proved in 1938 \cite{godel1938consistency} that the continuum hypothesis was consistent with $\mathsf{ZFC}$, and later conjectured that the continuum hypothesis was independent of $\mathsf{ZFC}$, i.e. neither provable nor disprovable from the $\mathsf{ZFC}$ axioms. In 1963, Paul Cohen developed \emph{forcing} \cite{cohen-the-independence-of-the-continuum-hypothesis-1}, which allowed him to prove the consistency of the negation of the continuum hypothesis, and therefore complete the independence proof. For this work, which marked the beginning of modern set theory, he was awarded a Fields medal---the only one to ever be awarded for a work in mathematical logic.
+
+The work we describe in this paper is part of the Flypitch project\footnote{\url{https://github.com/flypitch/flypitch/}}, which aims to formalize the independence of the continuum hypothesis. Our results, which concern the formalization of forcing and the consistency of the negation of the continuum hypothesis, mark a major milestone towards that goal.
+
+%%%
+One commonly cited reasons why forcing with Boolean-valued models is less popular than forcing with countable transitive models is that calculating with Boolean truth-values is hard. This was indeed our experience---until we made Lean's automation work for us.
+%%%
+
+%%%%% put at end of introduction
+In Section \ref{sect:outline} we outline the method of Boolean-valued models and sketch the forcing argument. Section \ref{sect:fol} discusses a deep embedding of first-order logic, including a proof system, soundness and completeness theorems, and crucially the Boolean-valued soundness theorem. Section \ref{sect:bvm} discusses our construction of Boolean-valued models of set theory, which is based on the Aczel-Werner encoding of ZFC into a dependent type theory with the CIC, emphasizing the usefulness of being able to metaprogram custom tactics to simulate predicate calculus inside an arbitrary complete Boolean algebra. Section \ref{sect:forcing} describes the formalization of the forcing argument and the construction of a suitable Boolean algebra. Section \ref{sect:ccc} describes the formalization of the $\Delta$-system lemma, which is required for proving that the Boolean algebra used for forcing has the CCC.
+%%%%%
+
+$\mathsf{ZFC}$ is a collection of first-order sentences in the language of a single binary predicate relation $\{\in\}$, used to axiomatize set theory. The continuum hypothesis can be written in this fashion as a first-order sentence $\mathsf{CH}$. We work in a metatheory which proves that $\mathsf{ZFC}$ is consistent, i.e. does not derive a contradiction.
+
+% A \emph{proof} of $\mathsf{CH}$ from $\mathsf{ZFC}$ is a finite list of deductions starting from $\mathsf{ZFC}$ and ending at $\mathsf{CH}$. We write $\mathsf{ZFC} \vdash \mathsf{CH}$ to indicate that there exists a proof of $\mathsf{CH}$ from $\mathsf{ZFC}$. It is easy to show that $\mathsf{ZFC} \vdash \mathsf{CH}$: one simply exhibits a proof. What is harder is showing that $\mathsf{CH}$ is unprovable: one has to rule out all possible proofs. If one is allowed to use $\mathsf{ZFC} \vdash \neg \mathsf{CH}$, it is easy to show that $\mathsf{CH}$ is unprovable. What is even harder is showing simultaneously that $\mathsf{CH}$ is independent of ZFC: both  $\mathsf{CH}$ \emph{and} $\neg \mathsf{CH}$ are unprovable.
+
+% Separate from provability is satisfiability: we say that $\mathsf{ZFC}$ \emph{satisfies} $\mathsf{CH}$, written $\mathsf{ZFC} \models \mathsf{CH}$, if the interpretation of $\mathsf{CH}$ in any model of $\mathsf{ZFC}$ is true. Dually, it is easy to show that $\mathsf{ZFC} \not \models \mathsf{CH}$: one simply exhibits a model of $\mathsf{ZFC}$ where $\mathsf{CH}$ is false, and harder to show that $\mathsf{ZFC} \models \mathsf{CH}$, because one has to consider all possible models.
+
+A proof of $\mathsf{CH}$ is a finite list of deductions starting from $\mathsf{ZFC}$ and ending at $\mathsf{CH}$. G\"odel's completeness theorem says that provability is equivalent to satisfiability, i.e. there exists a proof of $\mathsf{CH}$ from $\mathsf{ZFC}$ if and only if the interpretation of $\mathsf{CH}$ in any model of $\mathsf{ZFC}$ is true, and therefore, $\mathsf{CH}$ is unprovable from $\mathsf{ZFC}$ if and only if there exists a model of $\mathsf{ZFC}$ where the negation of $\mathsf{CH}$ is true. The completeness theorem therefore reduces the harder problem of the unprovability of $\mathsf{CH}$ and $\neg \mathsf{CH}$ to the easier problem of constructing just two models, one where $\mathsf{CH}$ holds, and one where $\neg\mathsf{CH}$ holds. This is precisely what is produced by G\"odel's 1936 proof of the consistency of $\mathsf{CH}$, and Cohen's forcing technique.
+
+% One says that a collection $\Gamma$ of first-order sentences is \emph{consistent} if it cannot prove $\bot$ (false). One obtains as a corollary of G\"odel's completeness theorem that $\Gamma$ is consistent if and only if $\Gamma$ has a model. By the completeness theorem, this means that the negation of $\mathsf{CH}$ is unprovable from $\mathsf{ZFC}$.
+
+Our formalization is written in the Lean 3 theorem prover. Lean is an interactive proof assistant under active development at Microsoft Research \cite{de2015lean} \cite{sebastian-slides}. It implements the Calculus of Inductive Constructions and has a similar metatheory to Coq, adding definitional proof irrelevance, quotient types, and a noncomputable choice principle. The fact that Lean's metatheory is powerful enough to encode a model of $\mathsf{ZFC}$ already allows us to perform metatheoretic arguments about $\mathsf{ZFC}$ which were unavailable to Paulson \cite{paulson2003relative}, who went to extreme lengths to circumvent them inside Isabelle/ZF.
+
+Indeed, our formalization makes as much use of the expressiveness of Lean's dependent type theory as possible, using constructions which are impossible or unwieldy to encode in HOL, much less ZF: Lean's ordinals and cardinals, which are defined as equivalence classes of well-ordered types, live one universe level up are play a crucial role in the forcing argument; the models of set theory we construct require as input entire universes of types; our encoding of first-order logic crucially uses dependent types to equate type-correctness with well-formedness and entirely avoid separate well-formedness certificates.
+\section{Outline of the proof}
+\label{sect:outline}
+\section{First-order logic}
+\label{sect:fol}
+
+\subsection{(Pre)terms, (pre)formulas}
+
+\subsection{Soundness}
+
+\subsection{Completeness}
+As part of our formalization of first-order logic, we completed a verification of the G\"odel completeness theorem. Although our present development of forcing did not require it, we anticipate that it will required later to e.g. prove the downward L\"owenheim-Skolem theorem to extract countable transitive models for forcing with generic extensions; also, like the soundness theorem, it serves as a proof-of-concept and a stress-test of our chosen encoding of first-order logic.
+
+For our formalization, we chose the Henkin-style approach of constructing a canonical term model. We sketch the argument: observe that the primary obstruction to being able to form a model of an arbitrary consistent theory from the terms of the language modulo provable equivalence is the possible lack of existential witnesses (for example, in the extreme case where the language is relational, like $\mathsf{ZFC}$, and there are no terms at all.) The Henkin construction addresses this obstruction by iteratively expanding the language with new constant symbols axiomatized to be witnesses for existential statements from the previous stages; in the limit, one obtains a language with ``enough witnessing constants'' such that if the original theory was consistent, the terms do form a model.
+
+There are several immediate challenges that must be addressed. First, since our first-order languages are represented by types instead of sets, we cannot really modify them in-place with new constant symbols. Instead, at each step of the construction, we must construct an entirely new language, in which the previous one embeds as a subtype, and in the limit, we cannot take a union, but must rather compute a directed colimit of types. Thus we developed a library for working with directed colimits of types.
+
+In the process of our formalization, we discovered a nontrivial hole in many presentations of the Henkin argument (TODO(floris) describe \lstinline{reflect_prf})
+
+We remark that our formalization of the completeness theorem is as general as possible, making no assumptions on the cardinality of the language or the presence of a function symbols.
+
+\subsection{Boolean-valued semantics for first-order logic}
+
+% \subsection{Heyting-valued models (cite Scott, etc)}
+
+Quote: %TODO(jesse) use this somewhere
+  A main point of our exposition is that the
+  well-known algebraic characterizations of cHa’s and cBa’s exactly mimic the rules of
+  deduction in the respective logics\ldots{}
+
+\subsection{The Boolean-valued soundness theorem}
+
+A soundness theorem says that a proof tree may be replayed to produce an actual proof in the object of truth-values. When the object is truth-values is the type \texttt{Prop} of propositions, this says that a proof tree becomes interpreted as a proof. When the object of truth-values is a Boolean algebra, this says that the proof tree becomes an internal implication from the interpretation of the context to the interpretation of the conclusion.
+
+We designed our datatype of proofs as an inductive type whose constructors are precisely the natural deduction rules naturally supported by Lean's Prop. As a result, the proofs of either soundness theorem becomes a straightforward structural induction.
+
+One complication which arose in the Boolean-valued case was keeping track of congruence lemmas...
+
+Note that Boolean-valued equality is not really an equivalence relation.
+\section{Constructing Boolean-valued models of set theory}
+\label{sect:bvm}
+Throughout this section, we fix a universe level $u$, a type \lstinline{𝔹 : Type u} and an instance of a complete Boolean algebra structure on $\B$.
+
+In set theory (see e.g. Jech \cite{jech1} or Bell \cite{bell1}), Boolean-valued models are obtained by imitating the construction of the von Neumann cumulative hierarchy via a transfinite recursion where iterations of the powerset operation (taking functions into $\mathbf{2} = \{\operatorname{true}, \operatorname{false}\}$) are replaced by iterations of the ``\lstinline{𝔹}-valued powerset operation'' (taking functions into $\B$).
+
+Since this construction by transfinite recursion does not easily translate into type theory, our construction of Boolean-valued models of set theory is instead a variation on a well-known encoding originally due to Aczel \cite{aczel1} \cite{aczel2} \cite{aczel3}. This encoding was adapted by Werner \cite{werner1} to encode ZFC into Coq, whose metatheory is close to that of Lean. Werner's construction was re-implemented in Lean's \texttt{mathlib} by Carneiro as part of \cite{mario1}. In this approach, one takes a universe of types \texttt{Type u} as the starting point and then imitates the cumulative hierarchy by constructing the inductive type
+\begin{lstlisting}
+inductive pSet : Type (u+1)
+| mk (α : Type u) (A : α → pSet) : pSet
+\end{lstlisting}
+(Just as the empty set kicks off the construction of the cumulative hierarchy, the empty type admits an empty map into any type and so induces \lstinline{∅ : pSet}.)
+
+The Aczel-Werner encoding is closely related to the recursive definition of \emph{names} in forcing, which are used to construct the generic extensions of ground models when forcing over a ctm.
+
+\begin{definition}
+Let $P$ be a partial order (which one thinks of as a collection of forcing conditions). A \emph{$P$-name} is a collection of pairs $(y, p)$ where $y$ is a $P$-name and $p : P$.
+\end{definition}
+
+ If $P$ consists of only one element, then a $P$-name is specified by essentially the same information as a member of the inductive type \lstinline{pSet} above. Conversely, specializing $P$ to an arbitrary complete Boolean algebra $\B$, we modify the definition of \lstinline{pSet.mk} so that elements are recursively assigned Boolean truth-values:
+\begin{lstlisting}
+inductive bSet (𝔹 : Type u) [complete_boolean_algebra 𝔹] : Type (u+1)
+| mk (α : Type u) (A : α → bSet) (B : α → 𝔹) : bSet
+\end{lstlisting}
+Thus \lil{bSet 𝔹} is the type of $\B$-names, and will be the underlying type of our Boolean-valued model of set theory.
+
+\subsection{Boolean-valued equality and membership}
+% In order to view \lil{bSet 𝔹} as a Boolean-valued structure, we must first equip it with a Boolean-valued notion of equality. In models of set theory, the axiom of extensionality ensures that the notions of \lil{=}, \lil{∈}, and \lil{⊆} are tightly connected, and in fact, in every reference we found, \lil{=} and \lil{∈} were defined simultaneously using mutual recursion. Although this makes checking e.g. the axiom of extensionality a matter of definition, we found this was unnecessary, and avoid the mutually recursive definition by making equality the primitive notion.
+
+In \lil{pSet}, equivalence of sets is defined by structural recursion as follows: two sets $x$ and $y$ are equivalent if and only if for every $w \in x$, there exists a $w' \in y$ such that $w$ is equivalent to $w'$, and vice-versa. Analogously, by translating quantifiers and connectives into operations on $\B$, we define the Boolean boolean-valued in exactly the same way:
+\begin{lstlisting}
+def bv_eq : ∀ (x y : bSet 𝔹), 𝔹
+| ⟨α, A, B⟩ ⟨α', A', B'⟩ :=
+             (⨅a : α, B a ⟹ ⨆a', B' a' ⊓ bv_eq (A a) (A' a')) ⊓
+               (⨅a' : α', B' a' ⟹ ⨆a, B a ⊓ bv_eq (A a) (A' a'))
+\end{lstlisting}
+
+
+\subsection{Mixtures and the maximum principle}
+
+The maximum principle is the Boolean-valued incarnation of the axiom of choice in the metatheory. It says that an existential quantification over the entire model may be instantiated without changing the truth-value.
+
+\subsection{Check-names}
+
+% \begin{definition}
+%   Let \lstinline{x : bSet 𝔹}. \lstinline{x} is \textbf{definite} if (writing \lstinline{x = ⟨α, A : α → bSet 𝔹, B : α → 𝔹⟩}) \lstinline{∀ a : α}, \lstinline{B a = ⊤}. \lil{x} is a \textbf{check-name} if it is recursively definite, i.e. if \lil{x} is definite and for every \lil{∀ a : α, A a} is a check-name.
+% \end{definition}
+
+From the definitions of \lil{pSet} and \lil{bSet}, one immediately sees that there is a canonical map \lil{check : pSet → bSet 𝔹}, defined recursively as:
+\begin{lstlisting}
+def check : pSet → bSet 𝔹
+| ⟨α,A⟩ := ⟨α, λ a, check (A a), λ a, ⊤⟩
+\end{lstlisting}
+
+That is, \lil{check} takes a \lil{pSet} and recursively attaches the Boolean truth-value $\top$ to all elements. We call members of the image of \lil{check} \emph{check-names}. These are also known as \emph{canonical names}, as they are the canonical representation of standard two-valued sets inside a Boolean-valued model of set theory.
+
+\subsection{Transfinite induction}
+\label{sec:org9e70de8}
+In set theory, it is common to prove propositions via induction on an ordinal-valued rank function. In fact, this is how V\(^{\text{BB}}\) is typically constructed, by induction on the rank of sets in an existing universe of sets V. In Lean, this style of argument does not come for as free as, say, structural induction principles like $\in$-induction, which by virtue of the construction of bSet BB, \emph{is} the induction principle for that inductive type. However, an interface is available for well-founded recursion on well-founded relations, and a development of the theory of ordinals as equivalence-classes of well-ordered types is available in \texttt{mathlib}. There were two places in the present work where transfinite induction was unavoidable, namely in the construction of an antichain for the maximum principle, and the verification that the canonical embedding of ordinals into \texttt{pSet} is injective.
+\subsection{Automation and metaprogramming}
+A key feature of Lean is that it is its own metalanguage, allowing for seamless in-line definitions of custom tactics. This feature was an invaluable asset for our formalization
+\subsubsection{A custom proof language for reasoning in a Boolean-valued predicate calculus}
+
+
+\subsubsection{Automating congruence lemmas with the simplifier}
+The simplifier is one of Lean 3's most sophisticated tools for automation, and is quite powerful when used correctly. It uses automatically-generated congruence lemmas to navigate under binders and perform rewrites using lemmas marked with the \lstinline{simp} attribute. Given the pivotal role which congruence lemmas have in \lstinline{simp}'s functionality, we consider it fitting that \lstinline{simp} allowed us to automate the proofs of the Boolean-valued congruence (sometimes confusingly called \emph{extensionality}) lemmas which are required to speak of a Boolean-valued predicate on a Boolean-valued structure.
+
+TODO %and also maybe delete, it's not that important. i have the feeling we'll have too much material for 15 pages
+
+\subsection{The fundamental theorem of forcing}
+
+The fundamental theorem of forcing for Boolean-valued models \cite{hamkins-seabold1} states that for any complete Boolean algebra $B$, $V^B$ is a Boolean-valued model of ZFC. Since, in type theory, a universe \lstinline{Type u} takes the place of the standard universe $V$, an analogous statement in our setting is that for every complete Boolean algebra $\B$, \lstinline{bSet 𝔹} is a Boolean-valued model of ZFC.
+
+After the development of the custom proof language, much of the verification of the axioms is routine, as the user is able to pretend they are working in ordinary 2-valued logic. We describe some of the interesting aspects of V\(^{\text{BB}}\) which are illuminated by the verification of the axioms, and which will be relevant later when forcing the negation of the continuum hypothesis.
+
+\begin{itemize}
+\item The axiom of infinity. What V\(^{\text{BB}}\) thinks is $\omega$ is actually $\omega$CHECK. This is an instance of the $\Delta$-zero-absoluteness theorem.
+
+\item The powerset operation. The powerset in V\(^{\text{BB}}\) is constructed as follows. TODO.
+\end{itemize}
+\section{Forcing ¬CH}
+\label{sect:forcing}
+\subsection{The Cohen poset and the regular open algebra}
+
+\subsection{Adding $\omega_2$-many distinct Cohen reals}
+
+\subsection{Preservation of cardinal inequalities}
+
+\section{Transfinite combinatorics and the countable chain condition}
+\label{sect:ccc}
+
+\subsection{The $\Delta$-system lemma}
+
+\subsection{The countable chain condition}
+
+\section{Future work}
+
+\subsection{Applications of Boolean-valued semantics}
+
+(maybe remove? fill this out if you have time.)
+\subsection{Proof by reflection}
+
+Combined with the usual completeness theorem, the Boolean-valued soundness theorem will allow us to prove statements about a structure of the form bSet BB as follows: if the statement $\phi$ is provable from ZF, then we may prove that ZF proves $\phi$ by applying the completeness theorem to reason inside an arbitrary model of ZF. This avoids the complications of trying to work directly inside Boolean-valued logic. Then, given a Boolean-valued L\(_{\text{ZFC}}\)-structure $\mathbf{M}$ which satisfies ZF, the Boolean-valued soundness theorem tells us that this proof may be replayed inside $\mathbf{M}$ so that $\phi$ has truth-value greater than the truth-values of ZF, and is therefore satisfied inside $\mathbf{M}$.
+
+In this way, we can transport proofs of statements such as "Zorn's lemma is equivalent to the axiom of choice", which is provable from ZF, directly from the world of 2-valued models to the world of Boolean-valued models.
+
+We also remark that while our use of \texttt{simp} lemmas to generate congruence certificates sufficed for the purposes of this work, the "real" proof that something like the subset predicate is $=^B$-extensional is a proof by reflection: one constructs a formula which reifies the predicate, and then applies the fact that one is in the deeply-embedded Boolean-valued structure to obtain the congruence lemma automatically. We also intend to automate this.
+\subsection{Forcing with generic models}
+
+Our method does not support iterated forcing. Our method starts with a universe of types and uses that to construct a model of set theory.
+\subsection{Towards a formal proof of the independence of the continuum hypothesis}
+
+This work was carried out as part of the Flypitch project, which aims to formalize the independence of the continuum hypothesis from ZFC, i.e. that CH and its negation are both unprovable from the ZFC axioms.
+
+Future goals of the project include:
+
+\begin{itemize}
+\item Various formulations of the axioms of ZFC are equiconsistent, including the versions used in this paper
+\end{itemize}
+\section{Conclusions and future work}
+
+\begin{itemize}
+\item \texttt{pSet} was not essential. Rather, in our type-theoretic foundations, the construction of a Boolean-valued standard universe of set theory has equal footing with the construction of an ordinary standard universe of set theory. We see that for the purposes of working with V\(^{\text{BB}}\), V is no longer a prerequisite, but merely a useful tool for organizing the check-names.
+\item We used several features of our type-theoretic foundations to our advantage. We constructed a standard universe of set theory structurally in such a way that many properties of the underlying universe of types are reflected inside the model of set theory, and such that we get the axiom of regularity (more precisely, the principle of epsilon-induction) for free as the automatically-generated induction principle for our inductive type.
+\item Lean is great, meteoric growth --- remark on recentness of developments in \texttt{mathlib} which made this possible (acknowledge developments from other theorem-provers, including porting of libraries e.g. \texttt{lattice} from Isabelle).
+\item Evidence that formalized mathematics is ready "in the large"
+\end{itemize}
+
+\section{References}
+\begin{itemize}
+\item Moore's The method of forcing
+\item Halmos-Givant Textbook on boolean algebras
+\item Gunther Pagano et al forcing in Isabelle/ZF
+\item Paulson constructible universe and set theory in Isabelle/ZF
+\item Sets in Coq, Coq in Sets
+\item Sets in types, types in sets
+\item Aczel's encoding of ZFC inside type theory
+\end{itemize}
+
+\end{document}
