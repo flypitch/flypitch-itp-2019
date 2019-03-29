@@ -30,6 +30,8 @@
     "poset-yoneda"
     "sec:org9e70de8"
     "sect:forcing"
+    "subsect:cohen-reals"
+    "subsect:cardinal-inequalities"
     "sect:ccc"))
  :latex)
 

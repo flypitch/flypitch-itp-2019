@@ -8,21 +8,19 @@
 \BOOKMARK [1][-]{section.3}{Constructing Boolean-valued models of set theory}{}% 8
 \BOOKMARK [2][-]{subsection.3.1}{Boolean-valued equality and membership}{section.3}% 9
 \BOOKMARK [2][-]{subsection.3.2}{Reasoning in B}{section.3}% 10
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Automation and metaprogramming}{subsection.3.2}% 11
-\BOOKMARK [2][-]{subsection.3.3}{Check-names}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.4}{Transfinite induction}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.5}{The fundamental theorem of forcing}{section.3}% 14
-\BOOKMARK [1][-]{section.4}{Forcing \254CH}{}% 15
-\BOOKMARK [2][-]{subsection.4.1}{The Cohen poset and the regular open algebra}{section.4}% 16
-\BOOKMARK [2][-]{subsection.4.2}{Representing Lean's ordinals inside pSet}{section.4}% 17
-\BOOKMARK [2][-]{subsection.4.3}{Adding 2-many distinct Cohen reals}{section.4}% 18
-\BOOKMARK [2][-]{subsection.4.4}{Preservation of cardinal inequalities}{section.4}% 19
-\BOOKMARK [1][-]{section.5}{Transfinite combinatorics and the countable chain condition}{}% 20
-\BOOKMARK [2][-]{subsection.5.1}{The -system lemma}{section.5}% 21
-\BOOKMARK [2][-]{subsection.5.2}{The countable chain condition}{section.5}% 22
-\BOOKMARK [1][-]{section.6}{Conclusions and future work}{}% 23
-\BOOKMARK [2][-]{subsection.6.1}{Applications of Boolean-valued semantics}{section.6}% 24
-\BOOKMARK [2][-]{subsection.6.2}{Proof by reflection}{section.6}% 25
-\BOOKMARK [2][-]{subsection.6.3}{Forcing with generic models}{section.6}% 26
-\BOOKMARK [2][-]{subsection.6.4}{Towards a formal proof of the independence of the continuum hypothesis}{section.6}% 27
-\BOOKMARK [1][-]{section.7}{References}{}% 28
+\BOOKMARK [2][-]{subsection.3.3}{Check-names}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.4}{Transfinite induction}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.5}{The fundamental theorem of forcing}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{Forcing}{}% 14
+\BOOKMARK [2][-]{subsection.4.1}{Representing Lean's ordinals inside pSet and bSet}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{The Cohen poset and the regular open algebra}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.3}{Adding 2-many distinct Cohen reals}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.4}{Preservation of cardinal inequalities}{section.4}% 18
+\BOOKMARK [1][-]{section.5}{Transfinite combinatorics and the countable chain condition}{}% 19
+\BOOKMARK [2][-]{subsection.5.1}{The -system lemma}{section.5}% 20
+\BOOKMARK [2][-]{subsection.5.2}{RO\(22 N\) has the countable chain condition}{section.5}% 21
+\BOOKMARK [1][-]{section.6}{Conclusions and future work}{}% 22
+\BOOKMARK [2][-]{subsection.6.1}{Proof by reflection}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.2}{Forcing with generic models}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.3}{Towards a formal proof of the independence of the continuum hypothesis}{section.6}% 25
+\BOOKMARK [1][-]{section.7}{References}{}% 26
