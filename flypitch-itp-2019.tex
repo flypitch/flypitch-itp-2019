@@ -394,7 +394,7 @@ structure 𝒞 : Type :=
   (H : ins ∩ out = ∅)
 \end{lstlisting}
 
-That is, we identify a finite partial function $f$ with the triple \lil{⟨f.ins, f.out, f.H⟩}, where \lil{f.ins} is the preimage of $\{1\}$, \lil{f.out} is the preimage of $\{0\}$, and \lil{f.H} ensures well-definedness. While $f$ is usually defined as a finite partial function, we found that in practice (that is, in proofs) $f$ is really needed to give a finite partial specification of a subset of $\aleph_2 \times \mathbb{N}$ (i.e. a finite set \lil{ins} which \emph{must} be in the subset, and a finite set \lil{out} which \emph{must not} be in the subset), and chose this representation to make that information immediately accessible.
+That is, we identify a finite partial function $f$ with the triple \lil{⟨f.ins, f.out, f.H⟩}, where \lil{f.ins} is the preimage of $\{1\}$, \lil{f.out} is the preimage of $\{0\}$, and \lil{f.H} ensures well-definedness. While $f$ is usually defined as a finite partial function, we found that in practice $f$ is really only needed to give a finite partial specification of a subset of $\aleph_2 \times \mathbb{N}$ (i.e. a finite set \lil{ins} which \emph{must} be in the subset, and a finite set \lil{out} which \emph{must not} be in the subset), and chose this representation to make that information immediately accessible.
 
 \begin{definition}
   Let $X$ be a topological space, and for any open set $U$, let $U^\perp$ denote the complement of the closure of $U$. The \textbf{regular open algebra} of a topological space $X$, written $\operatorname{RO}(X)$, is the collection of all open sets $U$ such that $U = (U^\perp)^\perp$, equipped with the structure of a complete Boolean algebra, with $x \sqcap y := x \cap y$, $x \sqcup y := ((x \sqcup y)^\perp)^\perp$, $\neg x := x^\perp$, and $\bigsqcup x_i := ((\bigcup x_i)^\perp)^\perp$.
@@ -410,20 +410,31 @@ def ι : 𝒞 → 𝔹 := λ p, {S | p.ins ⊆ S ∧ p.out ⊆ - S}
 \end{definition}
 That is, we send each \lil{c : 𝒞} all the subsets which satisfy the specification given by \lil{c}. This is a clopen set, hence regular.
 
-Crucially, this embedding is \emph{dense}: 
+Crucially, this embedding is \emph{dense}:
+\begin{lstlisting}
+lemma 𝒞_dense {b : 𝔹} (H : ⊥ < b) : ∃ p : 𝒞, ι p ≤ b  
+\end{lstlisting}
+Recalling that $\leq$ in $\B$ is subset-inclusion, we see that this is essentially because the image of $\iota : \mathcal{C} \to \B$ \emph{is} is the standard basis for the product topology. Our chosen encoding of the Cohen poset also made it easier to perform this identification when formalizing the proof.
 
-\subsection{Adding $\omega_2$-many distinct Cohen reals}
+The formalization of definitions and lemmas displayed in this section required nontrivial extensions to \lil{mathlib}'s library on topological spaces, including a complete description of the standard basis of the product topology on spaces of the form $2^I$. We refer the interested reader to our formalization for more details.
+
+\subsection{Representing Lean's ordinals inside \lil{pSet}}
+TODO(jesse) emphasize how Lean's ordinals play the key role, rather than the ordinals inside pSet.
+\subsection{Adding $\aleph_2$-many distinct Cohen reals}
+As we saw in \autoref{def-powerset}, for any $\B$-valued set $x$, characteristic functions into $\B$ from the underlying type of $x$ determine $\B$-valued subsets of $x$. While the ingredients $\aleph_2$ and $\mathbb{N}$ for $\B$ are external to \lil{bSet 𝔹}, they are represented nonetheless inside \lil{bSet 𝔹} by their check-names (\autoref{def-check}) $\check{\aleph_2}$ and $\check{\mathbb{N}}$.
 
 \subsection{Preservation of cardinal inequalities}
 
 \section{Transfinite combinatorics and the countable chain condition}
 \label{sect:ccc}
-
+TODO(floris)
 \subsection{The $\Delta$-system lemma}
-
+TODO(floris)
 \subsection{The countable chain condition}
+TODO(floris)
 
-\section{Future work}
+\section{Conclusions and future work}
+
 
 \subsection{Applications of Boolean-valued semantics}
 
@@ -448,7 +459,6 @@ Future goals of the project include:
 \begin{itemize}
 \item Various formulations of the axioms of ZFC are equiconsistent, including the versions used in this paper
 \end{itemize}
-\section{Conclusions and future work}
 
 \begin{itemize}
 \item In order to complete this formalization, we had to develop several libraries, e.g. for dependently-typed vectors, significant extensions of the lattice and Boolean algebra library, the theory of product topological space and their bases, and extensions to the set theory and ordinal libraries.
