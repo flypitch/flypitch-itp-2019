@@ -11,7 +11,7 @@ texcl=false,
 
 % keywords, list taken from lean-syntax.el
 morekeywords=[1]{
-import, prelude, tactic_hint, protected, private, noncomputable, definition, renaming,
+import, prelude, tactic_hint, protected, private, noncomputable, definition, renaming, def,
 hiding, exposing, parameter, parameters, begin, begin+, proof, qed, conjecture, constant, constants,
 hypothesis, lemma, corollary, variable, variables, premise, premises, theory,
 print, theorem, proposition, example, abbreviation, abstract,
@@ -59,6 +59,9 @@ otherkeywords={
 
 % Various symbols
 literate=
+{∼}{{\ensuremath{\sim}}}1
+{̌ }{{\ensuremath{\check{}}}}1
+{𝒞}{{\ensuremath{\mathcal{C}}}}1
 {⊔}{{\ensuremath{\sqcup}}}1
 {⊓}{{\ensuremath{\sqcap}}}1
 {⨆}{{\ensuremath{\bigsqcup}}}1
@@ -213,6 +216,7 @@ literate=
 
 {ᵒ}{{\textsuperscript{o}}}1
 {ᵖ}{{\textsuperscript{p}}}1
+{ᴮ}{{\textsuperscript{B}}}1
 
 
 {ₙ}{{\ensuremath{_n}}}1
