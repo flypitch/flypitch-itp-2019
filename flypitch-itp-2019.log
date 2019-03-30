@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  30 MAR 2019 16:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  30 MAR 2019 18:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1465,6 +1465,10 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 512.
 
 [15]
+
+LaTeX Warning: Citation `kanamori1' on page 16 undefined on input line 552.
+
+
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
 []\T1/lmss/bx/n/10.5 A formalization of forcing and the consistency of the fail
 ure of the continuum hypothesis 
@@ -1529,7 +1533,7 @@ r/share/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/share/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msbm7.pfb>
-Output written on flypitch-itp-2019.pdf (17 pages, 581629 bytes).
+Output written on flypitch-itp-2019.pdf (17 pages, 582066 bytes).
 PDF statistics:
  561 PDF objects out of 1000 (max. 8388607)
  500 compressed objects within 5 object streams
