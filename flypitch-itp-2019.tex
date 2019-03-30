@@ -61,7 +61,7 @@
 
 %\nolinenumbers %uncomment to disable line numbering
 
-%\hideLIPIcs  %uncomment to remove references to LIPIcs series (logo, DOI, ...), e.g. when preparing a pre-final version to be uploaded to arXiv or another public repository
+\hideLIPIcs  %uncomment to remove references to LIPIcs series (logo, DOI, ...), e.g. when preparing a pre-final version to be uploaded to arXiv or another public repository
 
 %Editor-only macros:: begin (do not touch as author)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \EventEditors{John Q. Open and Joan R. Access}
@@ -456,6 +456,13 @@ theorem neg_CH : ⊤ ≤ ℕ ≺ (ℵ₁)̌  ≺ (ℵ₂)̌  ≼ 𝒫(ℕ)
 
 The arguments sketched in \autoref{subsect:cohen-reals} and \autoref{subsect:cardinal-inequalities} form the heart of the forcing argument. Their proofs involve taking objects in \lil{Type u} and \lil{bSet 𝔹}, constructing corresponding objects on the other side, and reasoning about them in ordinary and $\B$-valued logic simultaneously to determine cardinalities in \lstinline{bSet 𝔹}. We have omitted many details from our discussion, but of course, all the proofs have been formally verified.
 
+\subsection{The unprovability of $\mathsf{CH}$}
+We conclude this section by briefly describing how we convert this formalization into a formal proof of the unprovability of $\mathsf{CH}$. We work in a conservative expansion $\mathsf{ZFC}'$ of $\mathsf{ZFC}$ with an expanded language $L_{\mathsf{ZFC}'}$ with symbols for pairing, union, powerset, and $\omega$. We define $\mathsf{ZFC}'$ to be precisely the $\mathsf{ZFC}$ axioms which were verified in the fundamental theorem of forcing, along with specifications for the new function symbols. $\mathsf{CH}$ can then be written as a deeply-embedded $L_{\mathsf{ZFC}'}$ sentence
+\begin{lstlisting}
+def CH : sentence L_ZFC' := ¬ ∃' ∃' (ω ≺ &1) ⊓ (&1 ≺ &0) ⊓ (&0 ≼ 𝒫(ω))
+\end{lstlisting}
+where \lil{≺} and \lil{≼} are abbreviations with the same meaning as in the previous section. Then proving \lstinline{bSet 𝔹 ⊨ ZFC' + ¬CH } is a straightforward matter of checking that sentences are interpreted correctly as Boolean truth values which we have already proved to be $\top$. Applying the contrapositive of the Boolean-valued soundness theorem yields the result.
+
 \section{Transfinite combinatorics and the countable chain condition}
 \label{sect:ccc}
 What remains now is to prove that $\operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the CCC. There are several ways forward, but we chose the most general one, anticipating its usefulness in future formalizations of set theory and forcing.
@@ -518,13 +525,15 @@ In particular, \lstinline{pSet}, being only another special case of the construc
 
 The work we have described in this paper was undertaken as part of the Flypitch project, which aims to produce a formal proof of the independence of the continuum hypothesis. As such, the obvious next goal is a formalization of the consistency of the continuum hypothesis.
 
-As indicated at the start of \autoref{sect:outline}, this means a formal proof of the independence of $\mathsf{CH}$ means showing that $\mathsf{CH}$ and $\neg\mathsf{CH}$ cannot be proved from the $\mathsf{ZFC}$ axioms. Although our work includes a formal proof of the unprovability of a version of $\mathsf{CH}$ from a version of the $\mathsf{ZFC}$ axioms in a conservative extension of the language of $\mathsf{ZFC}$, verifying this is only a matter of checking that the deeply-embedded formulas are correctly interpreted as Boolean values which have already been proven equal to $\top$.
+As indicated at the start of \autoref{sect:outline}, this means a formal proof of the independence of $\mathsf{CH}$ means showing that $\mathsf{CH}$ and $\neg\mathsf{CH}$ cannot be proved from the $\mathsf{ZFC}$ axioms. Although our work includes a formal proof of the unprovability of a version of $\mathsf{CH}$ from a version of the $\mathsf{ZFC}$ axioms in a conservative extension of the language of $\mathsf{ZFC}$, verifying this easy because we chose our axiomatization of $\mathsf{ZFC}$ to match exactly what we had proven about our model.
 
-What is more interesting is formalizing the equivalence of various common formulations of $\mathsf{ZFC}$ and $\mathsf{CH}$, so that a skeptical user may verify that their preferred version of $\mathsf{CH}$ is unprovable from their preferred version of $\mathsf{ZFC}$. This would require formalizations of the conservativity of commonly-used extensions of $\mathsf{ZFC}$, and of the equivalence of the various ways to say that one set is strictly smaller than another. The completeness theorem will be useful for this, because it constructs deeply-embedded proofs from ordinary proofs carried out in an arbitrary model.
+What is more interesting is formalizing the equivalence of various common formulations of $\mathsf{ZFC}$ and $\mathsf{CH}$, so that a skeptical user may verify that their preferred version of $\mathsf{CH}$ is unprovable from their preferred version of $\mathsf{ZFC}$. This would require formalizations of the conservativity of commonly-used extensions of $\mathsf{ZFC}$, and of the equivalence of the various ways to say that one set is strictly smaller than another. The completeness theorem will be useful for this, because it constructs deeply-embedded proofs from ordinary proofs carried out in an arbitrary model; even the proof of the completeness theorem required certain conservativity results, which shows that we are equipped handle such tasks.
 
-Combined with the completeness theorem, the Boolean-valued soundness theorem should allow us to show arbitrary theorems of $\mathsf{ZFC}$ are true in \lstinline{bSet 𝔹} by carrying out the proofs in an arbitrary two-valued model, thus avoiding working directly inside Boolean-valued logic. In this way, we can transport theorems such as "Zorn's lemma is equivalent to the axiom of choice" directly from the world of two-valued models to the world of Boolean-valued models.
+Although the stated goal of our project is to achieve a formal proof of the independence of the continuum hypothesis, we are also interested in developing a reusable library for set theory and mathematical logic. We have completed a formalization of forcing, but we are nowhere near completing a library for forcing which a set theorist could use to verify their research. Just as, more than 50 years ago, Cohen's proof marked only the beginning of modern set theory, a formal proof of the independence of the continuum hypothesis will mark the beginning of formalized set theory.
 
-We also intend to automate reflective procedures for recognizing when an expression in a deeply-embedded model is an instance for a formula. For example, the "real" proof that something like the subset predicate is $=^B$-extensional is a proof by reflection: one constructs a formula which reifies the predicate, and then applies the fact that one is in the deeply-embedded Boolean-valued structure to obtain the congruence lemma automatically.
+% Combined with the completeness theorem, the Boolean-valued soundness theorem should allow us to show arbitrary theorems of $\mathsf{ZFC}$ are true in \lstinline{bSet 𝔹} by carrying out the proofs in an arbitrary two-valued model, thus avoiding working directly inside Boolean-valued logic. In this way, we can transport theorems such as "Zorn's lemma is equivalent to the axiom of choice" directly from the world of two-valued models to the world of Boolean-valued models.
+
+% We also intend to automate reflective procedures for recognizing when an expression in a deeply-embedded model is an instance for a formula. For example, the "real" proof that something like the subset predicate is $=^B$-extensional is a proof by reflection: one constructs a formula which reifies the predicate, and then applies the fact that one is in the deeply-embedded Boolean-valued structure to obtain the congruence lemma automatically.
 % \subsection{Forcing with generic models}
 
 % Our method does not support iterated forcing. Our method starts with a universe of types and uses that to construct a model of set theory.

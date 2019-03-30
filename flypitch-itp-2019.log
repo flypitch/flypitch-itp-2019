@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  30 MAR 2019 00:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  30 MAR 2019 03:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1221,24 +1221,9 @@ LaTeX Warning: Citation `sebastian-slides' on page 1 undefined on input line 95
 LaTeX Warning: Citation `paulson2003relative' on page 1 undefined on input line
  95.
 
-<cc-by.pdf, id=97, 88.33pt x 31.11626pt>
-File: cc-by.pdf Graphic file (type pdf)
-<use cc-by.pdf>
-Package pdftex.def Info: cc-by.pdf  used on input line 96.
-(pdftex.def)             Requested size: 39.74274pt x 14.0pt.
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 96.
-(/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<lipics-logo-bw.pdf, id=101, 591.44762pt x 144.42657pt>
-File: lipics-logo-bw.pdf Graphic file (type pdf)
-<use lipics-logo-bw.pdf>
-Package pdftex.def Info: lipics-logo-bw.pdf  used on input line 96.
-(pdftex.def)             Requested size: 64.00354pt x 14.0pt.
- [1
+[1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./cc-by.pdf> <./lipics-log
-o-bw.pdf>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
 LaTeX Warning: Citation `scott1' on page 2 undefined on input line 99.
 
@@ -1409,44 +1394,52 @@ ure of the continuum hypothesis
 [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 463.
+(hyperref)                removing `math shift' on input line 459.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Delta' on input line 463.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 463.
+(hyperref)                removing `math shift' on input line 459.
 
 [13]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `math shift' on input line 470.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 486.
+(hyperref)                removing `\Delta' on input line 470.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 486.
+(hyperref)                removing `math shift' on input line 470.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\aleph' on input line 486.
+(hyperref)                removing `math shift' on input line 493.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 486.
+(hyperref)                removing `\new@ifnextchar' on input line 493.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 486.
+(hyperref)                removing `superscript' on input line 493.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `\aleph' on input line 493.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 493.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\times' on input line 493.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 493.
 
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1454,7 +1447,11 @@ Overfull \hbox (13.26186pt too wide) has occurred while \output is active
 ure of the continuum hypothesis 
  []
 
-[14] [15] 
+[14]
+Underfull \vbox (badness 1275) has occurred while \output is active []
+
+ [15]
+
 AED: lastpage setting LastPage
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1463,13 +1460,13 @@ ure of the continuum hypothesis
  []
 
 [16]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 563.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 563.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 572.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 572.
  (./flypitch-itp-2019.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 563.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 563.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 572.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 572.
 Package rerunfilecheck Info: File `flypitch-itp-2019.out' has not changed.
-(rerunfilecheck)             Checksum: 63C8AFA51B8C454060F6794441941D66;1644.
+(rerunfilecheck)             Checksum: 932C2F26AA152495DD9013A7DFC41D0B;1717.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1478,49 +1475,50 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 563.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 572.
  ) 
 Here is how much of TeX's memory you used:
- 15928 strings out of 492616
- 248989 string characters out of 6135177
- 491094 words of memory out of 5000000
- 19186 multiletter control sequences out of 15000+600000
- 216622 words of font info for 242 fonts, out of 8000000 for 9000
+ 15896 strings out of 492616
+ 248041 string characters out of 6135177
+ 482094 words of memory out of 5000000
+ 19155 multiletter control sequences out of 15000+600000
+ 216335 words of font info for 242 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,11n,40p,1409b,1421s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,9n,40p,1409b,1422s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fo
 nts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.
-enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-d
-ist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/lm/
-lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/
-texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/
-public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></us
-r/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts
-/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr5.pf
-b></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/
-fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr
-8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-d
-ist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/
-lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb
-></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/
-fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/l
-mtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/share/te
-xmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/lm/lmtti10.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-type1/math
-a10.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb></u
-sr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb></usr/share/tex
-mf-dist/fonts/type1/public/mathabx-type1/matha8.pfb></usr/share/texmf-dist/font
-s/type1/public/mathabx-type1/matha9.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/mathabx-type1/mathb10.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-
-type1/mathx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
-am7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><
-/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on flypitch-itp-2019.pdf (16 pages, 594326 bytes).
+enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf-d
+ist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/
+lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type
+1/public/lm/lmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></
+usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fon
+ts/type1/public/lm/lmr5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.p
+fb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist
+/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
+r9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texm
+f-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/lm/lmss12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts
+/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.
+pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-di
+st/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/l
+m/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/share
+/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf-dist/fonts/type1/
+public/lm/lmtti10.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-type1/m
+atha10.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb>
+</usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha5.pfb></usr/share/
+texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb></usr/share/texmf-dist/f
+onts/type1/public/mathabx-type1/matha8.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/mathabx-type1/matha9.pfb></usr/share/texmf-dist/fonts/type1/public/mathab
+x-type1/mathb10.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-type1/mat
+hx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb><
+/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on flypitch-itp-2019.pdf (16 pages, 549501 bytes).
 PDF statistics:
- 549 PDF objects out of 1000 (max. 8388607)
- 484 compressed objects within 5 object streams
- 188 named destinations out of 1000 (max. 500000)
- 58561 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 542 PDF objects out of 1000 (max. 8388607)
+ 483 compressed objects within 5 object streams
+ 191 named destinations out of 1000 (max. 500000)
+ 58041 words of extra memory for PDF output out of 61914 (max. 10000000)
 
