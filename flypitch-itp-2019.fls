@@ -329,9 +329,6 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtti10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbxi10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtti10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr5.tfm
@@ -357,6 +354,7 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/mathabx/matha10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/mathabx/mathb10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/mathabx/mathx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtk10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtti10.tfm
 INPUT flypitch-itp-2019.aux
 INPUT ./flypitch-itp-2019.out
 INPUT ./flypitch-itp-2019.out
@@ -367,7 +365,6 @@ INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi9.pfb

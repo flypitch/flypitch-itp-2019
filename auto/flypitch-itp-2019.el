@@ -27,11 +27,13 @@
     "def-boolean-valued-structure"
     "sect:bvm"
     "def-p-name"
+    "subsect:proof-language"
     "poset-yoneda"
-    "sec:org9e70de8"
     "sect:forcing"
     "subsect:cohen-reals"
     "subsect:cardinal-inequalities"
-    "sect:ccc"))
+    "sect:ccc")
+   (LaTeX-add-environments
+    "defn"))
  :latex)
 
