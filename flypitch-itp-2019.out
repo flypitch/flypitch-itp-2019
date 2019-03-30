@@ -1,0 +1,23 @@
+\BOOKMARK [1][-]{section.1}{Outline of the proof}{}% 1
+\BOOKMARK [1][-]{section.2}{First-order logic}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{\(Pre\)terms, \(pre\)formulas}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Completeness}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Boolean-valued semantics for first-order logic}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{The soundness theorem}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Constructing Boolean-valued models of set theory}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Boolean-valued equality and membership}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Automation and metaprogramming for reasoning in B}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Check-names}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.4}{The fundamental theorem of forcing}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{Forcing}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Representing Lean's ordinals inside pSet and bSet}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{The Cohen poset and the regular open algebra}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Adding 2-many distinct Cohen reals}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.4}{Preservation of cardinal inequalities}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.5}{The unprovability of CH}{section.4}% 17
+\BOOKMARK [1][-]{section.5}{Transfinite combinatorics and the countable chain condition}{}% 18
+\BOOKMARK [2][-]{subsection.5.1}{The -system lemma}{section.5}% 19
+\BOOKMARK [2][-]{subsection.5.2}{RO\(22 N\) has the countable chain condition}{section.5}% 20
+\BOOKMARK [1][-]{section.6}{Related work}{}% 21
+\BOOKMARK [1][-]{section.7}{Conclusions and future work}{}% 22
+\BOOKMARK [1][-]{section.8}{References}{}% 23
