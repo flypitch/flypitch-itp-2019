@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1553919979 "flypitch-itp-2019.tex" "flypitch-itp-2019.pdf" "flypitch-itp-2019" 1553919982
+["pdflatex"] 1553921148 "flypitch-itp-2019.tex" "flypitch-itp-2019.pdf" "flypitch-itp-2019" 1553921152
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1550406775 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1550406775 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1550406775 2840 216e6e45ad352e2456e1149f28885bee ""
@@ -213,9 +213,9 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1550617362 3102816 51b366c8a1611360616d87e641266848 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1550617348 7919196 7555fcd13934b29fa2377ca2c4622fd5 ""
   "cc-by.pdf" 1513115722 59879 b534039833ae0720e95faf00c3f48850 ""
-  "flypitch-itp-2019.aux" 1553919982 6104 a94ef7fcbf57d139610557d9a827e05e ""
-  "flypitch-itp-2019.out" 1553919982 1644 63c8afa51b8c454060f6794441941d66 ""
-  "flypitch-itp-2019.tex" 1553919978 67966 b3dfc5c7d782b9c188f22029c8952540 ""
+  "flypitch-itp-2019.aux" 1553921151 6104 a94ef7fcbf57d139610557d9a827e05e ""
+  "flypitch-itp-2019.out" 1553921151 1644 63c8afa51b8c454060f6794441941d66 ""
+  "flypitch-itp-2019.tex" 1553921148 68036 870fa132f1e8f34068adcc483e08936c ""
   "lipics-logo-bw.pdf" 1513110058 13746 f468fb282d86ba458872de888bef15fe ""
   "lipics-v2019.cls" 1544813494 32650 45712be6d0841280cca0e15700ca130c ""
   "lstlean.tex" 1553890793 9505 85f823f90ef025f7e9ceab8cd69a20ef ""

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  30 MAR 2019 00:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  30 MAR 2019 00:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1481,11 +1481,11 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 563.
  ) 
 Here is how much of TeX's memory you used:
- 15926 strings out of 492616
- 248965 string characters out of 6135177
- 490094 words of memory out of 5000000
+ 15928 strings out of 492616
+ 248989 string characters out of 6135177
+ 491094 words of memory out of 5000000
  19186 multiletter control sequences out of 15000+600000
- 216492 words of font info for 241 fonts, out of 8000000 for 9000
+ 216622 words of font info for 242 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,11n,40p,1409b,1421s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fo
@@ -1517,7 +1517,7 @@ ic/mathabx-type1/mathb10.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-
 type1/mathx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
 am7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><
 /usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on flypitch-itp-2019.pdf (16 pages, 594242 bytes).
+Output written on flypitch-itp-2019.pdf (16 pages, 594326 bytes).
 PDF statistics:
  549 PDF objects out of 1000 (max. 8388607)
  484 compressed objects within 5 object streams
