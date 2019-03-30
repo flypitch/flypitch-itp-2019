@@ -1,5 +1,5 @@
 \documentclass[a4paper,USenglish,cleveref, autoref]{lipics-v2019}
-%This is a template for producing LIPIcs articles. 
+%This is a template for producing LIPIcs articles.
 %See lipics-manual.pdf for further information.
 %for A4 paper format use option "a4paper", for US-letter use option "letterpaper"
 %for british hyphenation rules use option "UKenglish", for american hyphenation rules use option "USenglish"
@@ -35,7 +35,7 @@
 
 \author{Jesse Michael Han\footnote{Corresponding author.}}{Department of Mathematics, University of Pittsburgh \and \url{https://www.pitt.edu/~jmh288}}{jessemichaelhan@gmail.com}{}{}%TODO mandatory, please use full name; only 1 author per \author macro; first two parameters are mandatory, other parameters can be empty. Please provide at least the name of the affiliation and the country. The full address is optional
 
-\author{Floris van Doorn}{Department of Mathematics, University of Pittsburgh}{}{}{}
+\author{Floris van Doorn}{Department of Mathematics, University of Pittsburgh \and \url{http://florisvandoorn.com/}}{fpvdoorn@gmail.com}{}{}
 
 \authorrunning{J.\,M. Han and F.\, van Doorn}%TODO mandatory. First: Use abbreviated first/middle names. Second (only in severe cases): Use first author plus 'et al.'
 
@@ -44,7 +44,7 @@
 \ccsdesc[100]{Theory of computation~Logic and verification}
 \ccsdesc[100]{Theory of computation~Type theory}
 \ccsdesc[100]{Software and its engineering~Formal methods}
-% \ccsdesc[100]{}%TODO mandatory: Please choose ACM 2012 classifications from https://dl.acm.org/ccs/ccs_flat.cfm 
+% \ccsdesc[100]{}%TODO mandatory: Please choose ACM 2012 classifications from https://dl.acm.org/ccs/ccs_flat.cfm
 
 \keywords{Interactive theorem proving, formal verification, set theory, forcing, independence, continuum hypothesis, Boolean-valued models, Lean}%TODO mandatory; please add comma-separated list of keywords
 
@@ -57,7 +57,7 @@
 
 %\funding{(Optional) general funding statement \dots}%optional, to capture a funding statement, which applies to all authors. Please enter author specific funding statements as fifth argument of the \author macro.
 
-\acknowledgements{The authors would like to thank the members of the Pitt-CMU Lean group, particularly Simon Hudon, Jeremy Avigad, Mario Carneiro, and Tom Hales for their feedback and suggestions; we are also grateful to Dana Scott and John Bell for their advice and correspondence.}%optional
+\acknowledgements{The authors would like to thank the members of the Pitt-CMU Lean group, particularly Simon Hudon, Jeremy Avigad, Mario Carneiro, and Tom Hales for their feedback and suggestions; we are also grateful to Dana Scott and John Bell for their advice and correspondence. The second author gratefully acknowledges support from the Sloan Foundation, grant G-2018-10067.}%optional
 
 %\nolinenumbers %uncomment to disable line numbering
 
@@ -88,7 +88,7 @@ We describe a formalization of forcing using Boolean-valued models in the Lean 3
 
 %TODO(jesse) maybe talk a bit more about the grand strategy for formalizing the independence of CH, i.e. all the prerequisites, and move the discussion about BVMs to the proof sketch section.
 \section*{Introduction}
-The continuum hypothesis states that there are no sets strictly larger than the countable natural numbers and strictly smaller than the uncountable real numbers. It was introduced by Cantor in 1878 and was the very first problem on Hilbert's list of twenty-three outstanding problems in mathematics. G\"odel proved in 1938 \cite{godel1938consistency} that the continuum hypothesis was consistent with $\mathsf{ZFC}$, and later conjectured that the continuum hypothesis was independent of $\mathsf{ZFC}$, i.e. neither provable nor disprovable from the $\mathsf{ZFC}$ axioms. In 1963, Paul Cohen developed \emph{forcing} \cite{cohen-the-independence-of-the-continuum-hypothesis-1}, which allowed him to prove the consistency of the negation of the continuum hypothesis, and therefore complete the independence proof. For this work, which marked the beginning of modern set theory, he was awarded a Fields medal---the only one to ever be awarded for a work in mathematical logic.
+The continuum hypothesis states that there are no sets strictly larger than the countable natural numbers and strictly smaller than the uncountable real numbers. It was introduced by Cantor in 1878 \cite{cantor1878continuumhypothesis} and was the very first problem on Hilbert's list of twenty-three outstanding problems in mathematics. G\"odel proved in 1938 \cite{godel1938consistency} that the continuum hypothesis was consistent with $\mathsf{ZFC}$, and later conjectured that the continuum hypothesis was independent of $\mathsf{ZFC}$, i.e. neither provable nor disprovable from the $\mathsf{ZFC}$ axioms. In 1963, Paul Cohen developed \emph{forcing} \cite{cohen-the-independence-of-the-continuum-hypothesis-1}, which allowed him to prove the consistency of the negation of the continuum hypothesis, and therefore complete the independence proof. For this work, which marked the beginning of modern set theory, he was awarded a Fields medal---the only one to ever be awarded for a work in mathematical logic.
 
 The work we describe in this paper is part of the Flypitch project\footnote{\url{https://github.com/flypitch/flypitch/}}, which aims to formalize the independence of the continuum hypothesis. Our results mark a major milestone towards that goal.
 
@@ -117,7 +117,7 @@ In Section \ref{sect:outline} we outline the method of Boolean-valued models and
 
 % Separate from provability is satisfiability: we say that $\mathsf{ZFC}$ \emph{satisfies} $\mathsf{CH}$, written $\mathsf{ZFC} \models \mathsf{CH}$, if the interpretation of $\mathsf{CH}$ in any model of $\mathsf{ZFC}$ is true. Dually, it is easy to show that $\mathsf{ZFC} \not \models \mathsf{CH}$: one simply exhibits a model of $\mathsf{ZFC}$ where $\mathsf{CH}$ is false, and harder to show that $\mathsf{ZFC} \models \mathsf{CH}$, because one has to consider all possible models.
 
-$\mathsf{ZFC}$ is a collection of first-order sentences in the language of a single binary predicate relation $\{\in\}$, used to axiomatize set theory. The continuum hypothesis can be written in this fashion as a first-order sentence $\mathsf{CH}$. A proof of $\mathsf{CH}$ is a finite list of deductions starting from $\mathsf{ZFC}$ and ending at $\mathsf{CH}$. % We write $\mathsf{ZFC} \vdash \mathsf{CH}$ to indicate that there is a proof of $\mathsf{CH}$. 
+$\mathsf{ZFC}$ is a collection of first-order sentences in the language of a single binary predicate relation $\{\in\}$, used to axiomatize set theory. The continuum hypothesis can be written in this fashion as a first-order sentence $\mathsf{CH}$. A proof of $\mathsf{CH}$ is a finite list of deductions starting from $\mathsf{ZFC}$ and ending at $\mathsf{CH}$. % We write $\mathsf{ZFC} \vdash \mathsf{CH}$ to indicate that there is a proof of $\mathsf{CH}$.
 The soundness theorem says that provability implies satisfiability, i.e. if $\mathsf{ZFC} \vdash \mathsf{CH}$, then $\mathsf{CH}$ interpreted in any model of $\mathsf{ZFC}$ is true. Taking the contrapositive, we can demonstrate the unprovability (equivalently, the consistency of the negation) of $\mathsf{CH}$ by exhibiting a single model where $\mathsf{CH}$ is not true.
 
 A model of a first-order theory $T$ in a language $L$ is in particular a way of assigning $\mathsf{true}$ or $\mathsf{false}$ in a coherent way to sentences in $L$. Modulo provable equivalence, the sentences form a Boolean algebra and ``coherent'' means the assignment is a Boolean algebra homomorphism (so $\land$ becomes meet, $\lor$ becomes join, $\forall$ becomes an indexed infimum, etc.) into $\mathbf{2} = \{\mathsf{true}, \mathsf{false}\}$. The soundness theorem ensures that this homomorphism $v$ sends a proof $\phi \vdash \psi$ to an inequality $v(\phi) \leq v(\psi)$. But $\mathbf{2}$ does not really play a special role in this scheme, and may be replaced by any complete Boolean algebra $\B$, where the top and bottom elements $\top, \bot$ take the place of $\mathsf{true}$ and $\mathsf{false}$. It is straightforward to extend this analogy to a $\B$-valued semantics for first-order logic, and in this generality, the soundness theorem now says that for any such $\B$, if $\mathsf{ZFC} \vdash \mathsf{CH}$, then for any $\B$-valued structure where all the axioms of $\mathsf{ZFC}$ have truth-value $\top$, $\mathsf{CH}$ does also. Then as before, to demonstrate the consistency of the negation of $\mathsf{CH}$ it suffices to find just one $\mathbb{B}$ and a single $\mathbb{B}$-valued model where $\mathsf{CH}$ is not ``true''.
@@ -265,7 +265,7 @@ def bv_eq : ∀ (x y : bSet 𝔹), 𝔹
 \end{lstlisting}
 
 We abbreviate \lil{bv_eq} with the infix operator \lil{=ᴮ}. With equality is place, it is easy to define membership, by translating ``$x$ is a member of $y$ if and only if there exists a $w \in y$ such that $x = w$.'' As with equality, we denote $\B$-valued membership with \lil{∈ᴮ}.
-             
+
 \begin{lstlisting}
 def mem : bSet 𝔹 → bSet 𝔹 → 𝔹
 | a (mk α' A' B') := ⨆a', B' a' ⊓ a =ᴮ A' a'
@@ -405,12 +405,12 @@ The Boolean algebra which we will use for forcing $\neg\mathsf{CH}$ is $\operato
 \begin{defn}
   We define the \textbf{canonical embedding} of the Cohen poset into $\B$ as follows:
   \begin{lstlisting}
-def ι : 𝒞 → 𝔹 := λ p, {S | p.ins ⊆ S ∧ p.out ⊆ - S}    
+def ι : 𝒞 → 𝔹 := λ p, {S | p.ins ⊆ S ∧ p.out ⊆ - S}
 \end{lstlisting}
 \end{defn}
 That is, we send each \lil{c : 𝒞} all the subsets which satisfy the specification given by \lil{c}. This is a clopen set, hence regular. Crucially, this embedding is \emph{dense}:
 \begin{lstlisting}
-lemma 𝒞_dense {b : 𝔹} (H : ⊥ < b) : ∃ p : 𝒞, ι p ≤ b  
+lemma 𝒞_dense {b : 𝔹} (H : ⊥ < b) : ∃ p : 𝒞, ι p ≤ b
 \end{lstlisting}
 Recalling that $\leq$ in $\B$ is subset-inclusion, we see that this is essentially because the image of $\iota : \mathcal{C} \to \B$ \emph{is} is the standard basis for the product topology. Our chosen encoding of the Cohen poset also made it easier to perform this identification when formalizing this proof.
 % The formalization of definitions and lemmas displayed in this section required nontrivial extensions to \lil{mathlib}'s library on topological spaces, including a complete description of the standard basis of the product topology on spaces of the form $2^I$. We refer the interested reader to our formalization for more details.
@@ -470,7 +470,7 @@ What remains now is to prove that $\operatorname{RO}(2^{\aleph_2 \times \mathbb{
 \subsection{The $\Delta$-system lemma}
 
 \begin{defn}
-  A \textbf{$\Delta$-system} is... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rutrum sapien et sagittis. Curabitur varius egestas tortor. Sed faucibus tincidunt felis, et tincidunt erat consequat eu. Praesent ullamcorper interdum ex in ornare. Vestibulum quam sem, molestie ac aliquam sit amet, efficitur non nunc. Suspendisse rutrum metus vitae ligula sagittis. 
+  A \textbf{$\Delta$-system} is... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rutrum sapien et sagittis. Curabitur varius egestas tortor. Sed faucibus tincidunt felis, et tincidunt erat consequat eu. Praesent ullamcorper interdum ex in ornare. Vestibulum quam sem, molestie ac aliquam sit amet, efficitur non nunc. Suspendisse rutrum metus vitae ligula sagittis.
 \end{defn}
 \begin{lstlisting}
 def is_delta_system {α : Type u} (A : set (set α)) :=
@@ -550,7 +550,7 @@ Although the stated goal of our project is to achieve a formal proof of the inde
 
 % \begin{itemize}
 % \item In order to complete this formalization, we had to develop several libraries, e.g. for dependently-typed vectors, significant extensions of the lattice and Boolean algebra library, the theory of product topological space and their bases, and extensions to the set theory and ordinal libraries.
-  
+
 % \item \texttt{pSet} was not essential. Rather, in our type-theoretic foundations, the construction of a Boolean-valued standard universe of set theory has equal footing with the construction of an ordinary standard universe of set theory. We see that for the purposes of working with V\(^{\text{BB}}\), V is no longer a prerequisite, but merely a useful tool for organizing the check-names.
 % \item We used several features of our type-theoretic foundations to our advantage. We constructed a standard universe of set theory structurally in such a way that many properties of the underlying universe of types are reflected inside the model of set theory, and such that we get the axiom of regularity (more precisely, the principle of epsilon-induction) for free as the automatically-generated induction principle for our inductive type.
 % \item Lean is great, meteoric growth --- remark on recentness of developments in \texttt{mathlib} which made this possible (acknowledge developments from other theorem-provers, including porting of libraries e.g. \texttt{lattice} from Isabelle).
