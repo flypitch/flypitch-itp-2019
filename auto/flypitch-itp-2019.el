@@ -29,6 +29,7 @@
     "def-p-name"
     "subsect:proof-language"
     "poset-yoneda"
+    "def-powerset"
     "sect:forcing"
     "subsect:cohen-reals"
     "subsect:cardinal-inequalities"

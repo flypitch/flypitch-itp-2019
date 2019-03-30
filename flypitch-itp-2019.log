@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  30 MAR 2019 03:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  30 MAR 2019 16:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -991,32 +991,32 @@ LaTeX Font Info:    Redeclaring math accent \widetilde on input line 946.
 (./flypitch-itp-2019.aux)
 \openout1 = `flypitch-itp-2019.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 81.
  (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 80.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 81.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Info: Redefining \microtypecontext on input line 80.
+LaTeX Info: Redefining \microtypecontext on input line 81.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1064,9 +1064,9 @@ e
 \c@lstlisting=\count150
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 80.
+(lastpage)             ! on input line 81.
 \AtBeginShipoutBox=\box37
-Package hyperref Info: Link coloring OFF on input line 80.
+Package hyperref Info: Link coloring OFF on input line 81.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1076,19 +1076,19 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count151
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 81.
+LaTeX Info: Redefining \pageref on input line 81.
+LaTeX Info: Redefining \nameref on input line 81.
 
 (./flypitch-itp-2019.out) (./flypitch-itp-2019.out)
 \@outlinefile=\write5
 \openout5 = `flypitch-itp-2019.out'.
 
-Package hyperref Info: Option `breaklinks' set `true' on input line 80.
+Package hyperref Info: Option `breaklinks' set `true' on input line 81.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 83.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 84.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1097,35 +1097,35 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 83.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 84.
 
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 83.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 84.
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 83.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 84.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 83.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 84.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 83.
+(Font)              <10> on input line 84.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 83.
+(Font)              <7> on input line 84.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 83.
-LaTeX Font Info:    Try loading font information for U+msa on input line 83.
+(Font)              <5> on input line 84.
+LaTeX Font Info:    Try loading font information for U+msa on input line 84.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1133,7 +1133,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 83.
+LaTeX Font Info:    Try loading font information for U+msb on input line 84.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1142,44 +1142,44 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 83.
+(Font)              <12> on input line 84.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 83.
+(Font)              <8> on input line 84.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 83.
-LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 83.
+(Font)              <6> on input line 84.
+LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 84.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8.5> on input line 83.
+(Font)              <8.5> on input line 84.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.94997> on input line 83.
+(Font)              <5.94997> on input line 84.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <4.25> on input line 83.
+(Font)              <4.25> on input line 84.
 
 
 LaTeX Font Warning: Font shape `U/matha/m/n' in size <8.5> not available
-(Font)              size <8> substituted on input line 83.
+(Font)              size <8> substituted on input line 84.
 
 
 LaTeX Font Warning: Font shape `U/matha/m/n' in size <4.25> not available
-(Font)              size <5> substituted on input line 83.
+(Font)              size <5> substituted on input line 84.
 
 
 LaTeX Font Warning: Font shape `U/mathb/m/n' in size <8.5> not available
-(Font)              size <8> substituted on input line 83.
+(Font)              size <8> substituted on input line 84.
 
 
 LaTeX Font Warning: Font shape `U/mathb/m/n' in size <4.25> not available
-(Font)              size <5> substituted on input line 83.
+(Font)              size <5> substituted on input line 84.
 
 
 LaTeX Font Warning: Font shape `U/mathx/m/n' in size <8.5> not available
-(Font)              size <8> substituted on input line 83.
+(Font)              size <8> substituted on input line 84.
 
 
 LaTeX Font Warning: Font shape `U/mathx/m/n' in size <4.25> not available
-(Font)              size <5> substituted on input line 83.
+(Font)              size <5> substituted on input line 84.
 
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 83.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 84.
 (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1188,15 +1188,19 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 83.
+(Font)              <9> on input line 84.
 \openout3 = `flypitch-itp-2019.vtc'.
 
 
 
-LaTeX Warning: Citation `godel1938consistency' on page 1 undefined on input lin
-e 91.
+LaTeX Warning: Citation `cantor1878continuumhypothesis' on page 1 undefined on 
+input line 92.
 
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 91.
+
+LaTeX Warning: Citation `godel1938consistency' on page 1 undefined on input lin
+e 92.
+
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 92.
 
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1208,39 +1212,48 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 LaTeX Warning: Citation `cohen-the-independence-of-the-continuum-hypothesis-1' 
-on page 1 undefined on input line 91.
+on page 1 undefined on input line 92.
 
 
-LaTeX Warning: Citation `de2015lean' on page 1 undefined on input line 95.
+LaTeX Warning: Citation `de2015lean' on page 1 undefined on input line 97.
 
 
-LaTeX Warning: Citation `sebastian-slides' on page 1 undefined on input line 95
+LaTeX Warning: Citation `sebastian-slides' on page 1 undefined on input line 97
 .
 
 
+LaTeX Warning: Citation `aczel1' on page 1 undefined on input line 97.
+
+
+LaTeX Warning: Citation `aczel 2' on page 1 undefined on input line 97.
+
+
+LaTeX Warning: Citation `werner1' on page 1 undefined on input line 97.
+
+
 LaTeX Warning: Citation `paulson2003relative' on page 1 undefined on input line
- 95.
+ 97.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
-LaTeX Warning: Citation `scott1' on page 2 undefined on input line 99.
+LaTeX Warning: Citation `scott1' on page 2 undefined on input line 101.
 
 
-LaTeX Warning: Citation `vopenka1' on page 2 undefined on input line 99.
+LaTeX Warning: Citation `vopenka1' on page 2 undefined on input line 101.
 
 
-LaTeX Warning: Citation `solovay1' on page 2 undefined on input line 99.
+LaTeX Warning: Citation `solovay1' on page 2 undefined on input line 101.
 
 
-LaTeX Warning: Citation `kunen1' on page 2 undefined on input line 99.
+LaTeX Warning: Citation `kunen1' on page 2 undefined on input line 101.
 
 
-LaTeX Warning: Citation `jech1' on page 2 undefined on input line 99.
+LaTeX Warning: Citation `jech1' on page 2 undefined on input line 101.
 
 
-LaTeX Warning: Citation `scott2' on page 2 undefined on input line 106.
+LaTeX Warning: Citation `scott2' on page 2 undefined on input line 108.
 
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1250,13 +1263,13 @@ ure of the continuum hypothesis
 
 [2] [3]
 
-LaTeX Warning: Citation `bell1' on page 4 undefined on input line 135.
+LaTeX Warning: Citation `bell1' on page 4 undefined on input line 137.
 
 
-LaTeX Warning: Citation `manin1' on page 4 undefined on input line 135.
+LaTeX Warning: Citation `manin1' on page 4 undefined on input line 137.
 
 
-LaTeX Warning: Citation `kunen1' on page 4 undefined on input line 135.
+LaTeX Warning: Citation `kunen1' on page 4 undefined on input line 137.
 
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1266,7 +1279,7 @@ ure of the continuum hypothesis
 
 [4] [5]
 
-LaTeX Warning: Citation `halmos-givant1' on page 6 undefined on input line 197.
+LaTeX Warning: Citation `halmos-givant1' on page 6 undefined on input line 202.
 
 
 
@@ -1277,37 +1290,37 @@ ure of the continuum hypothesis
 
 [6]
 
-LaTeX Warning: Citation `jech1' on page 7 undefined on input line 235.
+LaTeX Warning: Citation `jech1' on page 7 undefined on input line 254.
 
 
-LaTeX Warning: Citation `bell1' on page 7 undefined on input line 235.
+LaTeX Warning: Citation `bell1' on page 7 undefined on input line 254.
 
 
-LaTeX Warning: Citation `aczel1' on page 7 undefined on input line 237.
+LaTeX Warning: Citation `aczel1' on page 7 undefined on input line 256.
 
 
-LaTeX Warning: Citation `aczel2' on page 7 undefined on input line 237.
+LaTeX Warning: Citation `aczel2' on page 7 undefined on input line 256.
 
 
-LaTeX Warning: Citation `aczel3' on page 7 undefined on input line 237.
+LaTeX Warning: Citation `aczel3' on page 7 undefined on input line 256.
 
 
-LaTeX Warning: Citation `werner1' on page 7 undefined on input line 237.
+LaTeX Warning: Citation `werner1' on page 7 undefined on input line 256.
 
 
-LaTeX Warning: Citation `mario1' on page 7 undefined on input line 237.
+LaTeX Warning: Citation `mario1' on page 7 undefined on input line 256.
 
 [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 274.
+(hyperref)                removing `math shift' on input line 293.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 274.
+(hyperref)                removing `math shift' on input line 293.
 
 
-LaTeX Warning: Citation `scott3' on page 8 undefined on input line 275.
+LaTeX Warning: Citation `scott3' on page 8 undefined on input line 294.
 
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1317,42 +1330,38 @@ ure of the continuum hypothesis
 
 [8]
 
-LaTeX Warning: Citation `hamkins-seabold1' on page 9 undefined on input line 33
-5.
+LaTeX Warning: Citation `hamkins-seabold1' on page 9 undefined on input line 35
+1.
 
 
-LaTeX Warning: Citation `bell1' on page 9 undefined on input line 337.
+LaTeX Warning: Citation `moore1' on page 9 undefined on input line 351.
 
 [9]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 364.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.5> on input line 364.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7.34996> on input line 364.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.25> on input line 364.
 
+LaTeX Warning: Citation `hamkins-seabold1' on page 10 undefined on input line 3
+55.
+
+
+LaTeX Warning: Citation `bell1' on page 10 undefined on input line 357.
+
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 384.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.5> on input line 384.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7.34996> on input line 384.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5.25> on input line 384.
 
 LaTeX Font Warning: Font shape `U/matha/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 364.
+(Font)              size <10.95> substituted on input line 384.
 
 
 LaTeX Font Warning: Font shape `U/mathb/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 364.
+(Font)              size <10.95> substituted on input line 384.
 
 
 LaTeX Font Warning: Font shape `U/mathx/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 364.
-
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 371.
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lstinline' on input line 371.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lstinline' on input line 371.
+(Font)              size <10.95> substituted on input line 384.
 
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1361,29 +1370,36 @@ ure of the continuum hypothesis
  []
 
 [10]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 391.
 
-LaTeX Warning: Reference `def-check' on page 11 undefined on input line 379.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\lstinline' on input line 391.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\lstinline' on input line 391.
+
+
+LaTeX Warning: Reference `def-check' on page 11 undefined on input line 399.
 
 [11]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 417.
+(hyperref)                removing `math shift' on input line 438.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\aleph' on input line 417.
+(hyperref)                removing `\aleph' on input line 438.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 417.
+(hyperref)                removing `subscript' on input line 438.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 417.
-
-
-LaTeX Warning: Reference `def-powerset' on page 12 undefined on input line 418.
-
+(hyperref)                removing `math shift' on input line 438.
 
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1394,52 +1410,24 @@ ure of the continuum hypothesis
 [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 459.
+(hyperref)                removing `math shift' on input line 478.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 459.
+(hyperref)                removing `math shift' on input line 478.
 
 [13]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 470.
+(hyperref)                removing `math shift' on input line 489.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Delta' on input line 470.
+(hyperref)                removing `\Delta' on input line 489.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 470.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 493.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 493.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 493.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\aleph' on input line 493.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 493.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 493.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 493.
+(hyperref)                removing `math shift' on input line 489.
 
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1448,23 +1436,48 @@ ure of the continuum hypothesis
  []
 
 [14]
-Underfull \vbox (badness 1275) has occurred while \output is active []
 
- [15]
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 512.
 
-AED: lastpage setting LastPage
 
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 512.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 512.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\aleph' on input line 512.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 512.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\times' on input line 512.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 512.
+
+[15]
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
 []\T1/lmss/bx/n/10.5 A formalization of forcing and the consistency of the fail
 ure of the continuum hypothesis 
  []
 
-[16]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 573.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 573.
+[16] 
+AED: lastpage setting LastPage
+[17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 593.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 593.
  (./flypitch-itp-2019.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 573.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 573.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 593.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 593.
 Package rerunfilecheck Info: File `flypitch-itp-2019.out' has not changed.
 (rerunfilecheck)             Checksum: 932C2F26AA152495DD9013A7DFC41D0B;1717.
 
@@ -1475,50 +1488,51 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 573.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 593.
  ) 
 Here is how much of TeX's memory you used:
- 15894 strings out of 492616
- 248019 string characters out of 6135177
- 482094 words of memory out of 5000000
- 19155 multiletter control sequences out of 15000+600000
- 216252 words of font info for 241 fonts, out of 8000000 for 9000
+ 15898 strings out of 492616
+ 248111 string characters out of 6135177
+ 522094 words of memory out of 5000000
+ 19159 multiletter control sequences out of 15000+600000
+ 218899 words of font info for 239 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,9n,40p,1409b,1422s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,9n,40p,1409b,1337s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fo
 nts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.
 enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf-d
 ist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/
-lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type
-1/public/lm/lmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></
-usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fon
-ts/type1/public/lm/lmr5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.p
-fb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist
-/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
-r9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texm
-f-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/lm/lmss12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts
-/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.
-pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-di
-st/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/l
-m/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/share
-/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf-dist/fonts/type1/
-public/lm/lmtti10.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-type1/m
-atha10.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb>
-</usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha5.pfb></usr/share/
-texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb></usr/share/texmf-dist/f
-onts/type1/public/mathabx-type1/matha8.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/mathabx-type1/matha9.pfb></usr/share/texmf-dist/fonts/type1/public/mathab
-x-type1/mathb10.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-type1/mat
-hx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb><
-/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on flypitch-itp-2019.pdf (16 pages, 549315 bytes).
+lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type
+1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></
+usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fon
+ts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr5.
+pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dis
+t/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/l
+mr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf
+-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.
+pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf-di
+st/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm
+/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share
+/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/share/texmf-dist/fonts/type1/
+public/lm/lmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></
+usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb></usr/share/t
+exmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb></usr/share/texmf-dist/f
+onts/type1/public/mathabx-type1/matha5.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/mathabx-type1/matha7.pfb></usr/share/texmf-dist/fonts/type1/public/mathab
+x-type1/matha8.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-type1/math
+a9.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-type1/mathb10.pfb></us
+r/share/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf-dist/fo
+nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm7.pfb>
+Output written on flypitch-itp-2019.pdf (17 pages, 581629 bytes).
 PDF statistics:
- 542 PDF objects out of 1000 (max. 8388607)
- 483 compressed objects within 5 object streams
- 191 named destinations out of 1000 (max. 500000)
- 58041 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 561 PDF objects out of 1000 (max. 8388607)
+ 500 compressed objects within 5 object streams
+ 196 named destinations out of 1000 (max. 500000)
+ 58553 words of extra memory for PDF output out of 61914 (max. 10000000)
 
