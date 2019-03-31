@@ -45,6 +45,12 @@ Georg Cantor.
 \newblock {\em Journal fur die reine und angewandte Mathematik}, 84:242--258,
   1878.
 
+\bibitem{mario2}
+Mario Carneiro.
+\newblock Natural deduction in the metamath proof explorer.
+\newblock \url{http://us.metamath.org/mpeuni/mmnatded.html}, 2014.
+\newblock Slides (\url{http://us.metamath.org/ocat/natded.pdf}).
+
 \bibitem{mario1}
 Mario Carneiro.
 \newblock The type theory of lean.
@@ -108,6 +114,16 @@ John Harrison.
 \newblock {\em Handbook of practical logic and automated reasoning}.
 \newblock Cambridge University Press, 2009.
 
+\bibitem{unitb}
+Simon Hudon.
+\newblock Temporal logic in unit-b, 2018.
+\newblock \url{https://github.com/unitb/temporal-logic}.
+
+\bibitem{Hudon2015TheUM}
+Simon Hudon, Thai~Son Hoang, and Jonathan~S. Ostroff.
+\newblock The unit-b method: refinement guided by progress concerns.
+\newblock {\em Software \& Systems Modeling}, 15:1091--1116, 2015.
+
 \bibitem{ilik2010constructive}
 Danko Ilik.
 \newblock {\em Constructive completeness proofs and delimited control}.
@@ -138,11 +154,6 @@ Kenneth Kunen.
 Yu~I Manin.
 \newblock {\em A course in mathematical logic for mathematicians}, volume~53.
 \newblock Springer Science \& Business Media, 2009.
-
-\bibitem{mario2}
-{Metamath Proof Explorer}.
-\newblock Deduction form and natural deduction.
-\newblock \url{http://us.metamath.org/mpeuni/mmnatded.html}.
 
 \bibitem{moore2019method}
 Justin~Tatch Moore.
@@ -219,6 +230,7 @@ Joseph~R Shoenfield.
 Sebastian Ullrich.
 \newblock Lean 4: A guided preview.
 \newblock \url{https://leanprover.github.io/talks/vu2019.pdf}.
+\newblock Slides.
 
 \bibitem{werner1997sets}
 Benjamin Werner.
