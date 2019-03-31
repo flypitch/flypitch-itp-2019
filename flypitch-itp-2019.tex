@@ -234,7 +234,7 @@ Note that Boolean-valued equality is not really an equivalence relation, but ``$
 
 A soundness theorem says that a proof tree may be replayed to produce an actual proof in the object of truth-values. When the object of truth-values is \lil{Prop}, this says that a proof tree compiles to a proof term. When the object of truth-values is a Boolean algebra, this says that the proof tree becomes an internal implication from the interpretation of the context to the interpretation of the conclusion:
 
-\begin{lstlisting}
+\begin{lstlisting}[gobble=2]
   lemma boolean_soundness {Γ : set (formula L)} {A : formula L}
     (H : Γ ⊢ A) : ∀ M, (⨅γ ∈ Γ, M[γ]) ≤ M[A]
 \end{lstlisting}
@@ -291,11 +291,11 @@ def mem : bSet 𝔹 → bSet 𝔹 → 𝔹
 As Scott stresses in \cite{scott2008algebraic}, ``A main point ... is that the well-known algebraic characterizations of [complete Heyting algebras] and [complete Boolean algebras] exactly mimic the rules of deduction in the respective logics.'' Indeed, that is really why the Boolean-valued soundness theorem is true. One thinks of the \lil{≤} symbol in an inequality of Boolean truth-values as a turnstile in a proof state: the conjunctands on the left as a list of assumptions in context, and the quantity on the right as the goal. For example, given \lil{a b : 𝔹}, the identity $(a \Rightarrow b) \sqcap a \leq b$ could be proven by unfolding the definition of material implication, but it is really just modus ponens; similarly, given an indexed family \lil{a : I → 𝔹}, \lstinline{⨆i, a i ≤ b ↔ ∀ i, a i ≤ b} is just $\exists$-elimination.
 
 Difficulties arise when the statements to be proved become only slightly more complicated. Consider the following example, which should be  ``\lil{by assumption}'':
-\begin{lstlisting}
+\begin{lstlisting}[gobble=2]
   ∀ a b c d e f g: 𝔹, (d ⊓ e) ⊓ (f ⊓ g ⊓ ((b ⊓ a) ⊓ c)) ≤ a
 \end{lstlisting}
 or slightly less trivially, the following example where the goal is attainable by ``just applying a hypothesis to an assumption''
-\begin{lstlisting}
+\begin{lstlisting}[gobble=2]
   ∀ a b c d : 𝔹, (a ⟹ b) ⊓ c ⊓ (d ⊓ a) ≤ b
 \end{lstlisting}
 
@@ -477,30 +477,36 @@ where \lil{≺} and \lil{≼} are abbreviations with the same meaning as in the 
 
 \section{Transfinite combinatorics and the countable chain condition}
 \label{sect:ccc}
-What remains now is to prove that $\operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the CCC. There are several ways forward; we chose the most general one, anticipating its usefulness in future formalizations of set theory and forcing.
+What remains now is to prove that $\operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the CCC. There are several ways forward; we chose a very general proof using the
+$\Delta$-system lemma to show more generally that the product of topological spaces satisfies the CCC if every finite subproduct does. Our proof follows Kunen \cite{kunen1}.
 
 \subsection{The $\Delta$-system lemma}
 
 \begin{defn}
-  A \textbf{$\Delta$-system} is... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rutrum sapien et sagittis. Curabitur varius egestas tortor. Sed faucibus tincidunt felis, et tincidunt erat consequat eu. Praesent ullamcorper interdum ex in ornare. Vestibulum quam sem, molestie ac aliquam sit amet, efficitur non nunc. Suspendisse rutrum metus vitae ligula sagittis.
+  A family $(A_i)_i$ of sets is called a \textbf{$\Delta$-system} (or \textbf{Sunflower} or \textbf{Quasi-disjoint}) if there is a set $r$, called the \textbf{root} such that whenever $i \ne j$ we have $A_i \cap A_j = r$.
 \end{defn}
 \begin{lstlisting}
-def is_delta_system {α : Type u} (A : set (set α)) :=
-∃(root : set α), ∀{{x y}}, x ∈ A → y ∈ A → x ≠ y → x ∩ y = root
+def is_delta_system {α ι : Type*} (A : ι → set α) :=
+∃(root : set α), ∀{{x y}}, x ≠ y → A x ∩ A y = root
 \end{lstlisting}
 
-TODO(floris)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rutrum sapien et sagittis. Curabitur varius egestas tortor. Sed faucibus tincidunt felis, et tincidunt erat consequat eu. Praesent ullamcorper interdum ex in ornare. Vestibulum quam sem, molestie ac aliquam sit amet, efficitur non nunc. Suspendisse rutrum metus vitae ligula sagittis, commodo lacinia metus ultricies. Sed ultricies fringilla magna ac luctus. Vivamus dolor mauris, vulputate in tempus dictum, faucibus non eros. Praesent aliquet, justo et tristique interdum, tellus sapien tempus sem, eu vestibulum nisl sem at ligula. Aenean commodo mauris nec leo pellentesque porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis interdum eget nulla ac molestie. Proin vel sem auctor, porttitor velit nec, cursus arcu.
-
+The property we need is that if we have an uncountable family of finite sets, there is an uncounbtable subfamily which forms a $\Delta$-system. In Lean this is formulated as follows. (\lstinline{restrict A t} is the restriction of the collection \lstinline{A} to \lstinline{t}).
 \begin{lstlisting}
-  theorem delta_system_lemma {α : Type u} {κ : cardinal}
-  (hκ : cardinal.omega ≤ κ) {θ} (hκθ : κ < θ) (hθ : is_regular θ)
-  (hθ_le : ∀(c < θ), c ^< κ < θ) (A : set (set α))
-  (hA : θ ≤ mk A) (h2A : ∀{s : set α} (h : s ∈ A), mk s < κ) :
-    ∃(B ⊆ A), mk B = θ ∧ is_delta_system B :=
-  \end{lstlisting}
+theorem delta_system_lemma_uncountable {α ι : Type*}
+  (A : ι → set α) (h : cardinal.omega < mk ι)
+  (h2A : ∀i, finite (A i)) : ∃(t : set ι),
+  cardinal.omega < mk t ∧ is_delta_system (restrict A t)
+\end{lstlisting}
+This theorem follows from the following more general statement, taking $\kappa=\aleph_0$ and $\theta=\aleph_1$ (the operation \lstinline{c ^< κ} or $c^{<\kappa}$ is the supremum of $c^\rho$ for $\rho<\kappa$).
+\begin{lstlisting}
+theorem delta_system_lemma {α ι : Type u} {κ θ : cardinal}
+  (hκ : cardinal.omega ≤ κ) (hκθ : κ < θ) (hθ : is_regular θ)
+  (hθ_le : ∀(c < θ), c ^< κ < θ) (A : ι → set α)
+  (hA : θ ≤ mk ι) (h2A : ∀i, mk (A i) < κ) :
+  ∃(t : set ι), mk t = θ ∧ is_delta_system (restrict A t)
+\end{lstlisting}
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rutrum sapien et sagittis. Curabitur varius egestas tortor. Sed faucibus tincidunt felis, et tincidunt erat consequat eu. Praesent ullamcorper interdum ex in ornare. Vestibulum quam sem, molestie ac aliquam sit amet, efficitur non nunc. Suspendisse rutrum metus vitae ligula sagittis, commodo lacinia metus ultricies. Sed ultricies fringilla magna ac luctus. Vivamus dolor mauris, vulputate in tempus dictum, faucibus non eros. Praesent aliquet, justo et tristique interdum, tellus sapien tempus sem, eu vestibulum nisl sem at ligula. Aenean commodo mauris nec leo pellentesque porttitor.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rutrum sapien et sagittis. Curabitur varius egestas tortor. Sed faucibus tincidunt felis, et tincidunt erat consequat eu. Praesent ullamcorper interdum ex in ornare. Vestibulum quam sem, molestie ac aliquam sit amet, efficitur non nunc. Suspendisse rutrum metus vitae ligula sagittis, commodo lacinia metus ultricies. Sed ultricies fringilla magna ac luctus. Vivamus dolor mauris, vulputate in tempus dictum, faucibus non eros. Praesent aliquet, justo et tristique interdum, tellus sapien tempus sem, eu vestibulum nisl sem at ligula. Aenean commodo mauris nec leo pellentesque porttitor.
 
 \subsection{$\operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the countable chain condition}
 TODO(floris)
