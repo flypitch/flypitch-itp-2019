@@ -1,0 +1,97 @@
+\begin{thebibliography}{10}
+
+\bibitem{bacci2018boolean}
+Giorgio Bacci, Robert Furber, Dexter Kozen, Radu Mardare, Prakash Panangaden,
+  and Dana Scott.
+\newblock Boolean-valued semantics for the stochastic $\lambda$-calculus.
+\newblock In {\em Proceedings of the 33rd Annual ACM/IEEE Symposium on Logic in
+  Computer Science}, pages 669--678. ACM, 2018.
+
+\bibitem{FOL-Fitting-AFP}
+Stefan Berghofer.
+\newblock First-order logic according to fitting.
+\newblock {\em Archive of Formal Proofs}, August 2007.
+\newblock \url{http://isa-afp.org/entries/FOL-Fitting.html}, Formal proof
+  development.
+
+\bibitem{cohen-the-independence-of-the-continuum-hypothesis-1}
+Paul~J Cohen.
+\newblock The independence of the continuum hypothesis.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  50(6):1143--1148, 1964.
+
+\bibitem{de2015lean}
+Leonardo de~Moura, Soonho Kong, Jeremy Avigad, Floris Van~Doorn, and Jakob von
+  Raumer.
+\newblock The lean theorem prover (system description).
+\newblock In {\em International Conference on Automated Deduction}, pages
+  378--388. Springer, 2015.
+
+\bibitem{godel1938consistency}
+Kurt G{\"o}del.
+\newblock The consistency of the axiom of choice and of the generalized
+  continuum-hypothesis.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  24(12):556--557, 1938.
+
+\bibitem{gunther2018first}
+Emmanuel Gunther, Miguel Pagano, and Pedro~S{\'a}nchez Terraf.
+\newblock First steps towards a formalization of forcing.
+\newblock {\em arXiv preprint arXiv:1807.05174}, 2018.
+
+\bibitem{gunther2019mechanization}
+Emmanuel Gunther, Miguel Pagano, and Pedro~S{\'a}nchez Terraf.
+\newblock Mechanization of separation in generic extensions.
+\newblock {\em arXiv preprint arXiv:1901.03313}, 2019.
+
+\bibitem{harrison1998formalizing}
+John Harrison.
+\newblock Formalizing basic first order model theory.
+\newblock In {\em International Conference on Theorem Proving in Higher Order
+  Logics}, pages 153--170. Springer, 1998.
+
+\bibitem{harrison2009handbook}
+John Harrison.
+\newblock {\em Handbook of practical logic and automated reasoning}.
+\newblock Cambridge University Press, 2009.
+
+\bibitem{ilik2010constructive}
+Danko Ilik.
+\newblock {\em Constructive completeness proofs and delimited control}.
+\newblock PhD thesis, Ecole Polytechnique X, 2010.
+
+\bibitem{Ridge2005AMV}
+Tom Ridge and James Margetson.
+\newblock A mechanically verified, sound and complete theorem prover for first
+  order logic.
+\newblock In {\em TPHOLs}, 2005.
+
+\bibitem{schlichtkrull2018formalization}
+Anders Schlichtkrull.
+\newblock Formalization of logic in the isabelle proof assistant.
+\newblock 2018.
+
+\bibitem{scott2008algebraic}
+Dana Scott.
+\newblock The algebraic intepretation of quantifiers. intuitionistic and
+  classical.
+\newblock {\em Andrzej Mostowski and foundational studies}, pages 289--312,
+  2008.
+
+\bibitem{scott2014stochastic}
+Dana~S Scott.
+\newblock Stochastic $\lambda$-calculi.
+\newblock {\em Journal of Applied Logic}, 12(3):369--376, 2014.
+
+\bibitem{shankar1997metamathematics}
+Natarajan Shankar.
+\newblock {\em Metamathematics, machines and G{\"o}del's proof}, volume~38.
+\newblock Cambridge University Press, 1997.
+
+\bibitem{shoenfield1971unramified}
+Joseph~R Shoenfield.
+\newblock Unramified forcing.
+\newblock In {\em Axiomatic set theory}, volume~13, pages 357--381. AMS
+  Providence, RI, 1971.
+
+\end{thebibliography}

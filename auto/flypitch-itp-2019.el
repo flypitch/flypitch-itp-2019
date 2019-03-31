@@ -29,12 +29,14 @@
     "def-p-name"
     "subsect:proof-language"
     "poset-yoneda"
+    "def-check"
     "def-powerset"
     "sect:forcing"
     "subsect:cohen-reals"
     "subsect:cardinal-inequalities"
     "sect:ccc")
    (LaTeX-add-environments
-    "defn"))
+    "defn")
+   (LaTeX-add-bibliographies))
  :latex)
 

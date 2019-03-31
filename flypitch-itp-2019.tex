@@ -98,14 +98,14 @@ Our formalization is written in the Lean 3 theorem prover. Lean is an interactiv
 % Indeed, o
 Our formalization makes as much use of the expressiveness of Lean's dependent type theory as possible, using constructions which are impossible or unwieldy to encode in HOL, much less ZF: Lean's ordinals and cardinals, which are defined as equivalence classes of well-ordered types, live one universe level up and play a crucial role in the forcing argument; the models of set theory we construct require as input an entire universe of types; our encoding of first-order logic uses parametrized inductive types to equate type-correctness with well-formedness, eliminating the need for separate well-formedness proofs.
 
-The method of forcing with Boolean-valued models was developed by Solovay and Scott (and independently, Vop{\v e}nka) in '65-'66 \cite{scott1, vopenka1} as a simplification of Cohen's method. Some of these simplifications were incorporated by Shoenfield \cite{solovay1} into a general theory of forcing using partial orders, and it is in this form that forcing is usually practiced. While both approaches have essentially the same mathematical content (see e.g. the discussion in Kunen \cite{kunen1} or Jech \cite{jech1}), there are several reasons why we chose Boolean-valued models for our formalization:
+The method of forcing with Boolean-valued models was developed by Solovay and Scott in '65-'66 \cite{scott1, solovay-scott1} as a simplification of Cohen's method. Some of these simplifications were incorporated by Shoenfield \cite{shoenfield1971unramified} into a general theory of forcing using partial orders, and it is in this form that forcing is usually practiced. While both approaches have essentially the same mathematical content (see e.g. the discussion in Kunen \cite{kunen1} or Jech \cite{jech1}), there are several reasons why we chose Boolean-valued models for our formalization:
 
 \begin{itemize}
 \item \textbf{Modularity.} The theory of forcing with Boolean-valued models cleanly splits into several components (a general theory of Boolean-valued semantics for first-order logic, a library for calculations inside complete Boolean algebras, the construction of Boolean-valued models of set theory, and the specifics of the forcing argument itself) which could be formalized in parallel and then recombined.
 
 \item \textbf{Directness.} For the purposes of an independence proof, the Boolean-valued soundness theorem eliminates the need to produce a two-valued model. This approach also bypasses any requirement for the reflection theorem/L\"owenheim-Skolem theorems, Mostowski collapse, countable transitive models, or genericity considerations for filters.
 
-\item \textbf{Novelty and reusability.} As far as we were able to tell, the Boolean-valued approach to forcing has never been formalized. Furthermore, while for the purposes of an independence proof, forcing with Boolean-valued models and forcing with countable transitive models accomplish the same thing, a general library for Boolean-valued semantics of a deeply embedded logic could be used for formal verification applications outside of set theory, e.g. to formalize the Boolean-valued semantics of the stochastic $\lambda$-calculus \cite{scott2}.
+\item \textbf{Novelty and reusability.} As far as we were able to tell, the Boolean-valued approach to forcing has never been formalized. Furthermore, while for the purposes of an independence proof, forcing with Boolean-valued models and forcing with countable transitive models accomplish the same thing, a general library for Boolean-valued semantics of a deeply embedded logic could be used for formal verification applications outside of set theory, e.g. to formalize the Boolean-valued semantics of stochastic $\lambda$-calculus \cite{scott2014stochastic, bacci2018boolean}.
 
   \item \textbf{Amenability to structural induction.} As with Coq, Lean is able to encode extremely complex objects and reason about their specifications using inductive types. However, the user must be careful to choose the encoding so that properties they wish to reason about are accessible by structural induction, which is the most natural mode of reasoning in the proof assistant. After observing (1) that the Aczel-Werner encoding of $\mathsf{ZFC}$ as an inductive type is essentially a special case of the recursive \emph{name} construction from forcing (c.f. Section \ref{sect:bvm}), and (2) that the automatically-generated induction principle for that inductive type \emph{is} $\in$-induction, it is easy to see that this encoding can be modified to produce a Boolean-valued model of set theory where, again, $\in$-induction comes for free.
 \end{itemize}
@@ -280,15 +280,15 @@ def bv_eq : ∀ (x y : bSet 𝔹), 𝔹
                (⨅a' : α', B' a' ⟹ ⨆a, B a ⊓ bv_eq (A a) (A' a'))
 \end{lstlisting}
 
-We abbreviate \lil{bv_eq} with the infix operator \lil{=ᴮ}. With equality in place, it is easy to define membership, by translating ``$x$ is a member of $y$ if and only if there exists a $w$ indexed by the type of $y$ such that $x = w$.'' As with equality, we denote $\B$-valued membership with \lil{∈ᴮ}.
+We abbreviate \lil{bv_eq} with the infix operator \lil{=ᴮ}. With equality in place, it is easy to define membership by translating ``$x$ is a member of $y$ if and only if there exists a $w$ indexed by the type of $y$ such that $x = w$.'' As with equality, we denote $\B$-valued membership by \lil{∈ᴮ}.
 
 \begin{lstlisting}
 def mem : bSet 𝔹 → bSet 𝔹 → 𝔹
-| a (mk α' A' B') := ⨆a', B' a' ⊓ a =ᴮ A' a'
+| a ⟨α' A' B'⟩ := ⨆a', B' a' ⊓ a =ᴮ A' a'
 \end{lstlisting}
 
 \subsection{Automation and metaprogramming for reasoning in $\B$} \label{subsect:proof-language}
-As Scott stresses in \cite{scott3}, ``A main point ... is that the well-known algebraic characterizations of [complete Heyting algebras] and [complete Boolean algebras] exactly mimic the rules of deduction in the respective logics\ldots{}'' Indeed, that is really why the Boolean-valued soundness theorem is true. One thinks of the \lil{≤} symbol in an inequality of Boolean truth-values as a turnstile in a proof state: the conjunctands on the left as a list of assumptions in context, and the quantity on the right as the goal. For example, given \lil{a b : 𝔹}, the identity $(a \Rightarrow b) \sqcap a \leq b$ could be proven by unfolding the definition of material implication, but it is really just modus ponens; similarly, given an indexed family \lil{a : I → 𝔹}, \lstinline{⨆i, a i ≤ b ↔ ∀ i, a i ≤ b} is just $\exists$-elimination.
+As Scott stresses in \cite{scott2008algebraic}, ``A main point ... is that the well-known algebraic characterizations of [complete Heyting algebras] and [complete Boolean algebras] exactly mimic the rules of deduction in the respective logics.'' Indeed, that is really why the Boolean-valued soundness theorem is true. One thinks of the \lil{≤} symbol in an inequality of Boolean truth-values as a turnstile in a proof state: the conjunctands on the left as a list of assumptions in context, and the quantity on the right as the goal. For example, given \lil{a b : 𝔹}, the identity $(a \Rightarrow b) \sqcap a \leq b$ could be proven by unfolding the definition of material implication, but it is really just modus ponens; similarly, given an indexed family \lil{a : I → 𝔹}, \lstinline{⨆i, a i ≤ b ↔ ∀ i, a i ≤ b} is just $\exists$-elimination.
 
 Difficulties arise when the statements to be proved become only slightly more complicated. Consider the following example, which should be  ``\lil{by assumption}'':
 \begin{lstlisting}
@@ -317,7 +317,7 @@ But if we use the right-hand side of \autoref{poset-yoneda} instead, then after 
 example {a b c d e f g : 𝔹} : (d ⊓ e) ⊓ (f ⊓ g ⊓((b ⊓ a)⊓ c)) ≤ a :=
 by {apply poset_yoneda, intros Γ H,
     simp only [le_inf_iff] at H /- turns H into conjunction -/,
-    repeat{auto_cases} /- splits conjunection -/,
+    repeat{auto_cases} /- splits conjunction -/,
     assumption}
 /- Goal state before `assumption`:
 [...]
@@ -335,21 +335,20 @@ One use-case where automation is crucial is context-specialization. For example,
 
 % TODO %and also maybe delete, it's not that important. i have the feeling we'll have too much material for 15 pages
 
-\subsection{Check-names}
-% \textbf{TODO(jesse) emphasize how check-names are how cardinals and ordinals in the metatheory interact with notions of size internally}
-From the definitions of \lil{pSet} and \lil{bSet}, one immediately sees that there is a canonical map \lil{check : pSet → bSet 𝔹}, defined by
-\begin{lstlisting}
-def check : pSet → bSet 𝔹
-| ⟨α,A⟩ := ⟨α, λ a, check (A a), λ a, ⊤⟩
-\end{lstlisting}
-
-That is, \lil{check} takes a \lil{pSet} and recursively attaches the Boolean truth-value $\top$ to all elements. We call members of the image of \lil{check} \emph{check-names},\footnote{This terminology is standard, c.f. \cite{hamkins-seabold1, moore1}.} after the usual diacritic notation \lstinline{x̌} for \lil{check (x : pSet)}. These are also known as \emph{canonical names}, as they are the canonical representation of standard two-valued sets inside a Boolean-valued model of set theory. We were pleased to discover Lean's support for custom notation allowed us to declare the Unicode modifier character \lil{U+030C} = `` \lil{̌ }'' as a postfix operator for \lstinline{check}.
-
 \subsection{The fundamental theorem of forcing}
 
 The fundamental theorem of forcing for Boolean-valued models \cite{hamkins-seabold1} states that for any complete Boolean algebra $B$, $V^B$ is a Boolean-valued model of $\mathsf{ZFC}$. Since, in type theory, a type universe \lstinline{Type u} takes the place of the standard universe $V$, the analogous statement in our setting is that for every complete Boolean algebra $\B$, \lstinline{bSet 𝔹} is a Boolean-valued model of $\mathsf{ZFC}$.
 
 Bell \cite{bell1} gives an extremely detailed account of the verification of the $\mathsf{ZFC}$ axioms, and we faithfully followed his presentation for this part of the formalization. Most of it is routine. We describe some aspects of \lil{bSet 𝔹} which are revealed by this verification.
+
+\subparagraph*{Check-names}
+\begin{defn}\label{def-check}
+  From the definitions of \lil{pSet} and \lil{bSet}, one immediately sees that there is a canonical map \lil{check : pSet → bSet 𝔹}, defined by
+ \begin{lstlisting} 
+def check : pSet → bSet 𝔹
+| ⟨α,A⟩ := ⟨α, λ a, check (A a), λ a, ⊤⟩
+\end{lstlisting} We call members of the image of \lil{check} \emph{check-names},\footnote{This terminology is standard, c.f. \cite{hamkins-seabold1, moore1}.} after the usual diacritic notation \lstinline{x̌} for \lil{check (x : pSet)}. These are also known as \emph{canonical names}, as they are the canonical representation of standard two-valued sets inside a Boolean-valued model of set theory.\footnote{We were pleased to discover Lean's support for custom notation allowed us to declare the Unicode modifier character \texttt{U+030C} ($\check{\hspace{1mm}}$) as a postfix operator for \texttt{check}.}
+\end{defn}
 
 \subparagraph*{The axiom of infinity}
 $\omega$ \lil{: bSet 𝔹} is $\check{\omega}$. $\omega$ is defined in \lil{pSet} to be the collection of all finite von Neumann ordinals, which are defined by induction on $\mathbb{N}$. While it is easy to show $\check{\omega}$ satisfies the axiom of infinity
@@ -377,7 +376,7 @@ def bv_powerset (u : bSet 𝔹) : bSet 𝔹 :=
 Following Bell, we verified Zorn's lemma, which is provably equivalent over $\mathsf{ZF}$ to the axiom of choice. As is the case with \lil{pSet}, establishing the axiom of choice requires the use of a choice principle from the metatheory. This was the most involved part of our verification of the fundamental theorem of forcing, and relies on the technical tool of \emph{mixtures}, which allow sequences of $\B$-valued sets to be ``averaged'' into new ones, and the \emph{maximum principle}, which allows existentially quantified statements to be instantiated without changing their truth-value.
 
 \subparagraph*{The smallness of $\B$}
-Before ending this section, we remark that the ``smallness'' (or more precisely, the fact that $\B$ lives in the same universe of types out of which \lil{bSet 𝔹} is being built), is essential in making \lstinline{bSet 𝔹} a model of $\mathsf{ZFC}$. It is required for extracting the witness needed for the maximum principle, and is also required to even define the powerset operation, because the underlying type of the powerset is the function type of all maps into \lstinline{𝔹}.
+We end this section by remarking that the ``smallness'' (or more precisely, the fact that $\B$ lives in the same universe of types out of which \lil{bSet 𝔹} is being built) is essential in making \lstinline{bSet 𝔹} a model of $\mathsf{ZFC}$. It is required for extracting the witness needed for the maximum principle, and is also required to even define the powerset operation, because the underlying type of the powerset is the function type of all maps into \lstinline{𝔹}.
 
 \section{Forcing}
 \label{sect:forcing}
@@ -463,7 +462,7 @@ lemma AE_of_check_larger_than_check :
 \end{lstlisting}
 The name of this lemma emphasizes that what was happened here is that, given this $f$ and the assumption that it satisfes some $\forall$-$\exists$ formula inside \lil{bSet 𝔹}, we are able to extract, by virtue of $\check{\kappa_1}$ and $\check{\kappa_2}$ being check-names, a $\forall$-$\exists$ statement in the \emph{metatheory}. Using Lean's choice principle, we can then convert this $\forall$-$\exists$ statement into a function $g : \kappa_2 \to \kappa_1$, such that for every $\beta$, \lstinline{⊥ < (is_func f) ⊓ (g(β)̌ , β ̌ ) ∈ᴮ f}. Since $\kappa_2 > \kappa_1$, it follows from the infinite pigeonhole principle that there exists some $\eta < \kappa_1$ such that the $g^{-1}(\{\eta\})$ is uncountable. Define $\mathcal{A} : g^{-1}(\{\eta\}) \to \B$ by $\mathcal{A}(\beta) :=$ \lil{(is_func f) ⊓ (g(β)̌ , β ̌ ) ∈ᴮ f}. This is an uncountable antichain because if $\beta_1 \neq \beta_2$, then the well-definedness part of \lil{is_func f} ensures that, since $g(\beta_1) = g(\beta_2)$, the truth-value \lil{β₁̌ } $= f(g(\beta_1)) \neq^\B f(g(\beta_2)) =$ \lil{β₂̌ } is $\bot$.
 
-Thus, conditional on showing that $\B = \operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the CCC, we now have that cardinal inequalities are preserved in \lstinline{bSet 𝔹}. Combining this with the injection \lil{ℵ₂̌  → 𝒫(ℕ)}, we obtain:
+Thus, conditional on showing that $\B = \operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the CCC, we now have that cardinal inequalities are preserved in \lstinline{bSet 𝔹}. Combining this with the injection \lil{ℵ₂̌  ≼ 𝒫(ℕ)}, we obtain:
 \begin{lstlisting}
 theorem neg_CH : ⊤ = (ℕ ≺ (ℵ₁)̌  ⊓ (ℵ₁)̌  ≺ (ℵ₂)̌  ⊓ (ℵ₂)̌  ≼ 𝒫(ℕ))
 \end{lstlisting}
@@ -471,7 +470,7 @@ theorem neg_CH : ⊤ = (ℕ ≺ (ℵ₁)̌  ⊓ (ℵ₁)̌  ≺ (ℵ₂)̌  ⊓ 
 The arguments sketched in \autoref{subsect:cohen-reals} and \autoref{subsect:cardinal-inequalities} form the heart of the forcing argument. Their proofs involve taking objects in \lil{Type u} and \lil{bSet 𝔹}, constructing corresponding objects on the other side, and reasoning about them in ordinary and $\B$-valued logic simultaneously to determine cardinalities in \lstinline{bSet 𝔹}. We have omitted many details from our discussion, but of course, all the proofs have been formally verified.
 
 \subsection{The unprovability of $\mathsf{CH}$}
-We conclude this section by briefly describing how the previous results may be converted into a formal proof of the unprovability of $\mathsf{CH}$. We work in a conservative expansion $\mathsf{ZFC}'$ of $\mathsf{ZFC}$ with an expanded language $L_{\mathsf{ZFC}'}$ with symbols for pairing, union, powerset, and $\omega$. We define $\mathsf{ZFC}'$ to be precisely the $\mathsf{ZFC}$ axioms which were verified in the fundamental theorem of forcing, along with specifications for the new function symbols. $\mathsf{CH}$ can then be written as a deeply-embedded $L_{\mathsf{ZFC}'}$ sentence
+We conclude this section by briefly describing how the previous results may be converted into a formal proof of the unprovability of $\mathsf{CH}$. We work in a conservative expansion $\mathsf{ZFC}'$ of $\mathsf{ZFC}$ with an expanded language $L_{\mathsf{ZFC}'}$ with symbols for pairing, union, powerset, and $\omega$. We define $\mathsf{ZFC}'$ to be precisely the $\mathsf{ZFC}$ axioms which were verified in the fundamental theorem of forcing, along with specifications for the new function symbols. $\mathsf{CH}$ can then be written as a deeply-embedded $L_{\mathsf{ZFC}'}$ sentence (note the use of de Bruijn indices for variables)
 \begin{lstlisting}
 def CH : sentence L_ZFC' := ¬ ∃' ∃' (ω ≺ &1) ⊓ (&1 ≺ &0) ⊓ (&0 ≼ 𝒫(ω))
 \end{lstlisting}
@@ -520,10 +519,10 @@ end
 \end{lstlisting}
 
 \section{Related work}
-\subparagraph*{First-order logic, soundness, and completeness} There are many existing formalizations of first-order logic. Shankar \cite{shankar1} used a deep embedding of first-order logic to formalize incompleteness theorems. Harrison gives a deeply-embedded implementation of first-order logic in HOL Light \cite{harrison1998formalizing} and a proof-search style account of the completeness theorem in \cite{harrison2009handbook}. Margetson \cite{Ridge2005AMV} and Schlichtkrull \cite{schlichtkrull2018formalization} use the same argument for the completeness theorem in Isabelle/HOL, while Berghofer \cite{FOL-Fitting-AFP} (in Isabelle) and Ilik \cite {ilik2010constructive} (in Coq) use canonical term models.
+\subparagraph*{First-order logic, soundness, and completeness} There are many existing formalizations of first-order logic. Shankar \cite{shankar1997metamathematics} used a deep embedding of first-order logic to formalize incompleteness theorems. Harrison gives a deeply-embedded implementation of first-order logic in HOL Light \cite{harrison1998formalizing} and a proof-search style account of the completeness theorem in \cite{harrison2009handbook}. Margetson \cite{Ridge2005AMV} and Schlichtkrull \cite{schlichtkrull2018formalization} use the same argument for the completeness theorem in Isabelle/HOL, while Berghofer \cite{FOL-Fitting-AFP} (in Isabelle) and Ilik \cite {ilik2010constructive} (in Coq) use canonical term models.
 
 \subparagraph{Set theory and forcing}
-Set theory is a common target for formalization. Notably, a large body of formalized set theory has been completed in Isabelle/ZF, led by Paulson and his collaborators \cite{paulson2, paulson3, paulson4}. Most relevantly, this includes a formalization of the relative consistency of the axiom of choice with $\mathsf{ZF}$ \cite{paulson1}. Building on this, Gunther, Pagano, and Terraf have begun formalizing the basic ingredients of forcing \cite{gpt1, gpt2}, taking the more conventional approach of generic extensions of countable transitive models.
+Set theory is a common target for formalization. Notably, a large body of formalized set theory has been completed in Isabelle/ZF, led by Paulson and his collaborators \cite{paulson2, paulson3, paulson4}. Most relevantly, this includes a formalization of the relative consistency of the axiom of choice with $\mathsf{ZF}$ \cite{paulson1}. Building on this, Gunther, Pagano, and Terraf have begun formalizing the basic ingredients of forcing \cite{gunther2018first, gunther2019mechanization}, taking the more conventional approach of generic extensions of countable transitive models.
 
 Our tactic library for Boolean-valued logic was inspired by the work by Hudon \cite{unitb} on \lil{unitb}, using similar techniques to embed a proof language for temporal logic. It was pointed out to the authors that a trick similar to \autoref{poset-yoneda} had also been successfully applied in the Metamath library \cite{mario2}
 
@@ -531,7 +530,7 @@ The work we have described in this paper relies heavily on Lean's \lstinline{mat
 
 \section{Conclusions and future work}
 \subparagraph*{Reflections on the proof}
-As our formalization has shown, for the purposes of a consistency proof, one can perform forcing entirely outside of the set-theoretic foundations in which forcing is usually presented. There is no need to work inside an ambient model of set theory, or to even have a ground model of set theory over which one constructs a forcing extension. Instead, the recursive \emph{name} construction applied to a universe of types is key. The type universe, with its classical two-valued metatheory and its own notion of ordinals, takes the place of the standard universe of sets. These external ordinals are then represented in the internal ordinals of the forcing extension by indexing the construction of von Neumann ordinals. With a clever choice of forcing conditions $\B$, one can make this representation of ordinals preserve cardinalities, and then force an uncountable set beneath $\mathcal{P}(\N)$.
+As our formalization has shown, for the purposes of a consistency proof, one can perform forcing entirely outside of the set-theoretic foundations in which forcing is usually presented. There is no need to work inside an ambient model of set theory, or to even have a ground model of set theory over which one constructs a forcing extension. Instead, the recursive \emph{name} construction applied to a universe of types is key. The type universe, with its classical two-valued logic and its own notion of ordinals, takes the place of the standard universe of sets. These external ordinals are then represented in the internal ordinals of the forcing extension by indexing the construction of von Neumann ordinals. With a clever choice of forcing conditions $\B$, this representation of ordinals will preserve cardinalities and force an uncountable set beneath $\mathcal{P}(\N)$.
 
 In particular, \lstinline{pSet}, being only another special case of the construction which produces \lstinline{bSet 𝔹}, is no longer a prerequisite for working with \lstinline{bSet 𝔹}, but merely a convenient tool for organizing the check-names---this is the only role it played in the proof. The check-names themselves were actually not necessary either: as we remarked, the canonical map \lil{ordinal → bSet 𝔹} can be defined without reference to them. However, since in all of our sources, \lstinline{pSet} additionally played the role of the universe of types, and an interface for it was readily available in \lstinline{mathlib}, we started our formalization by following the usual arguments, implementing these simplifications as we became aware of them.
 \subparagraph*{Lessons learned}
@@ -578,7 +577,8 @@ Although the stated goal of our project is to achieve a formal proof of the inde
 % \end{itemize}
 
 \section{References}
-TODO
+
+\bibliography{flypitch-itp-2019}
 % \begin{itemize}
 % \item Moore's The method of forcing
 % \item Halmos-Givant Textbook on boolean algebras
