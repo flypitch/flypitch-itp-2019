@@ -36,6 +36,7 @@
     "subsect:cardinal-inequalities"
     "sect:ccc")
    (LaTeX-add-environments
+    "thm"
     "defn")
    (LaTeX-add-bibliographies))
  :latex)
