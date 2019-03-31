@@ -3,12 +3,12 @@
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-class-options
                      '(("lipics-v2019" "a4paper" "USenglish" "cleveref" "autoref")))
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
@@ -35,13 +35,6 @@
     "subsect:cardinal-inequalities"
     "sect:ccc")
    (LaTeX-add-environments
-    "defn")
-   (LaTeX-add-color-definecolors
-    "keywordcolor"
-    "tacticcolor"
-    "commentcolor"
-    "symbolcolor"
-    "sortcolor"
-    "attributecolor"))
+    "defn"))
  :latex)
 

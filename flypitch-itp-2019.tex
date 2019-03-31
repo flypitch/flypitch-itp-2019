@@ -226,7 +226,7 @@ structure bStructure :=
 (rel_congr : ∀{n} (R : L.relations n) (x y : vector carrier n),
   ⨅(map2 eq x y) ⊓ rel_map R x ≤ rel_map R y)
 \end{lstlisting}
-Above, ``\lstinline{⨅(map2 eq x y)}'' means ``for all \lil{i}, fold the binary inf $\sqcap$ across the list whose $i$th entry is \lil{eq} applied to \lil{x[i]} and \lil{y[i]}''.
+Above, ``\lstinline{⨅(map2 eq x y)}'' means ``the infimum of the list whose $i$th entry is \lil{eq} applied to \lil{x[i]} and \lil{y[i]}''.
 \end{defn}
 Note that Boolean-valued equality is not really an equivalence relation, but ``$\B$ thinks it is''. One complication which then arises in Boolean-valued semantics is keeping track of the congruence lemmas for formulas. However, as part of the soundness theorem shows, once these extensionality proofs are provided for the basic symbols in the language, they extend by structural induction to all formulas.
 
@@ -522,10 +522,14 @@ end
 \end{lstlisting}
 
 \section{Related work}
-TODO
-- Note that the usefulness poset Yoneda lemma was discovered separately by Mario for making proofs in Metamath easier.
+\subparagraph*{First-order logic, soundness, and completeness} There are many existing formalizations of first-order logic. Shankar \cite{shankar1} used a deep embedding of first-order logic to formalize incompleteness theorems. Harrison gives a deeply-embedded implementation of first-order logic in HOL Light \cite{harrison1998formalizing} and a proof-search style account of the completeness theorem in \cite{harrison2009handbook}. Margetson \cite{Ridge2005AMV} and Schlichtkrull \cite{schlichtkrull2018formalization} use the same argument for the completeness theorem in Isabelle/HOL, while Berghofer \cite{FOL-Fitting-AFP} (in Isabelle) and Ilik \cite {ilik2010constructive} (in Coq) use canonical term models.
 
- - Acknowledge mathlib's maintainers and contributors, emphasizing that the formalization would not have been possible with the pre-existing libraries.
+\subparagraph{Set theory and forcing}
+A large body of formalized set theory has been completed in Isabelle/ZF, led by Paulson and his collaborators \cite{paulson2, paulson3, paulson4}. Most relevantly, this includes a formalization of the relative consistency of the axiom of choice with $\mathsf{ZF}$ \cite{paulson1}. Building on this work, Gunther, Pagano, and Terraf have begun formalizing the basic ingredients of forcing \cite{gpt1, gpt2}.
+
+Our embedded proof language for Boolean-valued logic was partly inspired by similar work in the \lil{unitb} project\footnote{https://github.com/unitb/temporal-logic}. It was pointed out to the authors that a trick similar to \autoref{poset-yoneda} has been successfully applied in the Metamath library \cite{mario2}
+
+The work we have described in this paper relies heavily on Lean's \lstinline{mathlib}. In particular, the extensive \lstinline{set_theory} and \lstinline{ordinal} libraries contained nearly everything we needed (including a treatment of cofinalities for the $\Delta$-system lemma), and what was missing was accessible by combining a few existing lemmas. These libraries were originally developed by Carneiro \cite{mario1}, in part to show that Lean proves the existence of infinitely many inaccessible cardinals.
 
 \section{Conclusions and future work}
 \subparagraph*{Reflections on the proof}
@@ -534,7 +538,7 @@ As our formalization has shown, for the purposes of a consistency proof, one can
 In particular, \lstinline{pSet}, being only another special case of the construction which produces \lstinline{bSet 𝔹}, is no longer a prerequisite for working with \lstinline{bSet 𝔹}, but merely a convenient tool for organizing the check-names---this is the only role it played in the proof. The check-names themselves were actually not necessary either: as we remarked, the canonical map \lil{ordinal → bSet 𝔹} can be defined without reference to them. However, since in all of our sources, \lstinline{pSet} additionally played the role of the universe of types, and an interface for it was readily available in \lstinline{mathlib}, we started our formalization by following the usual arguments, implementing these simplifications as we became aware of them.
 \subparagraph*{Lessons learned}
 \begin{itemize}
-\item Originally, we thought set-theoretic arguments involving transfinite/ordinal induction, which are ubiquitous, would be difficult to implement. In practice, Lean's tools for well-founded recursion and a comprehensive treatment of ordinals in \lstinline{mathlib} made the implementation of such arguments painless.
+\item Originally, we thought set-theoretic arguments involving transfinite/ordinal induction, which are ubiquitous, would be difficult to implement. In practice, Lean's tools for well-founded recursion and the comprehensive treatment of ordinals in \lstinline{mathlib} made the implementation of such arguments painless.
 \item Definitions and lemmas should be stated as generally as possible. This maximizes reusability, minimizes redundancy, and by exposing only the information required to complete the proof, improves the performance of automation.
 
 \item One should invest early in domain-specific automation. The formalization of the fundamental theorem was completed using only the first two strategies outlined in \autoref{subsect:proof-language}; the calculations, while tedious, were recorded in our sources and it seemed easier to follow them. If we had followed through on the observations around \autoref{poset-yoneda} and developed the custom tactic library earlier, we would have saved a significant amount of time.
@@ -544,7 +548,7 @@ In particular, \lstinline{pSet}, being only another special case of the construc
 
 The work we have described in this paper was undertaken as part of the Flypitch project, which aims to produce a formal proof of the independence of the continuum hypothesis. As such, the obvious next goal is a formalization of the consistency of the continuum hypothesis.
 
-As indicated at the start of \autoref{sect:outline}, a formal proof of the independence of $\mathsf{CH}$ means showing that $\mathsf{CH}$ and $\neg\mathsf{CH}$ cannot be proved from the $\mathsf{ZFC}$ axioms. Although our work includes a formal proof of the unprovability of a version of $\mathsf{CH}$ from a version of the $\mathsf{ZFC}$ axioms in a conservative extension of the language of $\mathsf{ZFC}$, verifying this is easy because we chose our axiomatization of $\mathsf{ZFC}$ to match exactly what we had proven about our model.
+As indicated at the start of \autoref{sect:outline}, a formal proof of the independence of $\mathsf{CH}$ means showing that $\mathsf{CH}$ and $\neg\mathsf{CH}$ cannot be proved from the $\mathsf{ZFC}$ axioms. Although our work includes a formal proof of the unprovability of a version of $\mathsf{CH}$ from a version of the $\mathsf{ZFC}$ axioms in a conservative extension of the language of $\mathsf{ZFC}$, verifying this is easy.
 
 What is more interesting is formalizing the equivalence of various common formulations of $\mathsf{ZFC}$ and $\mathsf{CH}$, so that a skeptical user may verify that their preferred version of $\mathsf{CH}$ is unprovable from their preferred version of $\mathsf{ZFC}$. This would require formalizations of the conservativity of commonly-used extensions of $\mathsf{ZFC}$, and of the equivalence of the various ways to say that one set is strictly smaller than another. % The completeness theorem will be useful for this, because it constructs deeply-embedded proofs from ordinary proofs carried out in an arbitrary model. 
 % The proof of the completeness theorem already required certain conservativity results, which shows that we are equipped handle such tasks.
@@ -588,6 +592,7 @@ TODO
 % \item Sets in types, types in sets
 % \item Aczel's encoding of$\mathsf{ZFC}$ inside type theory
 % \item Mario's type theory paper
+% See https://link.springer.com/article/10.1007/BF00283132
 % \end{itemize}
 
 \end{document}
