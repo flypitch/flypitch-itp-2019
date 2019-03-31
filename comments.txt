@@ -52,11 +52,13 @@ if we need more space: we can remove some code snippets in section 2.
 
 "encodeZFCinto " -> spaces
 
+------
+new on March 31:
 
-
-
-
-Sentences I would like to discuss:
-
- "which were unavailable to e.g. Paulson \cite{paulson2003relative}, who went to extreme lengths to circumvent them inside Isabelle/ZF."
-
+section 3.2: change last code snippet to use your custom tactics
+In Definition 5: introduce the \widetilde notation (which we use in Definition 10)
+section 4.1: replace code snippet with mathematical definition. Now it looks like we can write something like this in Lean.
+section 4.1: I don't understand the point of the parenthetical below the code snippet about ordinal.mk'
+Definition 8: mention that you view an element of 2^\alpha as a subset of \alpha.
+multiple times: autoref fails (for me)
+\check{\aleph_i} ℵ₂̌
