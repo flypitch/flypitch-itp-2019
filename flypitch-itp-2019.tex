@@ -359,7 +359,7 @@ it can furthermore be shown to satisfy the universal property of $\omega$, which
 
 \subparagraph*{The axiom of powerset}
 \begin{defn} \label{def-powerset}
-  Fix a $\B$-valued set \lil{x = ⟨α, A, b⟩}. Let \lil{χ : α → 𝔹} be a function. The subset of \lil{x} associated to \lil{χ} is a \lil{𝔹}-valued set defined as follows:
+  Fix a $\B$-valued set \lil{x = ⟨α, A, b⟩}. Let \lil{χ : α → 𝔹} be a function. The subset of \lil{x} associated to \lil{χ} is a \lil{𝔹}-valued set $\widetilde{\chi}$ defined as follows:
 \begin{lstlisting}
 def set_of_indicator {x} (χ : x.type → 𝔹) := ⟨x.type, x.func, χ⟩
 \end{lstlisting}
@@ -389,12 +389,12 @@ def ordinal.mk : ordinal → pSet
 | succ ξ := pSet.succ (ordinal.mk ξ) -- (mk ξ ∪ {mk ξ})
 | is_limit ξ := ⋃ η < ξ, (ordinal.mk η)
 \end{lstlisting}
-Composing by \lil{check} (\autoref{def-check}) yields a map \lil{check ∘ ordinal.mk : ordinal → bSet 𝔹}. (We could just as well defined \lstinline{ordinal.mk' : ordinal → bSet 𝔹} analogously to \lstinline{ordinal.mk} such that \lstinline{ordinal.mk' = check ∘ ordinal.mk}; the point is that there is a link between the metatheory's notion of size and order with that of the forcing extension.)
+Composing by \lil{check} (\autoref{def-check}) yields a map \lil{check ∘ ordinal.mk : ordinal → bSet 𝔹}. (We could just as well have defined \lstinline{ordinal.mk' : ordinal → bSet 𝔹} analogously to \lstinline{ordinal.mk} without reference to \lil{check}, such that \lstinline{ordinal.mk' = check ∘ ordinal.mk}; the point is that there is a link between the metatheory's notion of size and order with that of the forcing extension.)
 
-Cardinals in Lean are defined separately from ordinals as bijective equivalence classes of types, but are canonically represented by ordinals which are not bijective with any predecessor. We let \lil{aleph : ordinal → ordinal} index these representatives. For the rest of this section, unadorned alephs (e.g. ``\lil{ℵ₂}'') will mean either an ordinal of the form \lil{aleph ξ} or a choice of representative from the isomorphism class of well-ordered types, and checked alephs (e.g. ``\lil{ℵ₂̌ }'') will mean the \lil{check ∘ ordinal.mk} of that ordinal.
+Cardinals in Lean are defined separately from ordinals as bijective equivalence classes of types, but are canonically represented by ordinals which are not bijective with any predecessor. We let \lil{aleph : ordinal → ordinal} index these representatives. For the rest of this section, unadorned alephs (e.g. ``$\aleph_2$'') will mean either an ordinal of the form \lil{aleph ξ} or a choice of representative from the isomorphism class of well-ordered types, and checked alephs (e.g. ``$\check{\aleph_2}$'') will mean the \lil{check ∘ ordinal.mk} of that ordinal.
 
 \subsection{The Cohen poset and the regular open algebra}
-Forcing with partial orders and forcing with complete Boolean algebras are related by the fact that every poset of forcing conditions can be embedded into a complete Boolean algebra as a dense suborder. This will be the case for our forcing argument: our Boolean algebra is the algebra of regular opens on $2^{\aleph_2 \times \mathbb{N}}$, and the poset of forcing condition typically used for Cohen forcing embeds in this Boolean algebra as a dense suborder.
+Forcing with partial orders and forcing with complete Boolean algebras are related by the fact that every poset of forcing conditions can be embedded into a complete Boolean algebra as a dense suborder. This will be the case for our forcing argument: our Boolean algebra is the algebra of regular opens on $2^{\aleph_2 \times \mathbb{N}}$ (we identify this space with the subsets of $\aleph_2 \times \mathbb{N}$), and the poset of forcing condition embeds in this Boolean algebra as a dense suborder.
 
 \begin{defn}
   The \textbf{Cohen poset} for adding $\aleph_2$-many Cohen reals is the collection of all finite partial functions $\aleph_2 \times \mathbb{N} \to \mathbf{2}$, ordered by reverse inclusion.
@@ -422,7 +422,7 @@ The Boolean algebra which we will use for forcing $\neg\mathsf{CH}$ is $\operato
 def ι : 𝒞 → 𝔹 := λ p, {S | p.ins ⊆ S ∧ p.out ⊆ - S}
 \end{lstlisting}
 \end{defn}
-That is, we send each \lil{c : 𝒞} all the subsets which satisfy the specification given by \lil{c}. This is a clopen set, hence regular. Crucially, this embedding is \emph{dense}:
+That is, we send each \lil{c : 𝒞} to all the subsets which satisfy the specification given by \lil{c}. This is a clopen set, hence regular. Crucially, this embedding is \emph{dense}:
 \begin{lstlisting}
 lemma 𝒞_dense {b : 𝔹} (H : ⊥ < b) : ∃ p : 𝒞, ι p ≤ b
 \end{lstlisting}
@@ -438,10 +438,10 @@ As we saw in \autoref{def-powerset}, for any $\B$-valued set $x$, characteristic
 \begin{defn}
   Let $\nu : \aleph_2$. We associate to $\nu$ the $\B$-valued characteristic function $\chi_{\nu} : \N \to \B$ defined by $\chi_{\nu}(n) := \mathbf{P}_{(\nu, n)}$. In light of our previous observations, we see that each $\chi_{\nu}$ induces a new $\B$-valued subset $\widetilde{\chi_{\nu}} \subseteq \check{\N}$. We call $\widetilde{\chi_{\nu}}$ a \textbf{Cohen real}.
 \end{defn}
-This gives us an $\aleph_2$-indexed family of Cohen reals. Converting this data into an injective function from \lil{ℵ₂̌ } to \lil{ℕ} inside \lil{bSet 𝔹} requires some care. One must check that $\nu \mapsto \widetilde{\chi_{\nu}}$ is externally injective, and this is where the characterization of the Cohen poset as a dense subset of $\B$ (and moving back and forth between this representation and the definition as finite partial functions) comes in. Furthermore, one has to develop machinery similar to that for the powerset operation to convert an external injective function \lstinline{x.type → bSet 𝔹} to a $\B$-valued set which \lstinline{bSet 𝔹} thinks is a injective function, while maintaining conditions on the intended codomain. Our custom tactics and automation for reasoning inside $\B$ made this latter task significantly easier than it would have been otherwise. We refer the interested reader to our formalization for details.
+This gives us an $\aleph_2$-indexed family of Cohen reals. Converting this data into an injective function from $\check{\aleph_2}$ to $\mathbb{N}$ inside \lil{bSet 𝔹} requires some care. One must check that $\nu \mapsto \widetilde{\chi_{\nu}}$ is externally injective, and this is where the characterization of the Cohen poset as a dense subset of $\B$ (and moving back and forth between this representation and the definition as finite partial functions) comes in. Furthermore, one has to develop machinery similar to that for the powerset operation to convert an external injective function \lstinline{x.type → bSet 𝔹} to a $\B$-valued set which \lstinline{bSet 𝔹} thinks is a injective function, while maintaining conditions on the intended codomain. Our custom tactics and automation for reasoning inside $\B$ made this latter task significantly easier than it would have been otherwise. We refer the interested reader to our formalization for details.
 
 \subsection{Preservation of cardinal inequalities} \label{subsect:cardinal-inequalities}
-So far, we have shown for $\B = \operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ that \lil{bSet 𝔹} thinks \lstinline{ℵ₂̌ } is smaller than $\mathcal{P}(\check{\mathbb{N}})$. Although Lean believes there is a strict inequality of cardinals $\aleph_0 < \aleph_1 < \aleph_2$, in general we can only deduce that their representations inside \lil{bSet 𝔹} are subsets of each other: $\top \leq \check{\aleph_0} \subseteq^\B \check{\aleph_1} \subseteq^\B \check{\aleph_2}$. To finish negating $\mathsf{CH}$, it suffices to show that \lstinline{bSet 𝔹} thinks $\check{\aleph_0}$ is strictly smaller than $\check{\aleph_1}$, and that \lstinline{bSet 𝔹} thinks $\check{\aleph_1}$ is a strictly smaller than $\check{\aleph_2}$. That is, for cardinals $\kappa$, we want that the passage from $\kappa$ to $\check{\kappa}$ to preserve cardinal inequalities.
+So far, we have shown for $\B = \operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ that \lil{bSet 𝔹} thinks $\check{\aleph_2}$ is smaller than $\mathcal{P}(\check{\mathbb{N}})$. Although Lean believes there is a strict inequality of cardinals $\aleph_0 < \aleph_1 < \aleph_2$, in general we can only deduce that their representations inside \lil{bSet 𝔹} are subsets of each other: $\top \leq \check{\aleph_0} \subseteq^\B \check{\aleph_1} \subseteq^\B \check{\aleph_2}$. To finish negating $\mathsf{CH}$, it suffices to show that \lstinline{bSet 𝔹} thinks $\check{\aleph_0}$ is strictly smaller than $\check{\aleph_1}$, and that \lstinline{bSet 𝔹} thinks $\check{\aleph_1}$ is a strictly smaller than $\check{\aleph_2}$. That is, for cardinals $\kappa$, we want that the passage from $\kappa$ to $\check{\kappa}$ to preserve cardinal inequalities.
 
 \begin{defn}
   For our purposes, ``$X$ is strictly smaller than $Y$'' means ``there exists no function \lil{f} such that for every \lil{y ∈ Y}, there exists an \lil{x ∈ X} such that \lil{(x,y) ∈ f}''. Thus, ``\lil{X} is strictly smaller than \lil{Y}'' translates to the Boolean truth-value
@@ -461,7 +461,7 @@ lemma AE_of_check_larger_than_check :
 \end{lstlisting}
 The name of this lemma emphasizes that what was happened here is that, given this $f$ and the assumption that it satisfes some $\forall$-$\exists$ formula inside \lil{bSet 𝔹}, we are able to extract, by virtue of $\check{\kappa_1}$ and $\check{\kappa_2}$ being check-names, a $\forall$-$\exists$ statement in the \emph{metatheory}. Using Lean's choice principle, we can then convert this $\forall$-$\exists$ statement into a function $g : \kappa_2 \to \kappa_1$, such that for every $\beta$, \lstinline{⊥ < (is_func f) ⊓ (g(β)̌ , β ̌ ) ∈ᴮ f}. Since $\kappa_2 > \kappa_1$, it follows from the infinite pigeonhole principle that there exists some $\eta < \kappa_1$ such that the $g^{-1}(\{\eta\})$ is uncountable. Define $\mathcal{A} : g^{-1}(\{\eta\}) \to \B$ by $\mathcal{A}(\beta) :=$ \lil{(is_func f) ⊓ (g(β)̌ , β ̌ ) ∈ᴮ f}. This is an uncountable antichain because if $\beta_1 \neq \beta_2$, then the well-definedness part of \lil{is_func f} ensures that, since $g(\beta_1) = g(\beta_2)$, the truth-value \lil{β₁̌ } $= f(g(\beta_1)) \neq^\B f(g(\beta_2)) =$ \lil{β₂̌ } is $\bot$.
 
-Thus, conditional on showing that $\B = \operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the CCC, we now have that cardinal inequalities are preserved in \lstinline{bSet 𝔹}. Combining this with the injection \lil{ℵ₂̌  ≼ 𝒫(ℕ)}, we obtain:
+Thus, conditional on showing that $\B = \operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the CCC, we now have that cardinal inequalities are preserved in \lstinline{bSet 𝔹}. Combining this with the injection $\check{\aleph_2} \preceq \mathcal{P}(\mathbb{N})$, we obtain:
 \begin{lstlisting}
 theorem neg_CH : ⊤ = (ℕ ≺ (ℵ₁)̌  ⊓ (ℵ₁)̌  ≺ (ℵ₂)̌  ⊓ (ℵ₂)̌  ≼ 𝒫(ℕ))
 \end{lstlisting}

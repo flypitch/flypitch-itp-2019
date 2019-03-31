@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  31 MAR 2019 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  31 MAR 2019 17:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1286,6 +1286,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 471.
 
+[13]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 482.
@@ -1298,7 +1299,6 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 482.
 
-[13]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 505.
@@ -1333,16 +1333,13 @@ Overfull \hbox (13.26186pt too wide) has occurred while \output is active
 ure of the continuum hypothesis 
  []
 
-[14] [15] (./flypitch-itp-2019.bbl
-Underfull \vbox (badness 1852) has occurred while \output is active []
-
-
+[14] [15]
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
 []\T1/lmss/bx/n/10.5 A formalization of forcing and the consistency of the fail
 ure of the continuum hypothesis 
  []
 
-[16] [17]) 
+[16] (./flypitch-itp-2019.bbl [17]) 
 AED: lastpage setting LastPage
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1366,11 +1363,11 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 593.
  ) 
 Here is how much of TeX's memory you used:
- 15971 strings out of 492616
- 249013 string characters out of 6135177
+ 15969 strings out of 492616
+ 248993 string characters out of 6135177
  473094 words of memory out of 5000000
  19132 multiletter control sequences out of 15000+600000
- 198731 words of font info for 243 fonts, out of 8000000 for 9000
+ 198648 words of font info for 242 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,10n,40p,1387b,1347s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fo
@@ -1404,7 +1401,7 @@ r/share/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/share/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msbm7.pfb>
-Output written on flypitch-itp-2019.pdf (18 pages, 605616 bytes).
+Output written on flypitch-itp-2019.pdf (18 pages, 605989 bytes).
 PDF statistics:
  681 PDF objects out of 1000 (max. 8388607)
  617 compressed objects within 7 object streams
