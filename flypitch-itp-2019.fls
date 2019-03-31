@@ -292,7 +292,6 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/ot1lmss.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/ot1lmss.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss10.tfm
@@ -300,6 +299,7 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
@@ -321,13 +321,12 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx9.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtk10.tfm
 INPUT flypitch-itp-2019.bbl
 INPUT flypitch-itp-2019.bbl
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri9.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmbx9.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss9.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri9.tfm
 INPUT flypitch-itp-2019.aux
 INPUT ./flypitch-itp-2019.out
 INPUT ./flypitch-itp-2019.out
@@ -337,7 +336,6 @@ INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmbx9.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi9.pfb
