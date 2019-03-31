@@ -22,8 +22,11 @@
 \newcommand{\lil}{\lstinline}
 \newcommand{\N}{\mathbb{N}}
 
+\theoremstyle{theorem}
+\newtheorem{thm}[theorem]{Theorem}
 \theoremstyle{definition}
 \newtheorem{defn}[definition]{Definition}
+
 
 %\graphicspath{{./graphics/}}%helpful if your graphic files are in another directory
 
@@ -478,26 +481,27 @@ where \lil{≺} and \lil{≼} are abbreviations with the same meaning as in the 
 \section{Transfinite combinatorics and the countable chain condition}
 \label{sect:ccc}
 What remains now is to prove that $\operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the CCC. There are several ways forward; we chose a very general proof using the
-$\Delta$-system lemma to show more generally that the product of topological spaces satisfies the CCC if every finite subproduct does. Our proof follows Kunen \cite{kunen1}.
+$\Delta$-system lemma to show more generally that the product of topological spaces satisfies the CCC if every finite subproduct does. Our proof follows Kunen \cite{kunen2014set}.
 
 \subsection{The $\Delta$-system lemma}
 
 \begin{defn}
-  A family $(A_i)_i$ of sets is called a \textbf{$\Delta$-system} (or \textbf{Sunflower} or \textbf{Quasi-disjoint}) if there is a set $r$, called the \textbf{root} such that whenever $i \ne j$ we have $A_i \cap A_j = r$.
+  A family $(A_i)_i$ of sets is called a \textbf{$\Delta$-system} (or a \textbf{sunflower} or \textbf{quasi-disjoint}) if there is a set $r$, called the \textbf{root} such that whenever $i \ne j$ we have $A_i \cap A_j = r$.
 \end{defn}
 \begin{lstlisting}
 def is_delta_system {α ι : Type*} (A : ι → set α) :=
 ∃(root : set α), ∀{{x y}}, x ≠ y → A x ∩ A y = root
 \end{lstlisting}
 
-The property we need is that if we have an uncountable family of finite sets, there is an uncounbtable subfamily which forms a $\Delta$-system. In Lean this is formulated as follows. (\lstinline{restrict A t} is the restriction of the collection \lstinline{A} to \lstinline{t}).
+The $\Delta$-system lemma states that if we have an uncountable family of finite sets, there is an uncounbtable subfamily which forms a $\Delta$-system.
+In Lean this is formulated as follows. (\lstinline{restrict A t} is the restriction of the collection \lstinline{A} to \lstinline{t}).
 \begin{lstlisting}
 theorem delta_system_lemma_uncountable {α ι : Type*}
   (A : ι → set α) (h : cardinal.omega < mk ι)
   (h2A : ∀i, finite (A i)) : ∃(t : set ι),
   cardinal.omega < mk t ∧ is_delta_system (restrict A t)
 \end{lstlisting}
-This theorem follows from the following more general statement, taking $\kappa=\aleph_0$ and $\theta=\aleph_1$ (the operation \lstinline{c ^< κ} or $c^{<\kappa}$ is the supremum of $c^\rho$ for $\rho<\kappa$).
+This theorem follows from the following more general statement, taking $\kappa=\aleph_0$ and $\theta=\aleph_1$ (for cardinal numbers the operation \lstinline{c ^< κ} or $c^{<\kappa}$ is the supremum of $c^\rho$ for $\rho<\kappa$).
 \begin{lstlisting}
 theorem delta_system_lemma {α ι : Type u} {κ θ : cardinal}
   (hκ : cardinal.omega ≤ κ) (hκθ : κ < θ) (hθ : is_regular θ)
@@ -506,21 +510,31 @@ theorem delta_system_lemma {α ι : Type u} {κ θ : cardinal}
   ∃(t : set ι), mk t = θ ∧ is_delta_system (restrict A t)
 \end{lstlisting}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rutrum sapien et sagittis. Curabitur varius egestas tortor. Sed faucibus tincidunt felis, et tincidunt erat consequat eu. Praesent ullamcorper interdum ex in ornare. Vestibulum quam sem, molestie ac aliquam sit amet, efficitur non nunc. Suspendisse rutrum metus vitae ligula sagittis, commodo lacinia metus ultricies. Sed ultricies fringilla magna ac luctus. Vivamus dolor mauris, vulputate in tempus dictum, faucibus non eros. Praesent aliquet, justo et tristique interdum, tellus sapien tempus sem, eu vestibulum nisl sem at ligula. Aenean commodo mauris nec leo pellentesque porttitor.
+We will omit the proof here. The intereted reader can find the proof in \cite{kunen2014set} or in the formalization.
 
 \subsection{$\operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the countable chain condition}
-TODO(floris)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rutrum sapien et sagittis. Curabitur varius egestas tortor. Sed faucibus tincidunt felis, et tincidunt erat consequat eu. Praesent ullamcorper interdum ex in ornare. Vestibulum quam sem, molestie ac aliquam sit amet, efficitur non nunc. Suspendisse rutrum metus vitae ligula sagittis, commodo lacinia metus ultricies. Sed ultricies fringilla magna ac luctus. Vivamus dolor mauris, vulputate in tempus dictum, faucibus non eros. Praesent aliquet, justo et tristique interdum, tellus sapien tempus sem, eu vestibulum nisl sem at ligula. Aenean commodo mauris nec leo pellentesque porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis interdum eget nulla ac molestie. Proin vel sem auctor, porttitor velit nec, cursus arcu.
 
+\begin{defn}
+  We say that a topological space $X$ satisfies the countable chain condition if every family of pairwise disjoint open sets is countable. In other words, $X$ satisfies the CCC if the boolean algebra of open sets in $X$ satisfied the CCC.
+\end{defn}
+
+We first give a sufficient condition for a product of topological spaces to satisfy the countable chain condition.
+\begin{thm}
+If we have a family $(X_i)_{i\in I}$ of topological spaces, then $\prod_{i\in I} X_i$ has the countable chain condition if for every finite $J\subseteq I$ the product $\prod_{i\in J} X_i$ has the countable chain condition.
+\end{thm}
+% \begin{lstlisting}
+% theorem countable_chain_condition_pi {α : Type*}
+%   {β : α → Type*} [∀x, topological_space (β x)]
+%   (h : ∀(s : set α), finite s → countable_chain_condition
+%     (Π(x : s), β x)) : countable_chain_condition (Πx, β x)
+% \end{lstlisting}
+\begin{proof}
+For the proof, suppose we had an uncountable family of pairwise disjoint open subsets $U_k$ of $\prod_{i\in I} X_i$. By shrinking $U_k$, we may assume that each $U_k$ is a basic open set of the form $\prod_{i\in F_k} U_{k,i} \times \prod_{i \not\in F_k} X_i$ for some finite set $F_k$. Now the $(F_k)_k$ form a uncountable family of finite sets, so by the $\Delta$-system lemma we know that there is an uncountable family $K$ of indices such that $(F_k)_{k\in K}$ forms a $\Delta$-system with root $J$. Now we can take the projections $\pi(U_k)$ onto $\prod_{i\in J}X_i$ for $k\in K$. We can show this forms an uncountable disjoint family of opens in $\prod_{i\in J}X_i$, contradicting the assumption.
+\end{proof}
+
+Now the remainder of the proof that $\B=\operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the CCC is easy. The topological space $2^{\aleph_2 \times \mathbb{N}}$ since every finite product $2^J$ is a finite topological space, hence it clearly satisfies the CCC. Also, if a topological space $X$ satisfies the CCC then the algebra of regular opens satisfies the CCC, since every antichain of regular opens forms a family of disjoint open sets. Thus, we have shown the following:
 \begin{lstlisting}
-theorem 𝔹_CCC : CCC regular_open_algebra :=
-begin
-  simp[Suspendisse rutrum metus vitae ligula sagittis,
-  commodo lacinia metus ultricies,
-  Sed ultricies fringilla magna ac luctus,
-  Vivamus dolor mauris, vulputate in tempus dictum];
-  tidy
-end
+theorem 𝔹_CCC : CCC regular_open_algebra
 \end{lstlisting}
 
 \section{Related work}
