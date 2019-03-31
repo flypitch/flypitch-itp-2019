@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  31 MAR 2019 12:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  31 MAR 2019 13:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1477,6 +1477,9 @@ LaTeX Warning: Citation `gpt1' on page 15 undefined on input line 526.
 LaTeX Warning: Citation `gpt2' on page 15 undefined on input line 526.
 
 
+LaTeX Warning: Citation `unitb' on page 15 undefined on input line 528.
+
+
 LaTeX Warning: Citation `mario2' on page 15 undefined on input line 528.
 
 
@@ -1513,8 +1516,8 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 594.
  ) 
 Here is how much of TeX's memory you used:
- 15828 strings out of 492616
- 246624 string characters out of 6135177
+ 15827 strings out of 492616
+ 246613 string characters out of 6135177
  477094 words of memory out of 5000000
  19091 multiletter control sequences out of 15000+600000
  188693 words of font info for 213 fonts, out of 8000000 for 9000
@@ -1551,10 +1554,10 @@ r/share/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/share/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msbm7.pfb>
-Output written on flypitch-itp-2019.pdf (17 pages, 582981 bytes).
+Output written on flypitch-itp-2019.pdf (17 pages, 581244 bytes).
 PDF statistics:
- 563 PDF objects out of 1000 (max. 8388607)
- 501 compressed objects within 6 object streams
- 198 named destinations out of 1000 (max. 500000)
+ 560 PDF objects out of 1000 (max. 8388607)
+ 499 compressed objects within 5 object streams
+ 197 named destinations out of 1000 (max. 500000)
  50873 words of extra memory for PDF output out of 51595 (max. 10000000)
 
