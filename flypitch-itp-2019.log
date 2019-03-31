@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  31 MAR 2019 03:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.2.19)  31 MAR 2019 12:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1318,29 +1318,29 @@ ure of the continuum hypothesis
 [8]
 
 LaTeX Warning: Citation `hamkins-seabold1' on page 9 undefined on input line 34
-8.
+6.
 
 
-LaTeX Warning: Citation `moore1' on page 9 undefined on input line 348.
+LaTeX Warning: Citation `moore1' on page 9 undefined on input line 346.
 
 
 LaTeX Warning: Citation `hamkins-seabold1' on page 9 undefined on input line 35
-2.
+0.
 
 
-LaTeX Warning: Citation `bell1' on page 9 undefined on input line 354.
+LaTeX Warning: Citation `bell1' on page 9 undefined on input line 352.
 
 [9]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 388.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 386.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lstinline' on input line 388.
+(hyperref)                removing `\lstinline' on input line 386.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lstinline' on input line 388.
+(hyperref)                removing `\lstinline' on input line 386.
 
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1350,24 +1350,24 @@ ure of the continuum hypothesis
 
 [10]
 
-LaTeX Warning: Reference `def-check' on page 11 undefined on input line 396.
+LaTeX Warning: Reference `def-check' on page 11 undefined on input line 394.
 
 [11]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 435.
+(hyperref)                removing `math shift' on input line 433.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\aleph' on input line 435.
+(hyperref)                removing `\aleph' on input line 433.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 435.
+(hyperref)                removing `subscript' on input line 433.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 435.
+(hyperref)                removing `math shift' on input line 433.
 
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1378,52 +1378,52 @@ ure of the continuum hypothesis
 [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 475.
+(hyperref)                removing `math shift' on input line 473.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 475.
+(hyperref)                removing `math shift' on input line 473.
 
 [13]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `math shift' on input line 484.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Delta' on input line 486.
+(hyperref)                removing `\Delta' on input line 484.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `math shift' on input line 484.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 509.
+(hyperref)                removing `math shift' on input line 507.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 509.
+(hyperref)                removing `\new@ifnextchar' on input line 507.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 509.
+(hyperref)                removing `superscript' on input line 507.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\aleph' on input line 509.
+(hyperref)                removing `\aleph' on input line 507.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 509.
+(hyperref)                removing `subscript' on input line 507.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 509.
+(hyperref)                removing `\times' on input line 507.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 509.
+(hyperref)                removing `math shift' on input line 507.
 
 
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
@@ -1433,73 +1433,73 @@ ure of the continuum hypothesis
 
 [14]
 
-LaTeX Warning: Citation `shankar1' on page 15 undefined on input line 525.
+LaTeX Warning: Citation `shankar1' on page 15 undefined on input line 523.
 
 
 LaTeX Warning: Citation `harrison1998formalizing' on page 15 undefined on input
- line 525.
+ line 523.
 
 
 LaTeX Warning: Citation `harrison2009handbook' on page 15 undefined on input li
-ne 525.
+ne 523.
 
 
-LaTeX Warning: Citation `Ridge2005AMV' on page 15 undefined on input line 525.
+LaTeX Warning: Citation `Ridge2005AMV' on page 15 undefined on input line 523.
 
 
 LaTeX Warning: Citation `schlichtkrull2018formalization' on page 15 undefined o
-n input line 525.
+n input line 523.
 
 
 LaTeX Warning: Citation `FOL-Fitting-AFP' on page 15 undefined on input line 52
-5.
+3.
 
 
 LaTeX Warning: Citation `ilik2010constructive' on page 15 undefined on input li
-ne 525.
+ne 523.
 
 
-LaTeX Warning: Citation `paulson2' on page 15 undefined on input line 528.
+LaTeX Warning: Citation `paulson2' on page 15 undefined on input line 526.
 
 
-LaTeX Warning: Citation `paulson3' on page 15 undefined on input line 528.
+LaTeX Warning: Citation `paulson3' on page 15 undefined on input line 526.
 
 
-LaTeX Warning: Citation `paulson4' on page 15 undefined on input line 528.
+LaTeX Warning: Citation `paulson4' on page 15 undefined on input line 526.
 
 
-LaTeX Warning: Citation `paulson1' on page 15 undefined on input line 528.
+LaTeX Warning: Citation `paulson1' on page 15 undefined on input line 526.
 
 
-LaTeX Warning: Citation `gpt1' on page 15 undefined on input line 528.
+LaTeX Warning: Citation `gpt1' on page 15 undefined on input line 526.
 
 
-LaTeX Warning: Citation `gpt2' on page 15 undefined on input line 528.
+LaTeX Warning: Citation `gpt2' on page 15 undefined on input line 526.
 
 
-LaTeX Warning: Citation `mario2' on page 15 undefined on input line 530.
+LaTeX Warning: Citation `mario2' on page 15 undefined on input line 528.
 
 
-LaTeX Warning: Citation `mario1' on page 15 undefined on input line 532.
+LaTeX Warning: Citation `mario1' on page 15 undefined on input line 530.
 
 [15]
+
+LaTeX Warning: Citation `kanamori1' on page 16 undefined on input line 552.
+
+
 Overfull \hbox (13.26186pt too wide) has occurred while \output is active
 []\T1/lmss/bx/n/10.5 A formalization of forcing and the consistency of the fail
 ure of the continuum hypothesis 
  []
 
-[16]
-
-LaTeX Warning: Citation `kanamori1' on page 17 undefined on input line 556.
-
-
+[16] 
 AED: lastpage setting LastPage
 [17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 598.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 598.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 594.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 594.
  (./flypitch-itp-2019.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 598.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 598.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 594.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 594.
 Package rerunfilecheck Info: File `flypitch-itp-2019.out' has not changed.
 (rerunfilecheck)             Checksum: 932C2F26AA152495DD9013A7DFC41D0B;1717.
 
@@ -1510,14 +1510,14 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 598.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 594.
  ) 
 Here is how much of TeX's memory you used:
- 15830 strings out of 492616
- 246648 string characters out of 6135177
+ 15828 strings out of 492616
+ 246624 string characters out of 6135177
  477094 words of memory out of 5000000
  19091 multiletter control sequences out of 15000+600000
- 188776 words of font info for 214 fonts, out of 8000000 for 9000
+ 188693 words of font info for 213 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,9n,40p,1387b,1419s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fo
@@ -1551,10 +1551,10 @@ r/share/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/share/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msbm7.pfb>
-Output written on flypitch-itp-2019.pdf (17 pages, 583175 bytes).
+Output written on flypitch-itp-2019.pdf (17 pages, 582981 bytes).
 PDF statistics:
- 564 PDF objects out of 1000 (max. 8388607)
- 502 compressed objects within 6 object streams
+ 563 PDF objects out of 1000 (max. 8388607)
+ 501 compressed objects within 6 object streams
  198 named destinations out of 1000 (max. 500000)
  50873 words of extra memory for PDF output out of 51595 (max. 10000000)
 
