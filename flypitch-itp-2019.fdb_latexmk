@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex flypitch-itp-2019"] 1554069878 "flypitch-itp-2019.aux" "flypitch-itp-2019.bbl" "flypitch-itp-2019" 1554070071
+["bibtex flypitch-itp-2019"] 1554071761 "flypitch-itp-2019.aux" "flypitch-itp-2019.bbl" "flypitch-itp-2019" 1554071763
   "/usr/share/texmf-dist/bibtex/bst/urlbst/plainurl.bst" 1550405455 31050 ffdaefb09013f5fd4b31e485c13933c1 ""
-  "flypitch-itp-2019.aux" 1554070070 8712 f1a208059aef82463d014178c0e57d23 ""
+  "flypitch-itp-2019.aux" 1554071763 8739 01765a9fcdf7bb2c623bc587de033f6f ""
   "flypitch-itp-2019.bib" 1554067580 11154 b6243405fe882d35a11f23d8ddf03730 ""
   (generated)
   "flypitch-itp-2019.bbl"
   "flypitch-itp-2019.blg"
-["pdflatex"] 1554070069 "flypitch-itp-2019.tex" "flypitch-itp-2019.pdf" "flypitch-itp-2019" 1554070071
+["pdflatex"] 1554071761 "flypitch-itp-2019.tex" "flypitch-itp-2019.pdf" "flypitch-itp-2019" 1554071763
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1550406775 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1550406775 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1550406775 2840 216e6e45ad352e2456e1149f28885bee ""
@@ -221,10 +221,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1550406775 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1550617362 3102816 51b366c8a1611360616d87e641266848 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1550617348 7919196 7555fcd13934b29fa2377ca2c4622fd5 ""
-  "flypitch-itp-2019.aux" 1554070070 8712 f1a208059aef82463d014178c0e57d23 ""
-  "flypitch-itp-2019.bbl" 1554069879 8142 0ed71318671820f81e1e20ffdb17af94 "bibtex flypitch-itp-2019"
-  "flypitch-itp-2019.out" 1554070070 1656 11ac0bb27951ab792b571fed20b3b9fc ""
-  "flypitch-itp-2019.tex" 1554070068 74007 6e368cf3518956ae90f0ddb46c73c0ca ""
+  "flypitch-itp-2019.aux" 1554071763 8739 01765a9fcdf7bb2c623bc587de033f6f ""
+  "flypitch-itp-2019.bbl" 1554071761 8142 0ed71318671820f81e1e20ffdb17af94 "bibtex flypitch-itp-2019"
+  "flypitch-itp-2019.out" 1554071763 1656 11ac0bb27951ab792b571fed20b3b9fc ""
+  "flypitch-itp-2019.tex" 1554071757 73986 aeecb340b3e4e8b335273c3227948d64 ""
   "lipics-v2019.cls" 1544813494 32650 45712be6d0841280cca0e15700ca130c ""
   "lstlean.tex" 1554000353 9560 6b61f0f9d5820753806282aab4ca4b4e ""
   (generated)
