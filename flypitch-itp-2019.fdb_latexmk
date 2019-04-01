@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex flypitch-itp-2019"] 1554071761 "flypitch-itp-2019.aux" "flypitch-itp-2019.bbl" "flypitch-itp-2019" 1554072250
+["bibtex flypitch-itp-2019"] 1554092753 "flypitch-itp-2019.aux" "flypitch-itp-2019.bbl" "flypitch-itp-2019" 1554093004
   "/usr/share/texmf-dist/bibtex/bst/urlbst/plainurl.bst" 1550405455 31050 ffdaefb09013f5fd4b31e485c13933c1 ""
-  "flypitch-itp-2019.aux" 1554072250 8739 01765a9fcdf7bb2c623bc587de033f6f ""
+  "flypitch-itp-2019.aux" 1554093003 8739 9467367c79bc08bcfa430544da7cedf0 ""
   "flypitch-itp-2019.bib" 1554067580 11154 b6243405fe882d35a11f23d8ddf03730 ""
   (generated)
   "flypitch-itp-2019.bbl"
   "flypitch-itp-2019.blg"
-["pdflatex"] 1554072248 "flypitch-itp-2019.tex" "flypitch-itp-2019.pdf" "flypitch-itp-2019" 1554072250
+["pdflatex"] 1554093000 "flypitch-itp-2019.tex" "flypitch-itp-2019.pdf" "flypitch-itp-2019" 1554093004
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1550406775 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1550406775 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1550406775 2840 216e6e45ad352e2456e1149f28885bee ""
@@ -113,6 +113,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmss8.pfb" 1550406775 94400 e33ecfb646a9f148e2e53da01a9168fe ""
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb" 1550406775 119663 e82fa1a58f98ccd89bdbd77311ac9cf1 ""
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb" 1550406775 27863 09ce3735688ffde955e72da27c95b61a ""
+  "/usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb" 1550406775 28109 6d61305ed3d0eb794ebe36f15cf44aa0 ""
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb" 1550406775 27941 d1f5d03f61a46c3fcc3a2ba904ddda52 ""
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb" 1550406775 27802 5c876bb2c4040caaf035d60bd74a86bd ""
   "/usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb" 1550406775 117319 7f8361f845845ce6d5b36cbd9f9cf377 ""
@@ -123,6 +124,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb" 1550407196 90043 a01ee69dbd537ea8a0835a2b4841a64e ""
   "/usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb" 1550407196 90183 4f8564d9e14735e75e1b76b2a9be3de0 ""
   "/usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha5.pfb" 1550407196 96302 e91b1c31d3582d16775d0bf165963e92 ""
+  "/usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha6.pfb" 1550407196 93176 0e192b93dceeff9d5c17507fff8379cc ""
   "/usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb" 1550407196 93088 b44e209f5507ad83293624e701db4de5 ""
   "/usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha8.pfb" 1550407196 92536 122d225cdc6105aa1e30a312e405a45c ""
   "/usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha9.pfb" 1550407196 91448 a969941fae0e3bb1ca742ee6ca4f0ebc ""
@@ -221,15 +223,15 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1550406775 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1550617362 3102816 51b366c8a1611360616d87e641266848 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1550617348 7919196 7555fcd13934b29fa2377ca2c4622fd5 ""
-  "flypitch-itp-2019.aux" 1554072250 8739 01765a9fcdf7bb2c623bc587de033f6f ""
-  "flypitch-itp-2019.bbl" 1554071761 8142 0ed71318671820f81e1e20ffdb17af94 "bibtex flypitch-itp-2019"
-  "flypitch-itp-2019.out" 1554072250 1656 11ac0bb27951ab792b571fed20b3b9fc ""
-  "flypitch-itp-2019.tex" 1554072247 73800 e1765d6fdf27b1bfc0f6c88fdc0cacbf ""
+  "flypitch-itp-2019.aux" 1554093003 8739 9467367c79bc08bcfa430544da7cedf0 ""
+  "flypitch-itp-2019.bbl" 1554092753 8142 0ed71318671820f81e1e20ffdb17af94 "bibtex flypitch-itp-2019"
+  "flypitch-itp-2019.out" 1554093003 1656 11ac0bb27951ab792b571fed20b3b9fc ""
+  "flypitch-itp-2019.tex" 1554092998 74385 752e49117417174ab1b61c7f6346e705 ""
   "lipics-v2019.cls" 1544813494 32650 45712be6d0841280cca0e15700ca130c ""
   "lstlean.tex" 1554000353 9560 6b61f0f9d5820753806282aab4ca4b4e ""
   (generated)
-  "flypitch-itp-2019.aux"
-  "flypitch-itp-2019.log"
-  "flypitch-itp-2019.out"
   "flypitch-itp-2019.pdf"
+  "flypitch-itp-2019.log"
+  "flypitch-itp-2019.aux"
+  "flypitch-itp-2019.out"
   "flypitch-itp-2019.vtc"

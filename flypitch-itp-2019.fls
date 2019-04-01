@@ -354,6 +354,7 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
@@ -364,6 +365,7 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmtti10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha5.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha6.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/mathabx-type1/matha9.pfb

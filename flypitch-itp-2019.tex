@@ -49,14 +49,14 @@
 \ccsdesc[100]{Software and its engineering~Formal methods}
 % \ccsdesc[100]{}%TODO mandatory: Please choose ACM 2012 classifications from https://dl.acm.org/ccs/ccs_flat.cfm
 
-\keywords{Interactive theorem proving, formal verification, set theory, forcing, independence, continuum hypothesis, Boolean-valued models, Lean}%TODO mandatory; please add comma-separated list of keywords
+\keywords{Interactive theorem proving, formal verification, set theory, forcing, independence proofs, continuum hypothesis, Boolean-valued models, Lean}%TODO mandatory; please add comma-separated list of keywords
 
 \category{}%optional, e.g. invited paper
 
 \relatedversion{}%optional, e.g. full version hosted on arXiv, HAL, or other respository/website
 %\relatedversion{A full version of the paper is available at \url{...}.}
 
-\supplement{}%optional, e.g. related research data, source code, ... hosted on a repository like zenodo, figshare, GitHub, ...
+\supplement{\url{https://github.com/flypitch/flypitch}}%optional, e.g. related research data, source code, ... hosted on a repository like zenodo, figshare, GitHub, ...
 
 \funding{Both authors were supported by the Sloan Foundation, grant G-2018-10067.}
 % optional, to capture a funding statement, which applies to all authors. Please enter author specific funding statements as fifth argument of the \author macro.
@@ -87,7 +87,7 @@
 
 %TODO mandatory: add short abstract of the document
 \begin{abstract}
-We describe a formalization of forcing using Boolean-valued models in the Lean 3 theorem prover, including the fundamental theorem of forcing and a deep embedding of first-order logic with a Boolean-valued soundness theorem. As an application of our framework, we specialize our construction to a Boolean completion of the Cohen poset and formally verify the failure of the continuum hypothesis in the resulting model.
+We describe a formalization of forcing using Boolean-valued models in the Lean 3 theorem prover, including the fundamental theorem of forcing and a deep embedding of first-order logic with a Boolean-valued soundness theorem. As an application of our framework, we specialize our construction to the Boolean algebra of regular opens of the Cantor space $2^{\aleph_2 \times \mathbb{N}}$ and formally verify the failure of the continuum hypothesis in the resulting model.
 \end{abstract}
 
 %TODO(jesse) maybe talk a bit more about the grand strategy for formalizing the independence of CH, i.e. all the prerequisites, and move the discussion about BVMs to the proof sketch section.
@@ -134,10 +134,10 @@ So far we have mentioned nothing about how this argument, which is wholly set-th
 and require modification in the passage to type theory. Our formalization clarifies some of these questions.
 
 % Finally, when working with Boolean-valued models, it is profitable to keep in mind the following analogy, developed by Scott in \cite{scott1967proof}. A ready supply of complete Boolean algebras $\B$ is obtained by taking the measure algebra of a probability space and quotienting by the ideal of events of measure zero. Let $\mathbf{M}$ be a $\B$-valued structure. A unary $\B$-valued predicate $\phi$ on $\mathbf{M}$ assigns an event to every element $m$ of $\mathbf{M}$, whose measure we can think of as being the probability that $\phi(m)$ is true. Specializing to the language of set theory, we can attach to every $m : \mathbf{M}$ an ``indicator function'' $\lambda x, x \in m$ which assigns to every $x$ a probability that it is actually a member of $m$. Thus, by virtue of extensionality, we may think of the elements of a $\B$-valued model of$\mathsf{ZFC}$as being ``set-valued random variables'', or ``random sets''\footnote{In this analogy, given a universe of random sets, the purpose of the generic filter or ultrafilter in forcing is then to simultaneously evaluate the outcomes of the random variables, collapsing them into an ordinary universe of sets.}; see \cite{scott1967proof} and \cite{moore2019method} for details.
-\subparagraph*{Sources} Our strategy for constructing a Boolean-valued model in which the continuum hypothesis fails is a synthesis of the proofs in the textbooks of Bell (\cite{bell2011set}, Chapter 2) and Manin (\cite{manin2009course}, Chapter 8). For the $\Delta$-system lemma, we follow Kunen (\cite{kunen2014set}, Chapters 1 and 5).
+\subparagraph*{Sources} Our strategy for constructing a Boolean-valued model in which $\mathsf{CH}$ fails is a synthesis of the proofs in the textbooks of Bell (\cite{bell2011set}, Chapter 2) and Manin (\cite{manin2009course}, Chapter 8). For the $\Delta$-system lemma, we follow Kunen (\cite{kunen2014set}, Chapters 1 and 5).
 
 \subparagraph*{Viewing the formalization}
-The code blocks in this paper were taken directly from our formalization, but for the sake of formatting and readability, we sometimes omit or modify universe levels, type ascriptions, and casts. We refer the interested reader to our repository,\footnote{\url{https://github.com/flypitch/flypitch}} which contains a guide on compiling and navigating the source files.
+The code blocks in this paper were taken directly from our formalization, but for the sake of formatting and readability, we sometimes omit or modify universe levels, type ascriptions, and casts. We refer the interested reader to our repository,\footnote{\url{https://github.com/flypitch/flypitch}} which contains a guide on compiling and navigating the source files of the project.
 
 \section{First-order logic}
 \label{sect:fol}
@@ -199,7 +199,7 @@ For our formalization, we chose the Henkin-style approach of constructing a cano
 
 \subsection{Boolean-valued semantics for first-order logic}
 
-A \textbf{complete Boolean algebra} is a type $\B$ equipped with the structure of a Boolean algebra and additionally operations $\operatorname{Inf}$ and $\operatorname{Sup}$ (which we write as $\bigsqcap$ and $\bigsqcup$) returning the infimum and supremum of an arbitrary collection of members of $\B$. For more details on complete Boolean algebras, we refer the reader to the textbook of Halmos-Givant \cite{givant2008introduction}.
+A \textbf{complete Boolean algebra} is a type $\B$ equipped with the structure of a Boolean algebra and additionally operations $\operatorname{Inf}$ and $\operatorname{Sup}$ (which we write as $\bigsqcap$ and $\bigsqcup$) returning the infimum and supremum of an arbitrary collection of members of $\B$. We use $\sqcap, \sqcup, \implies, \top$, and $\bot$ to denote meet, join, material implication, and top/bottom elements. For more details on complete Boolean algebras, we refer the reader to the textbook of Halmos-Givant \cite{givant2008introduction}.
 
 \begin{defn}\label{def-boolean-valued-structure}
   Fix a language $L$ and a complete Boolean algebra $\B$. % A \textbf{$\B$-valued structure} comprises the data
@@ -448,7 +448,7 @@ So far, we have shown for $\B = \operatorname{RO}(2^{\aleph_2 \times \mathbb{N}}
 
 \begin{defn}
   For our purposes, ``$X$ is strictly smaller than $Y$'' means ``there exists no function \lil{f} such that for every \lil{y ∈ Y}, there exists an \lil{x ∈ X} such that \lil{(x,y) ∈ f}''. Thus, ``\lil{X} is strictly smaller than \lil{Y}'' translates to the Boolean truth-value
-\begin{center}\lstinline{-(⨆f, (is_func f) ⊓ ⨅y, y ∈ᴮ Y ⟹ ⨆x, x ∈ᴮ X ⊓ (x, y) ∈ᴮ f)}.\end{center}
+\begin{center}\lstinline{-(⨆f, (is_func f) ⊓ ⨅y, y ∈ᴮ Y ⟹ ⨆x, x ∈ᴮ X ⊓ (x, y) ∈ᴮ f)}.\end{center} We abbreviate this with ``$X \prec Y$''.
 \end{defn}
 
 The condition on an arbitrary $\B$ which ensures the preservation of cardinal inequalities is the \emph{countable chain condition}.
@@ -532,9 +532,9 @@ If we have a family $(X_i)_{i\in I}$ of topological spaces, then $\prod_{i\in I}
 For the proof, suppose we had an uncountable family of pairwise disjoint open subsets $U_k$ of $\prod_{i\in I} X_i$. By shrinking $U_k$, we may assume that each $U_k$ is a basic open set of the form $\prod_{i\in F_k} U_{k,i} \times \prod_{i \not\in F_k} X_i$ for some finite set $F_k$. Now the $(F_k)_k$ form a uncountable family of finite sets, so by the $\Delta$-system lemma we know that there is an uncountable family $K$ of indices such that $(F_k)_{k\in K}$ forms a $\Delta$-system with root $J$. Now we can take the projections $\pi(U_k)$ onto $\prod_{i\in J}X_i$ for $k\in K$. We can show this forms an uncountable disjoint family of opens in $\prod_{i\in J}X_i$, contradicting the assumption.
 \end{proof}
 
-Now the remainder of the proof that $\B=\operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the CCC is easy. The topological space $2^{\aleph_2 \times \mathbb{N}}$ since every finite product $2^J$ is a finite topological space, hence it clearly satisfies the CCC. Also, if a topological space $X$ satisfies the CCC then the algebra of regular opens satisfies the CCC, since every antichain of regular opens forms a family of disjoint open sets. Thus, we have shown the following:
+With this, the rest of the proof that $\B=\operatorname{RO}(2^{\aleph_2 \times \mathbb{N}})$ has the CCC is easy: since every finite product $2^J$ is a finite topological space, and so satisfies the CCC, it follows that the space $2^{\aleph_2 \times \mathbb{N}}$ satisfies the CCC. Also, if a topological space $X$ satisfies the CCC then the algebra of regular opens satisfies the CCC, since every antichain of regular opens forms a family of disjoint open sets. Thus, we have shown:
 \begin{lstlisting}
-theorem 𝔹_CCC : CCC regular_open_algebra
+theorem 𝔹_CCC : CCC (regular_opens (set(ℵ₂.type × ℕ)))
 \end{lstlisting}
 
 \section{Related work}
@@ -548,24 +548,22 @@ Our tactic library for Boolean-valued logic was inspired by work of Hudon \cite{
 The work we have described in this paper relies heavily on Lean's \lstinline{mathlib}. In particular, the extensive \lstinline{set_theory} and \lstinline{ordinal} libraries contained nearly everything we needed (including a treatment of cofinalities for the $\Delta$-system lemma), with missing parts easily accessible through existing lemmas. These libraries were originally developed by Carneiro \cite{mario1}, in part to show that Lean proves the existence of infinitely many inaccessible cardinals.
 
 \section{Conclusions and future work}
-\subparagraph*{Reflections on the proof}
-As our formalization has shown, for the purposes of a consistency proof, one can perform forcing entirely outside of the set-theoretic foundations in which forcing is usually presented. There is no need to work inside an ambient model of set theory, or to even have a ground model of set theory over which one constructs a forcing extension. Instead, the recursive \emph{name} construction applied to a universe of types is key. The type universe, with its classical two-valued logic and its own notion of ordinals, takes the place of the standard universe of sets. These external ordinals are then represented in the internal ordinals of the forcing extension by indexing the construction of von Neumann ordinals. With a clever choice of forcing conditions $\B$, this representation of ordinals will preserve cardinalities and force an uncountable set beneath $\mathcal{P}(\N)$.
+\paragraph*{Reflections on the proof}
+As our formalization has shown, for the purposes of a consistency proof, one can perform forcing entirely outside of the set-theoretic foundations in which forcing is usually presented. There is no need to work inside an ambient model of set theory, or to even have a ground model of set theory over which one constructs a forcing extension. Instead, the recursive \emph{name} construction applied to a universe of types is key. The type universe, with its classical two-valued logic and its own notion of ordinals, takes the place of the standard universe of sets. These external ordinals are then represented in the internal ordinals of the forcing extension by indexing the construction of von Neumann ordinals. With a clever choice of forcing conditions $\B$, this representation of ordinals will preserve cardinal inequalities and force an uncountable set beneath $\mathcal{P}(\N)$.
 
 In particular, \lstinline{pSet}, being only another special case of the construction which produces \lstinline{bSet 𝔹}, is no longer a prerequisite for working with \lstinline{bSet 𝔹}, but merely a convenient tool for organizing the check-names---this is the only role it played in the proof. The check-names themselves were actually not necessary either: as we remarked, the canonical map \lil{ordinal → bSet 𝔹} can be defined without reference to them. However, since in all of our sources, \lstinline{pSet} additionally played the role of the universe of types, and an interface for it was readily available in \lstinline{mathlib}, we started our formalization by following the usual arguments, implementing these simplifications as we became aware of them.
-\subparagraph*{Lessons learned}
+\paragraph*{Lessons learned}
 \begin{itemize}
 \item Originally, we thought set-theoretic arguments involving transfinite/ordinal induction, which are ubiquitous, would be difficult to implement. In practice, Lean's tools for well-founded recursion and the comprehensive treatment of ordinals in \lstinline{mathlib} made the implementation of such arguments painless.
 \item Definitions and lemmas should be stated as generally as possible. This maximizes reusability, minimizes redundancy, and by exposing only the information required to complete the proof, improves the performance of automation.
-
 \item One should invest early in domain-specific automation. The formalization of the fundamental theorem was completed using only the first two strategies outlined in \autoref{subsect:proof-language}; the calculations, while tedious, were recorded in our sources and it seemed easier to follow them. If we had followed through on the observations around \autoref{poset-yoneda} and developed the custom tactic library earlier, we would have saved a significant amount of time.
 \end{itemize}
-
 \paragraph*{Towards a formal proof of the independence of the continuum hypothesis}
 
-The work we have described in this paper was undertaken as part of the Flypitch project, which aims to produce a formal proof of the independence of the continuum hypothesis. As such, the obvious next goal is a formalization of the consistency of the continuum hypothesis.
+The work we have described in this paper was undertaken as part of the Flypitch project, which aims to produce a formal proof of the independence of the continuum hypothesis. As such, the obvious next goal is a formalization of the consistency of $\mathsf{CH}$. Although it would be possible to do this using Boolean-valued models, we intend to develop the infrastructure necessary to support a proof by forcing with generic extensions, as well as G\"odel's original proof by way of analyzing the constructible universe $\mathsf{L}$.
 
 Although our work includes a formal proof of the unprovability of a version of $\mathsf{CH}$ from a version of the $\mathsf{ZFC}$ axioms in a conservative extension of the language of $\mathsf{ZFC}$, verifying this is easy. What is more interesting is formalizing the equivalence of various common formulations of $\mathsf{ZFC}$ and $\mathsf{CH}$, so that a skeptical user may verify that their preferred version of $\mathsf{CH}$ is unprovable from their preferred version of $\mathsf{ZFC}$. This would require formalizations of the conservativity of commonly-used extensions of $\mathsf{ZFC}$, and of the equivalence of the various ways to say that one set is strictly smaller than another. % The completeness theorem will be useful for this, because it constructs deeply-embedded proofs from ordinary proofs carried out in an arbitrary model.
-% The proof of the completeness theorem already required certain conservativity results, which shows that we are equipped handle such tasks.
+The proof of the completeness theorem already required formalizing nontrivial conservativity statements, which shows that our framework is well-equipped to support such results.
 
 Although the stated goal of our project is to achieve a formal proof of the independence of the continuum hypothesis, we also intend to develop reusable libraries for set theory and mathematical logic. We have completed a formalization of forcing, but are nowhere near completing a library which a set theorist could use to verify their research. Just as, more than 50 years ago, Cohen's proof marked the beginning of modern research in set theory, a formal proof of the independence of the continuum hypothesis will only mark the beginning of an integration of formal methods into modern research in set theory. This will require robust interfaces for handling the diverse range of forcing arguments and for reasoning about the consistency strengths of various extensions of $\mathsf{ZFC}$, so that---to paraphrase Kanamori \cite{kanamori1996mathematical, kanamori2008higher}---deeply-embedded notions of truth and relative consistency become matters of routine manipulation as in algebra. Our work demonstrates that such tasks are well within the scope of modern interactive theorem provers.
 
