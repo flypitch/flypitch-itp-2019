@@ -32,9 +32,9 @@
 
 \bibliographystyle{plainurl}% the mandatory bibstyle
 
-\title{A formalization of forcing and the consistency of the failure of the continuum hypothesis} %TODO Please add
+\title{A formalization of forcing and the unprovability of the continuum hypothesis} %TODO Please add
 
-\titlerunning{A formalization of forcing and the consistency of the failure of the continuum hypothesis}%optional, please use if title is longer than one line
+\titlerunning{A formalization of forcing and the unprovability of the continuum hypothesis}%optional, please use if title is longer than one line
 
 \author{Jesse Michael Han\footnote{Corresponding author.}}{Department of Mathematics, University of Pittsburgh \and \url{https://www.pitt.edu/~jmh288}}{jessemichaelhan@gmail.com}{}{}%TODO mandatory, please use full name; only 1 author per \author macro; first two parameters are mandatory, other parameters can be empty. Please provide at least the name of the affiliation and the country. The full address is optional
 
@@ -63,11 +63,11 @@
 
 \acknowledgements{We thank the members of the Pitt-CMU Lean group, particularly Simon Hudon, Jeremy Avigad, Mario Carneiro, and Tom Hales for their feedback and suggestions; we are also grateful to Dana Scott and John Bell for their advice and correspondence.}%optional
 
-%\nolinenumbers %uncomment to disable line numbering
+\nolinenumbers %uncomment to disable line numbering
 
 \hideLIPIcs  %uncomment to remove references to LIPIcs series (logo, DOI, ...), e.g. when preparing a pre-final version to be uploaded to arXiv or another public repository
 
-%Editor-only macros:: begin (do not touch as author)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%editor-only macros:: begin (do not touch as author)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \EventEditors{John Q. Open and Joan R. Access}
 \EventNoEds{2}
 \EventLongTitle{42nd Conference on Very Important Topics (CVIT 2016)}
@@ -87,7 +87,7 @@
 
 %TODO mandatory: add short abstract of the document
 \begin{abstract}
-We describe a formalization of forcing using Boolean-valued models in the Lean 3 theorem prover, including the fundamental theorem of forcing and a deep embedding of first-order logic with a Boolean-valued soundness theorem. As an application of our framework, we specialize our construction to the Boolean algebra of regular opens of the Cantor space $2^{\aleph_2 \times \mathbb{N}}$ and formally verify the failure of the continuum hypothesis in the resulting model.
+We describe a formalization of forcing using Boolean-valued models in the Lean 3 theorem prover, including the fundamental theorem of forcing and a deep embedding of first-order logic with a Boolean-valued soundness theorem. As an application of our framework, we specialize our construction to the Boolean algebra of regular opens of the Cantor space $2^{\omega_2 \times \omega}$ and formally verify the failure of the continuum hypothesis in the resulting model.
 \end{abstract}
 
 %TODO(jesse) maybe talk a bit more about the grand strategy for formalizing the independence of CH, i.e. all the prerequisites, and move the discussion about BVMs to the proof sketch section.
@@ -331,11 +331,6 @@ H_right_right_left_right : Γ ≤ a
 A key feature of Lean is that it is its own metalanguage, allowing for seamless in-line definitions of custom tactics. This feature was an invaluable asset, as it allowed the rapid development of a custom tactic library for simulating natural-deduction style proofs inside $\B$ after applying \autoref{poset-yoneda}. Boolean-valued versions of natural deduction rules like $\lor$/$\land$-elimination, instantiation of existentials, implication introduction, and even basic automation were easy to write. The result is that the user is able to pretend, with absolute rigor, that they are simply writing proofs in first-order logic while calculations in the complete Boolean algebra are being performed under the hood.
 
 One use-case where automation is crucial is context-specialization. For example, suppose that after preprocessing with \lstinline{poset_yoneda}, the goal is \lstinline{Γ ≤ a ⟹ b}, and one would like to ``introduce the implication'', adding \lstinline{Γ ≤ a} to context and reducing the goal to \lstinline{Γ ≤ b}. This is impossible as stated. Rather, the deduction theorem lets us rewrite the goal to \lstinline{Γ ⊓ a ≤ b}, and now we may add \lstinline{Γ ⊓ a ≤ a}. So we may introduce the implication after all, but at the cost of specializing the context \lstinline{Γ} to the smaller context \lstinline{Γ' := Γ ⊓ a}. But now, in order for the user to continue the pretense that they are merely doing first-order logic, this change of variables must be propagated to the rest of the assumptions which may still be of the form \lstinline{Γ ≤ _}---which is extremely tedious to do by hand, but easy to automate.
-% % We were also interested in whether the presence of a proof assistant would change the ``user experience'' of working with Boolean-valued models, for one possible complaint about forcing with Boolean-valued models is that calculating truth values inside a complete Boolean algebra is notationally cumbersome in practice. This was indeed our experience---until we adapted Lean's automation to perform much of the bookkeeping for us, to the point where the user is able to pretend, with absolute rigor, that they are simply writing proofs in predicate calculus while lattice operations are being performed under the hood.
-% \subsubsection{Automating congruence lemmas with the simplifier}
-% The simplifier is one of Lean 3's most sophisticated tools for automation, and is quite powerful when used correctly. It uses automatically-generated congruence lemmas to navigate under binders and perform rewrites using lemmas marked with the \lstinline{simp} attribute. Given the pivotal role which congruence lemmas have in \lstinline{simp}'s functionality, we consider it fitting that \lstinline{simp} allowed us to automate the proofs of the Boolean-valued congruence (sometimes confusingly called \emph{extensionality}) lemmas which are required to speak of a Boolean-valued predicate on a Boolean-valued structure.
-
-% TODO %and also maybe delete, it's not that important. i have the feeling we'll have too much material for 15 pages
 
 \subsection{The fundamental theorem of forcing}
 
@@ -567,45 +562,8 @@ The proof of the completeness theorem already required formalizing nontrivial co
 
 Although the stated goal of our project is to achieve a formal proof of the independence of the continuum hypothesis, we also intend to develop reusable libraries for set theory and mathematical logic. We have completed a formalization of forcing, but are nowhere near completing a library which a set theorist could use to verify their research. Just as, more than 50 years ago, Cohen's proof marked the beginning of modern research in set theory, a formal proof of the independence of the continuum hypothesis will only mark the beginning of an integration of formal methods into modern research in set theory. This will require robust interfaces for handling the diverse range of forcing arguments and for reasoning about the consistency strengths of various extensions of $\mathsf{ZFC}$, so that---to paraphrase Kanamori \cite{kanamori1996mathematical, kanamori2008higher}---deeply-embedded notions of truth and relative consistency become matters of routine manipulation as in algebra. Our work demonstrates that such tasks are well within the scope of modern interactive theorem provers.
 
-% Combined with the completeness theorem, the Boolean-valued soundness theorem should allow us to show arbitrary theorems of $\mathsf{ZFC}$ are true in \lstinline{bSet 𝔹} by carrying out the proofs in an arbitrary two-valued model, thus avoiding working directly inside Boolean-valued logic. In this way, we can transport theorems such as "Zorn's lemma is equivalent to the axiom of choice" directly from the world of two-valued models to the world of Boolean-valued models.
-
-% We also intend to automate reflective procedures for recognizing when an expression in a deeply-embedded model is an instance for a formula. For example, the "real" proof that something like the subset predicate is $=^B$-extensional is a proof by reflection: one constructs a formula which reifies the predicate, and then applies the fact that one is in the deeply-embedded Boolean-valued structure to obtain the congruence lemma automatically.
-% \subsection{Forcing with generic models}
-
-% Our method does not support iterated forcing. Our method starts with a universe of types and uses that to construct a model of set theory.
-% \subsection{Towards a formal proof of the independence of the continuum hypothesis}
-
-
-% This work was carried out as part of the Flypitch project, which aims to formalize the independence of the continuum hypothesis from ZFC, i.e. that CH and its negation are both unprovable from the$\mathsf{ZFC}$axioms.
-
-% Future goals of the project include:
-
-% \begin{itemize}
-% \item Various formulations of the axioms of$\mathsf{ZFC}$are equiconsistent, including the versions used in this paper
-% \end{itemize}
-
-% \begin{itemize}
-% \item In order to complete this formalization, we had to develop several libraries, e.g. for dependently-typed vectors, significant extensions of the lattice and Boolean algebra library, the theory of product topological space and their bases, and extensions to the set theory and ordinal libraries.
-
-% \item \texttt{pSet} was not essential. Rather, in our type-theoretic foundations, the construction of a Boolean-valued standard universe of set theory has equal footing with the construction of an ordinary standard universe of set theory. We see that for the purposes of working with V\(^{\text{BB}}\), V is no longer a prerequisite, but merely a useful tool for organizing the check-names.
-% \item We used several features of our type-theoretic foundations to our advantage. We constructed a standard universe of set theory structurally in such a way that many properties of the underlying universe of types are reflected inside the model of set theory, and such that we get the axiom of regularity (more precisely, the principle of epsilon-induction) for free as the automatically-generated induction principle for our inductive type.
-% \item Lean is great, meteoric growth --- remark on recentness of developments in \texttt{mathlib} which made this possible (acknowledge developments from other theorem-provers, including porting of libraries e.g. \texttt{lattice} from Isabelle).
-% \item Evidence that formalized mathematics is ready "in the large"
-% \end{itemize}
-
 \section{References}
 
 \bibliography{flypitch-itp-2019}
-% \begin{itemize}
-% \item Moore's The method of forcing
-% \item Halmos-Givant Textbook on boolean algebras
-% \item Gunther Pagano et al forcing in Isabelle/ZF
-% \item Paulson constructible universe and set theory in Isabelle/ZF
-% \item Sets in Coq, Coq in Sets
-% \item Sets in types, types in sets
-% \item Aczel's encoding of$\mathsf{ZFC}$ inside type theory
-% \item Mario's type theory paper
-% See https://link.springer.com/article/10.1007/BF00283132
-% \end{itemize}
 
 \end{document}
