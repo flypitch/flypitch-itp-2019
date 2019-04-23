@@ -36,6 +36,7 @@
     "subsect:cardinal-inequalities"
     "sect:ccc")
    (LaTeX-add-environments
+    '("claimproof" LaTeX-env-args ["argument"] 0)
     "thm"
     "defn")
    (LaTeX-add-bibliographies)
