@@ -1,0 +1,64 @@
+Overall:
+
+* we need some method to connect the theorems in the paper with code (maybe a table with the most important theorems)
+
+* \cite{A} \cite{B} -> \cite{A, B}
+
+* If we have a choice, it would be nice to have references by author name (like [Cohen63]). Then we don't have to say what a reference is outside the reference.
+
+---
+
+Specific:
+
+
+"and freely ignore the restrictions which it would impose as a foundation for the metatheory." -> do we? Also refer to Mario's draft paper on the set theoretic model of Lean, and mention the consistency of Lean with omega inaccessible cardinals (did Mario show this?)
+
+Try to rework the last paragraph of the Introduction "In Section 1 ..." into other text
+
+"But2does not really play a special role in this scheme" -> We can generalize ...
+
+l. 114 "ZFC$CH" -> use a more general example (this is false)
+
+"preserves cardinal inequalities" -> preserves strict cardinal inequalities
+\check{\aleph}_1 probably looks nicer than \check{\aleph_1}.
+
+"For the sake of151formatting and readability, names, universe levels, type ascriptions, and casts have been152removed or changed" -> we should be careful not to change the code snippets to much. That might get some critique, since we make Lean look nicer than it actually is. We should mostly show code that is readable without cleaning it up.
+
+Emacs -> VSCode or Emacs
+
+we need a short section on "how to view and compile Lean"
+
+ but stratified by arity ->  stratified by arity
+
+ start section 2.1: mention "applying a function to a vector of terms" and why we didn't choose that
+
+ mention lifting and substitution, at least briefly.
+
+cleanup section 2.1, mention "natural deduction"
+
+section 2.2: mention explicitly we formalize (2-valued) soundness
+
+give the Lean statement of completeness
+
+bStructure -> add arguments to code snippets
+also give the definition in words (a type with interpretations of the function and relation symbols equipped with a $\beta$-valued congruence relation)
+
+if we need more space: we can remove some code snippets in section 2.
+
+"A soundness theorem says that a proof tree may be replayed to produce an actual proof in258the object of truth-values. " -> maybe just say "provable statements are true in all models"?
+
+"a typeB: Type uand an instance of a273complete Boolean algebra structure onB" ->
+"and a complete Boolean algebra B"
+
+"encodeZFCinto " -> spaces
+
+------
+new on March 31:
+
+section 3.2: change last code snippet to use your custom tactics
+In Definition 5: introduce the \widetilde notation (which we use in Definition 10)
+section 4.1: replace code snippet with mathematical definition. Now it looks like we can write something like this in Lean.
+section 4.1: I don't understand the point of the parenthetical below the code snippet about ordinal.mk'
+Definition 8: mention that you view an element of 2^\alpha as a subset of \alpha.
+multiple times: autoref fails (for me)
+\check{\aleph_i} ℵ₂̌
