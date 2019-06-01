@@ -37,6 +37,7 @@
     "sect:forcing"
     "subsect:cohen-reals"
     "subsect:cardinal-inequalities"
+    "subsect:unprovability"
     "sect:ccc")
    (LaTeX-add-bibliographies)
    (LaTeX-add-color-definecolors
