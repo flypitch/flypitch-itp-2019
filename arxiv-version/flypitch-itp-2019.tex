@@ -33,7 +33,7 @@
 
 \bibliographystyle{plainurl}% the mandatory bibstyle
 
-\title{A formalization of forcing and the unprovability of the continuum hypothesis} %TODO Please add
+\title{A formalization of forcing and the unprovability of the continuum hypothesis\footnote{This is an extended preprint of a paper which was submitted to ITP 2019.}} %TODO Please add
 
 \titlerunning{A formalization of forcing and the unprovability of the continuum hypothesis}%optional, please use if title is longer than one line
 
@@ -91,7 +91,6 @@
 We describe a formalization of forcing using Boolean-valued models in the Lean 3 theorem prover, including the fundamental theorem of forcing and a deep embedding of first-order logic with a Boolean-valued soundness theorem. As an application of our framework, we specialize our construction to the Boolean algebra of regular opens of the Cantor space $2^{\omega_2 \times \omega}$ and formally verify the failure of the continuum hypothesis in the resulting model.
 \end{abstract}
 
-%TODO(jesse) maybe talk a bit more about the grand strategy for formalizing the independence of CH, i.e. all the prerequisites, and move the discussion about BVMs to the proof sketch section.
 \section*{Introduction}
 The continuum hypothesis states that there are no sets strictly larger than the countable natural numbers and strictly smaller than the uncountable real numbers. It was introduced by Cantor \cite{cantor1878beitrag} in 1878 and was the very first problem on Hilbert's list of twenty-three outstanding problems in mathematics. G\"odel \cite{godel1938consistency} proved in 1938 that the continuum hypothesis was consistent with $\mathsf{ZFC}$, and later conjectured that the continuum hypothesis is independent of $\mathsf{ZFC}$, i.e. neither provable nor disprovable from the $\mathsf{ZFC}$ axioms. In 1963, Paul Cohen developed \emph{forcing} \cite{cohen-the-independence-of-the-continuum-hypothesis-1,cohen1964independence2}, which allowed him to prove the consistency of the negation of the continuum hypothesis, and therefore complete the independence proof. For this work, which marked the beginning of modern set theory, he was awarded a Fields medal---the only one to ever be awarded for a work in mathematical logic.
 
@@ -118,9 +117,6 @@ We briefly outline the rest of the paper. In Section \ref{sect:outline} we outli
 
 \section{Outline of the proof}
 \label{sect:outline}
-% A \emph{proof} of $\mathsf{CH}$ from $\mathsf{ZFC}$ is a finite list of deductions starting from $\mathsf{ZFC}$ and ending at $\mathsf{CH}$. We write $\mathsf{ZFC} \vdash \mathsf{CH}$ to indicate that there exists a proof of $\mathsf{CH}$ from $\mathsf{ZFC}$. It is easy to show that $\mathsf{ZFC} \vdash \mathsf{CH}$: one simply exhibits a proof. What is harder is showing that $\mathsf{CH}$ is unprovable: one has to rule out all possible proofs. If one is allowed to use $\mathsf{ZFC} \vdash \neg \mathsf{CH}$, it is easy to show that $\mathsf{CH}$ is unprovable. What is even harder is showing simultaneously that $\mathsf{CH}$ is independent of ZFC: both  $\mathsf{CH}$ \emph{and} $\neg \mathsf{CH}$ are unprovable.
-
-% Separate from provability is satisfiability: we say that $\mathsf{ZFC}$ \emph{satisfies} $\mathsf{CH}$, written $\mathsf{ZFC} \models \mathsf{CH}$, if the interpretation of $\mathsf{CH}$ in any model of $\mathsf{ZFC}$ is true. Dually, it is easy to show that $\mathsf{ZFC} \not \models \mathsf{CH}$: one simply exhibits a model of $\mathsf{ZFC}$ where $\mathsf{CH}$ is false, and harder to show that $\mathsf{ZFC} \models \mathsf{CH}$, because one has to consider all possible models.
 
 $\mathsf{ZFC}$ is a collection of first-order sentences in the language of a single binary relation $\{\in\}$, used to axiomatize set theory. The continuum hypothesis can be written in this fashion as a first-order sentence $\mathsf{CH}$. A proof of $\mathsf{CH}$ is a finite list of deductions starting from $\mathsf{ZFC}$ and ending at $\mathsf{CH}$. % We write $\mathsf{ZFC} \vdash \mathsf{CH}$ to indicate that there is a proof of $\mathsf{CH}$.
 The soundness theorem says that provability implies satisfiability, i.e. if $\mathsf{ZFC} \vdash \mathsf{CH}$, then $\mathsf{CH}$ interpreted in any model of $\mathsf{ZFC}$ is true. Taking the contrapositive, we can demonstrate the unprovability (equivalently, the consistency of the negation) of $\mathsf{CH}$ by exhibiting a single model where $\mathsf{CH}$ is not true.
@@ -134,11 +130,12 @@ To force the negation of the continuum hypothesis, we use the Boolean algebra $\
 So far we have mentioned nothing about how this argument, which is wholly set-theoretic, is to be interpreted inside type theory. To do this, it was important to separate the mathematical content from the metamathematical content of the argument. While our objective is only to produce a model of $\mathsf{ZFC}$ satisfying certain properties, traditional presentations of forcing are careful to stay within the foundations of $\mathsf{ZFC}$, emphasizing that all arguments may be performed internal to a model of $\mathsf{ZFC}$, etc., and it is not immediately clear what parts of the argument use that set-theoretic foundation in an essential way % , e.g. if to perform forcing one must have ordinals that look like von Neumann ordinals in the metatheory, or if one must take a model of set theory as the starting point, or if $\B$ must be internal to a model of set theory, etc.
 and require modification in the passage to type theory. Our formalization clarifies some of these questions.
 
-% Finally, when working with Boolean-valued models, it is profitable to keep in mind the following analogy, developed by Scott in \cite{scott1967proof}. A ready supply of complete Boolean algebras $\B$ is obtained by taking the measure algebra of a probability space and quotienting by the ideal of events of measure zero. Let $\mathbf{M}$ be a $\B$-valued structure. A unary $\B$-valued predicate $\phi$ on $\mathbf{M}$ assigns an event to every element $m$ of $\mathbf{M}$, whose measure we can think of as being the probability that $\phi(m)$ is true. Specializing to the language of set theory, we can attach to every $m : \mathbf{M}$ an ``indicator function'' $\lambda x, x \in m$ which assigns to every $x$ a probability that it is actually a member of $m$. Thus, by virtue of extensionality, we may think of the elements of a $\B$-valued model of$\mathsf{ZFC}$as being ``set-valued random variables'', or ``random sets''\footnote{In this analogy, given a universe of random sets, the purpose of the generic filter or ultrafilter in forcing is then to simultaneously evaluate the outcomes of the random variables, collapsing them into an ordinary universe of sets.}; see \cite{scott1967proof} and \cite{moore2019method} for details.
-\subparagraph*{Sources} Our strategy for constructing a Boolean-valued model in which $\mathsf{CH}$ fails is a synthesis of the proofs in the textbooks of Bell (\cite{bell2011set}, Chapter 2) and Manin (\cite{manin2009course}, Chapter 8). For the $\Delta$-system lemma, we follow Kunen (\cite{kunen2014set}, Chapters 1 and 5).
+Finally, when working with Boolean-valued models, it is profitable to keep in mind the following analogy, developed by Scott in \cite{scott1967proof}. A ready supply of complete Boolean algebras $\B$ is obtained by taking the measure algebra of a probability space and quotienting by the ideal of events of measure zero. Let $\mathbf{M}$ be a $\B$-valued structure. A unary $\B$-valued predicate $\phi$ on $\mathbf{M}$ assigns an event to every element $m$ of $\mathbf{M}$, whose measure we can think of as being the probability that $\phi(m)$ is true. Specializing to the language of set theory, we can attach to every $m : \mathbf{M}$ an ``indicator function'' $\lambda x, x \in m$ which assigns to every $x$ a probability that it is actually a member of $m$. Thus, by virtue of extensionality, we may think of the elements of a $\B$-valued model of$\mathsf{ZFC}$as being ``set-valued random variables'', or ``random sets''\footnote{In this analogy, given a universe of random sets, the purpose of the generic filter or ultrafilter in forcing is then to simultaneously evaluate the outcomes of the random variables, collapsing them into an ordinary universe of sets.}; see \cite{scott1967proof} and \cite{moore2019method} for details.
 
-\subparagraph*{Viewing the formalization}
-The code blocks in this paper were taken directly from our formalization, but for the sake of formatting and readability, we sometimes omit or modify universe levels, type ascriptions, and casts. We refer the interested reader to our repository,\footnote{\url{https://github.com/flypitch/flypitch}} which contains a guide on compiling and navigating the source files of the project.
+\paragraph*{Sources} Our strategy for constructing a Boolean-valued model in which $\mathsf{CH}$ fails is a synthesis of the proofs in the textbooks of Bell (\cite{bell2011set}, Chapter 2) and Manin (\cite{manin2009course}, Chapter 8). For the $\Delta$-system lemma, we follow Kunen (\cite{kunen2014set}, Chapters 1 and 5).
+
+\paragraph*{Viewing the formalization}
+The code blocks in this paper were taken directly from our formalization, but for the sake of formatting and readability, we sometimes omit or modify universe levels, type ascriptions, and casts. We refer the interested reader to our repository,\footnote{\url{https://github.com/flypitch/flypitch}} which contains a guide on compiling and navigating the source files of the project. In particular, there is a summary file \lil{summary.lean} containing \lil{#print} statements of important definitions and duplicated proofs of the main theorems.
 
 \section{First-order logic}
 \label{sect:fol}
@@ -195,8 +192,10 @@ A member of \lil{prf Γ A} is a proof tree encoding a derivation of $A$ from $\G
 \subsection{Completeness}
 As part of our formalization of first-order logic, we completed a verification of the G\"odel completeness theorem. Although our present development of forcing did not require it, we anticipate that it will useful later to e.g. prove the downward L\"owenheim-Skolem theorem for extracting countable transitive models. Like soundness, it also serves as a proof-of-concept and stress-test of our chosen encoding of first-order logic.
 
-For our formalization, we chose the Henkin-style approach of constructing a canonical term model. In order to perform the argument, which normally involves modifying the language ``in place'' to iteratively add new constant symbols, we had to adapt it to type theory. Since our languages are represented by pairs of indexed types instead of sets, we cannot really modify them in-place with new constant symbols. Instead, at each step of the construction, we must construct an entirely new language in which the previous one embeds, and in the limit we must compute a directed colimit of types instead of a union. This construction induces similar constructions on terms and formulas, and completing the argument requires reasoning with all of them. As a result of our design decisions, only a few arguments required anything more than straightforward case-analysis and structural induction. The final statement makes no restrictions on the cardinality of the language.
-% Here is one notable exception. In the process of our formalization, we discovered a nontrivial hole in many presentations of the Henkin argument (TODO(floris) (maybe) describe \lstinline{reflect_prf} if we have space)
+For our formalization, we chose the Henkin-style approach of constructing a canonical term model. In order to perform the argument, which normally involves modifying the language ``in place'' to iteratively add new constant symbols, we had to adapt it to type theory. Since our languages are represented by pairs of indexed types instead of sets, we cannot really modify them in-place with new constant symbols. Instead, at each step of the construction, we must construct an entirely new language in which the previous one embeds, and in the limit we must compute a directed colimit of types instead of a union. This construction induces similar constructions on terms and formulas, and completing the argument requires reasoning with all of them. As a result of our design decisions, only a few arguments required anything more than straightforward case-analysis and structural induction. The final statement makes no restrictions on the cardinality of the language:
+\begin{lstlisting}
+  theorem completeness {L : Language} (T : Theory L) (ψ : sentence L) : T ⊢' ψ ↔ T ⊨ ψ
+\end{lstlisting}
 
 \subsection{Boolean-valued semantics for first-order logic}
 
@@ -339,7 +338,7 @@ The fundamental theorem of forcing for Boolean-valued models \cite{hamkins2012we
 
 Bell \cite{bell2011set} gives an extremely detailed account of the verification of the $\mathsf{ZFC}$ axioms, and we faithfully followed his presentation for this part of the formalization. Most of it is routine. We describe some aspects of \lil{bSet 𝔹} which are revealed by this verification.
 
-\subparagraph*{Check-names}
+\paragraph*{Check-names}
 \begin{defn}\label{def-check}
   From the definitions of \lil{pSet} and \lil{bSet}, one immediately sees that there is a canonical map \lil{check : pSet → bSet 𝔹}, defined by
  \begin{lstlisting}
@@ -348,7 +347,7 @@ def check : pSet → bSet 𝔹
 \end{lstlisting} We call members of the image of \lil{check} \emph{check-names},\footnote{This terminology is standard, c.f. \cite{hamkins2012well, moore2019method}.} after the usual diacritic notation \lstinline{x̌} for \lil{check (x : pSet)}. These are also known as \emph{canonical names}, as they are the canonical representation of standard two-valued sets inside a Boolean-valued model of set theory.\footnote{We were pleased to discover Lean's support for custom notation allowed us to declare the Unicode modifier character \texttt{U+030C} ($\check{\hspace{1mm}}$) as a postfix operator for \texttt{check}.}
 \end{defn}
 
-\subparagraph*{The axiom of infinity}
+\paragraph*{The axiom of infinity}
 $\omega$ \lil{: bSet 𝔹} is $\check{\omega}$. $\omega$ is defined in \lil{pSet} to be the collection of all finite von Neumann ordinals, which are defined by induction on $\mathbb{N}$. While it is easy to show $\check{\omega}$ satisfies the axiom of infinity
 \begin{lstlisting}
 def axiom_of_infinity_spec (u : bSet 𝔹) : 𝔹 :=
@@ -356,7 +355,7 @@ def axiom_of_infinity_spec (u : bSet 𝔹) : 𝔹 :=
 \end{lstlisting}
 it can furthermore be shown to satisfy the universal property of $\omega$, which says that $\omega$ is a subset of any set which contains $\emptyset$ and is closed under the successor operation $x \mapsto x \cup \{x\}$.
 
-\subparagraph*{The axiom of powerset}
+\paragraph*{The axiom of powerset}
 \begin{defn} \label{def-powerset}
   Fix a $\B$-valued set \lil{x = ⟨α, A, b⟩}. Let \lil{χ : α → 𝔹} be a function. The subset of \lil{x} associated to \lil{χ} is a \lil{𝔹}-valued set $\widetilde{\chi}$ defined as follows:
 \begin{lstlisting}
@@ -370,10 +369,10 @@ def bv_powerset (u : bSet 𝔹) : bSet 𝔹 :=
 \end{lstlisting}
 \end{defn}
 
-\subparagraph*{The axiom of choice}
+\paragraph*{The axiom of choice}
 Following Bell, we verified Zorn's lemma, which is provably equivalent over $\mathsf{ZF}$ to the axiom of choice. As is the case with \lil{pSet}, establishing the axiom of choice requires the use of a choice principle from the metatheory. This was the most involved part of our verification of the fundamental theorem of forcing, and relies on the technical tool of \emph{mixtures}, which allow sequences of $\B$-valued sets to be ``averaged'' into new ones, and the \emph{maximum principle}, which allows existentially quantified statements to be instantiated without changing their truth-value.
 
-\subparagraph*{The smallness of $\B$}
+\paragraph*{The smallness of $\B$}
 We end this section by remarking that the ``smallness'' (or more precisely, the fact that $\B$ lives in the same universe of types out of which \lil{bSet 𝔹} is being built) is essential in making \lstinline{bSet 𝔹} a model of $\mathsf{ZFC}$. It is required for extracting the witness needed for the maximum principle, and is also required to even define the powerset operation, because the underlying type of the powerset is the function type of all maps into \lstinline{𝔹}.
 
 \section{Forcing}
@@ -534,9 +533,9 @@ theorem 𝔹_CCC : CCC (regular_opens (set(ℵ₂.type × ℕ)))
 \end{lstlisting}
 
 \section{Related work}
-\subparagraph*{First-order logic, soundness, and completeness} There are many existing formalizations of first-order logic. Shankar \cite{shankar1997metamathematics} used a deep embedding of first-order logic to formalize incompleteness theorems. Harrison gives a deeply-embedded implementation of first-order logic in HOL Light \cite{harrison1998formalizing} and a proof-search style account of the completeness theorem in \cite{harrison2009handbook}. Margetson \cite{Ridge2005AMV} and Schlichtkrull \cite{schlichtkrull2018formalization} use the same argument for the completeness theorem in Isabelle/HOL, while Berghofer \cite{FOL-Fitting-AFP} (in Isabelle) and Ilik \cite {ilik2010constructive} (in Coq) use canonical term models.
+\paragraph*{First-order logic, soundness, and completeness} There are many existing formalizations of first-order logic. Shankar \cite{shankar1997metamathematics} used a deep embedding of first-order logic to formalize incompleteness theorems. Harrison gives a deeply-embedded implementation of first-order logic in HOL Light \cite{harrison1998formalizing} and a proof-search style account of the completeness theorem in \cite{harrison2009handbook}. Margetson \cite{Ridge2005AMV} and Schlichtkrull \cite{schlichtkrull2018formalization} use the same argument for the completeness theorem in Isabelle/HOL, while Berghofer \cite{FOL-Fitting-AFP} (in Isabelle) and Ilik \cite {ilik2010constructive} (in Coq) use canonical term models.
 
-\subparagraph{Set theory and forcing}
+\paragraph*{Set theory and forcing}
 Set theory is a common target for formalization. Notably, a large body of formalized set theory has been completed in Isabelle/ZF, led by Paulson and his collaborators \cite{paulson1996mechanizing, paulson1993set, paulson2002reflection}. Most relevantly, this includes a formalization of the relative consistency of the axiom of choice with $\mathsf{ZF}$ \cite{paulson2003relative}. Building on this, Gunther, Pagano, and Terraf have begun formalizing the basic ingredients of forcing \cite{gunther2018first, gunther2019mechanization}, taking the more conventional approach of generic extensions of countable transitive models.
 
 Our tactic library for Boolean-valued logic was inspired by work of Hudon \cite{Hudon2015TheUM} on Unit-B, using similar techniques to embed a proof language for temporal logic \cite{unitb}. It was pointed out to the authors that a trick similar to \autoref{poset-yoneda} had also been successfully applied in the Metamath library \cite{mario2}.
