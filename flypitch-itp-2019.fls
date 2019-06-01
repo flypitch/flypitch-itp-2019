@@ -183,6 +183,8 @@ INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss17.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss8.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
