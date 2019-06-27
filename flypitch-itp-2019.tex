@@ -151,31 +151,53 @@ The main novelty of our implementation of first-order logic is the use of \emph{
 
 Fix a language $L$. We define the type of \textbf{preterms} as follows:
 \begin{lstlisting}
-inductive preterm : ℕ → Type u
+inductive preterm (L : Language.{u}) : ℕ → Type u
 | var {} : ∀ (k : ℕ), preterm 0
 | func : ∀ {l : ℕ} (f : L.functions l), preterm l
 | app : ∀ {l : ℕ} (t : preterm (l + 1)) (s : preterm 0), preterm l
 \end{lstlisting}
-We use de Bruijn indices to avoid variable shadowing. A member of \lil{preterm n} is a partially applied term. If applied to \lil{n} terms, it becomes a term. Every element of \lil{preterm L 0} is a well-formed term. We use this encoding to avoid mutual or nested inductive types, since those are not too convenient to work with in Lean.
+We use de Bruijn indices to avoid variable shadowing.
+A member of \lil{preterm n} is a partially applied term.
+If applied to \lil{n} terms, it becomes a term.
+We define the type of well-formed terms \lil{term L} to be \lil{preterm L 0}.
+
+There are other methods to define well-typed terms, for example using a nested inductive type with a constructor (which replaces the second and third constructor in our definition)
+\begin{lstlisting}
+| app : ∀ {l : ℕ} (f : L.functions l) (ts : vector term l), term
+\end{lstlisting}
+Here \lil{vector term l} is a $l$-tuple of terms.
+Lean has limited support for nested inductive types, but defining definitions by recursion on a nested inductive type is inconvenient.
 
 The type of \textbf{preformulas} is defined similarly:
 \begin{lstlisting}
-inductive preformula : ℕ → Type u
+inductive preformula (L : Language.{u}) : ℕ → Type u
 | falsum {} : preformula 0 --  notation `⊥`
 | equal (t₁ t₂ : term L) : preformula 0 -- notation `≃`
 | rel {l : ℕ} (R : L.relations l) : preformula l
 | apprel {l : ℕ} (f : preformula (l + 1)) (t : term L) : preformula l
 | imp (f₁ f₂ : preformula 0) : preformula 0 -- notation ⟹
 | all (f : preformula 0) : preformula 0 -- notation `∀'`
--- ¬ f := f ⟹ ⊥, notation `∼f`
--- ∃ f := ∼ ∀' ∼f, notation `∃' f`
 \end{lstlisting}
 
-A member of \lil{preformula n} is a partially applied formula. If applied to \lil{n} terms, it becomes a formula. Implication is the only binary connective. Since we use classical logic, we can define the other connectives from implication and falsum. Similarly, universal quantification is our only quantifier.
+A member of \lil{preformula n} is a partially applied formula.
+If applied to \lil{n} terms, it becomes a formula.
+The type of well-formed formulas \lil{formula L} is defined to be \lil{preterm L 0}.
+Implication is the only primitive binary connective and universal quantification is the only primitive quantifier. Since we use classical logic, we can define the other connectives and quantifiers these.
+In particular, we define negation \lil{∼ f} to be \lil{f ⟹ ⊥} and existential quantification \lil{∃' f} to be \lil{∼ ∀' ∼ f}.
+Note that implication and the universal quantifier cannot be applied to performulas that are not fully applied.
+
+We choose this definition of \lil{preformula} to mimic \lil{preterm}.
+Of course, we could define an inductive type where the constructors \lil{rel} and \lil{apprel} were replaced by the single constructor
+\begin{lstlisting}
+| rel : ∀ {l : ℕ} (f : L.relations l) (ts : vector term l), formula
+\end{lstlisting}
+This would not even result in a nested inductive type.
+However, we found it more convenient to adapt operations and proofs from \lil{preterm} to \lil{preformula} using our definition.
+Using vectors results in some extra proof steps reasoning about vectors.
+Our approach also results in some extra proof steps, but they are the same as the steps in the corresponding proofs for preterms.
 
 Our proof system is a natural deduction calculus, and % . This makes a proof of the soundness theorem by structural induction easier.
-all rules are motivated to work well with backwards-reasoning:
-
+all rules are motivated to work well with backwards-reasoning. The type of proof trees is
 \begin{lstlisting}
 inductive prf : set (formula L) → formula L → Type u
 | axm     {Γ A} (h : A ∈ Γ) : prf Γ A
