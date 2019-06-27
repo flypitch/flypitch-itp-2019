@@ -152,7 +152,7 @@ The main novelty of our implementation of first-order logic is the use of \emph{
 Fix a language $L$. We define the type of \textbf{preterms} as follows:
 \begin{lstlisting}
 inductive preterm (L : Language.{u}) : ℕ → Type u
-| var {} : ∀ (k : ℕ), preterm 0
+| var {} : ∀ (k : ℕ), preterm 0 -- notation `&`
 | func : ∀ {l : ℕ} (f : L.functions l), preterm l
 | app : ∀ {l : ℕ} (t : preterm (l + 1)) (s : preterm 0), preterm l
 \end{lstlisting}
@@ -171,12 +171,12 @@ Lean has limited support for nested inductive types, but defining definitions by
 The type of \textbf{preformulas} is defined similarly:
 \begin{lstlisting}
 inductive preformula (L : Language.{u}) : ℕ → Type u
-| falsum {} : preformula 0 --  notation `⊥`
-| equal (t₁ t₂ : term L) : preformula 0 -- notation `≃`
+| falsum {} : preformula 0 --  notation ⊥
+| equal (t₁ t₂ : term L) : preformula 0 -- notation ≃
 | rel {l : ℕ} (R : L.relations l) : preformula l
 | apprel {l : ℕ} (f : preformula (l + 1)) (t : term L) : preformula l
 | imp (f₁ f₂ : preformula 0) : preformula 0 -- notation ⟹
-| all (f : preformula 0) : preformula 0 -- notation `∀'`
+| all (f : preformula 0) : preformula 0 -- notation ∀'
 \end{lstlisting}
 
 A member of \lil{preformula n} is a partially applied formula.
@@ -196,6 +196,13 @@ However, we found it more convenient to adapt operations and proofs from \lil{pr
 Using vectors results in some extra proof steps reasoning about vectors.
 Our approach also results in some extra proof steps, but they are the same as the steps in the corresponding proofs for preterms.
 
+We define the usual operations of lifting and substitution for terms and formulas.
+We use the notation \lil{t ↑' n # m} to mean the preterm of preformula \lil{t} where all variables which are at least \lil{m} are increased by \lil{n}.
+\lil{t ↑' n # 0} is abbreviated to \lil{t ↑ n}.
+The substitution \lil{t[s // n]} is defined to be the term or formula \lil{t} where all variables that represent the \lil{n}-th free variable are replaced by \lil{s}.
+More specifically, if an occurrence of a variable \lil{&(n+k)} is under \lil{k} quantifiers, then it is replaced by \lil{s ↑ (n+k)}.
+Variables \lil{&m} for $m>n+k$ are replaced by \lil{&(m-1)}.
+
 Our proof system is a natural deduction calculus, and % . This makes a proof of the soundness theorem by structural induction easier.
 all rules are motivated to work well with backwards-reasoning. The type of proof trees is
 \begin{lstlisting}
@@ -204,14 +211,24 @@ inductive prf : set (formula L) → formula L → Type u
 | impI    {Γ} {A B} (h : prf (insert A Γ) B) : prf Γ (A ⟹ B)
 | impE    {Γ} (A) {B} (h₁ : prf Γ (A ⟹ B)) (h₂ : prf Γ A) : prf Γ B
 | falsumE {Γ} {A} (h : prf (insert ∼A Γ) ⊥) : prf Γ A
-| allI    {Γ A} (h : prf Γ A) : prf Γ (∀' A)
+| allI    {Γ A} (h : prf ((λ f, f ↑ 1) '' Γ) A) : prf Γ (∀' A)
 | allE₂   {Γ} A t (h : prf Γ (∀' A)) : prf Γ (A[t // 0])
 | ref     (Γ t) : prf Γ (t ≃ t)
 | subst₂  {Γ} (s t f) (h₁ : prf Γ (s ≃ t)) (h₂ : prf Γ (f[s // 0])) :
           prf Γ (f[t // 0])
 \end{lstlisting}
-
-A member of \lil{prf Γ A} is a proof tree encoding a derivation of $A$ from $\Gamma$. Note that \lil{prf} is \lil{Type}- instead of \lil{Prop}-valued, so different members of \lil{prf Γ A} are not definitionally equal.
+In \lil{allI} the notation \lil{(λ f, f ↑ 1) '' Γ} means lifting all free variables in \lil{Γ} by one.
+A term of type \lil{prf Γ A}, denoted \lil{Γ ⊢ A}, is a proof tree encoding a derivation of $A$ from $\Gamma$.
+We also define provability as the proposition stating that a proof tree exists.
+\begin{lstlisting}
+def provable (Γ : set (formula L)) (f : formula L) : Prop :=
+nonempty (prf Γ f)
+\end{lstlisting}
+We then prove various meta-theoretic properties, like weakening and the substitution theorem.
+\begin{lstlisting}
+def weakening (H₁ : Γ ⊆ Δ) (H₂ : Γ ⊢ A) : Δ ⊢ A
+def substitution (H : Γ ⊢ A) : (λ f, f[s // n]) '' Γ ⊢ A[s // n]
+\end{lstlisting}
 
 \subsection{Completeness}
 As part of our formalization of first-order logic, we completed a verification of the G\"odel completeness theorem. Although our present development of forcing did not require it, we anticipate that it will be useful later to e.g. prove the downward L\"owenheim-Skolem theorem for extracting countable transitive models. Like soundness, it also serves as a proof-of-concept and stress-test of our chosen encoding of first-order logic.
