@@ -1,54 +1,57 @@
 (TeX-add-style-hook
  "flypitch-itp-2019"
  (lambda ()
-   (TeX-add-to-alist 'LaTeX-provided-class-options
-                     '(("lipics-v2019" "a4paper" "USenglish" "cleveref" "autoref")))
-   (add-to-list 'LaTeX-verbatim-environments-local "lstlisting")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "lstinline")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
-   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "lstinline")
-   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
-   (TeX-run-style-hooks
-    "latex2e"
-    "lipics-v2019"
-    "lipics-v201910"
-    "color"
-    "mathabx")
-   (TeX-add-symbols
-    "B"
-    "lil"
-    "N"
-    "lstlanguagefiles")
-   (LaTeX-add-labels
-    "sect:outline"
-    "sect:fol"
-    "def-boolean-valued-structure"
-    "sect:bvm"
-    "def-p-name"
-    "subsect:proof-language"
-    "poset-yoneda"
-    "def-check"
-    "def-powerset"
-    "sect:forcing"
-    "subsect:cohen-reals"
-    "subsect:cardinal-inequalities"
-    "subsect:unprovability"
-    "sect:ccc")
-   (LaTeX-add-bibliographies)
-   (LaTeX-add-color-definecolors
-    "keywordcolor"
-    "tacticcolor"
-    "commentcolor"
-    "symbolcolor"
-    "sortcolor"
-    "attributecolor")
-   (LaTeX-add-amsthm-newtheorems
-    "thm"
-    "defn"))
- :latex)
+   (LaTeX-add-bibitems
+    "godel1938consistency"
+    "paulson2008relative"
+    "DBLP:conf/cie/2008"
+    "harrison1998formalizing"
+    "DBLP:conf/tphol/1998"
+    "schlichtkrull2018formalization"
+    "braselmann1930godel"
+    "blanchette2017soundness"
+    "godel1947cantor"
+    "harrison2009handbook"
+    "cohen-the-independence-of-the-continuum-hypothesis-1"
+    "ilik2010constructive"
+    "de2015lean"
+    "DBLP:conf/cade/2015"
+    "Ridge2005AMV"
+    "DBLP:conf/tphol/2005"
+    "FOL-Fitting-AFP"
+    "Completeness-AFP"
+    "margetson2004proving"
+    "shankar1997metamathematics"
+    "shoenfield1971unramified"
+    "gunther2018first"
+    "gunther2019mechanization"
+    "scott2014stochastic"
+    "bacci2018boolean"
+    "scott2008algebraic"
+    "kanamori1996mathematical"
+    "kanamori2008higher"
+    "hamkins2012well"
+    "moore2019method"
+    "scott1967proof"
+    "givant2008introduction"
+    "werner1997sets"
+    "sebastian1"
+    "bell2011set"
+    "mario1"
+    "manin2009course"
+    "jech2013set"
+    "cantor1878beitrag"
+    "cohen1964independence2"
+    "scott-solovay"
+    "aczel1978type"
+    "aczel1986type"
+    "aczel1982type"
+    "mario2"
+    "paulson1996mechanizing"
+    "paulson1993set"
+    "paulson2002reflection"
+    "DBLP:conf/cade/2002"
+    "Hudon2015TheUM"
+    "unitb"))
+ :bibtex)
 

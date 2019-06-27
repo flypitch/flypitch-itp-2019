@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.5)  1 JUN 2019 15:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.5)  27 JUN 2019 05:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1298,9 +1298,9 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Underfull \vbox (badness 6927) has occurred while \output is active []
 
  [16]
-[17]) 
+[17] [18]) 
 AED: lastpage setting LastPage
-[18]
+[19]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 568.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 568.
  (./flypitch-itp-2019.aux)
@@ -1316,11 +1316,11 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 568.
  ) 
 Here is how much of TeX's memory you used:
- 15971 strings out of 492616
- 249122 string characters out of 6135178
+ 15990 strings out of 492616
+ 249306 string characters out of 6135178
  466094 words of memory out of 5000000
- 19127 multiletter control sequences out of 15000+600000
- 199024 words of font info for 246 fonts, out of 8000000 for 9000
+ 19129 multiletter control sequences out of 15000+600000
+ 199900 words of font info for 254 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,9n,40p,1387b,1039s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fo
@@ -1356,10 +1356,10 @@ e1/mathb10.pfb></usr/share/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.
 pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/
 share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on flypitch-itp-2019.pdf (18 pages, 622097 bytes).
+Output written on flypitch-itp-2019.pdf (19 pages, 627999 bytes).
 PDF statistics:
- 696 PDF objects out of 1000 (max. 8388607)
- 629 compressed objects within 7 object streams
- 240 named destinations out of 1000 (max. 500000)
+ 732 PDF objects out of 1000 (max. 8388607)
+ 664 compressed objects within 7 object streams
+ 241 named destinations out of 1000 (max. 500000)
  54961 words of extra memory for PDF output out of 61914 (max. 10000000)
 

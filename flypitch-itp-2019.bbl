@@ -3,7 +3,7 @@
 \bibitem{aczel1978type}
 Peter Aczel.
 \newblock The type theoretic interpretation of constructive set theory.
-\newblock In {\em Logic colloquium}, volume~77, pages 55--66, 1978.
+\newblock In {\em Logic Colloquium}, volume~77, pages 55--66, 1978.
 
 \bibitem{aczel1982type}
 Peter Aczel.
@@ -34,26 +34,26 @@ John~L Bell.
 
 \bibitem{FOL-Fitting-AFP}
 Stefan Berghofer.
-\newblock First-order logic according to fitting.
+\newblock First-order logic according to {Fitting}.
 \newblock {\em Archive of Formal Proofs}, August 2007.
 \newblock \url{http://isa-afp.org/entries/FOL-Fitting.html}, Formal proof
   development.
 
 \bibitem{cantor1878beitrag}
 Georg Cantor.
-\newblock Ein beitrag zur mannigfaltigkeitslehre.
-\newblock {\em Journal fur die reine und angewandte Mathematik}, 84:242--258,
-  1878.
+\newblock Ein {Beitrag} zur {Mannigfaltigkeitslehre}.
+\newblock {\em Journal f\"{u}r die reine und angewandte Mathematik},
+  84:242--258, 1878.
 
 \bibitem{mario2}
 Mario Carneiro.
-\newblock Natural deduction in the metamath proof explorer.
+\newblock Natural deduction in the {Metamath} proof explorer.
 \newblock \url{http://us.metamath.org/mpeuni/mmnatded.html}, 2014.
 \newblock Slides (\url{http://us.metamath.org/ocat/natded.pdf}).
 
 \bibitem{mario1}
 Mario Carneiro.
-\newblock The type theory of lean.
+\newblock The type theory of {Lean}.
 \newblock In preparation
   (\url{https://github.com/digama0/lean-type-theory/releases}), 2019.
 
@@ -65,16 +65,21 @@ Paul~J Cohen.
 
 \bibitem{cohen1964independence2}
 Paul~J Cohen.
-\newblock The independence of the continuum hypothesis, ii.
-\newblock {\em Proceedings of the National Academy of Sciences of the United
-  States of America}, 51(1):105, 1964.
+\newblock The independence of the continuum hypothesis, {II}.
+\newblock {\em Proceedings of the National Academy of Sciences}, 51(1):105,
+  1964.
 
 \bibitem{de2015lean}
-Leonardo de~Moura, Soonho Kong, Jeremy Avigad, Floris Van~Doorn, and Jakob von
-  Raumer.
-\newblock The lean theorem prover (system description).
-\newblock In {\em International Conference on Automated Deduction}, pages
-  378--388. Springer, 2015.
+Leonardo~Mendon{\c{c}}a de~Moura, Soonho Kong, Jeremy Avigad, Floris van Doorn,
+  and Jakob von Raumer.
+\newblock The {Lean} theorem prover (system description).
+\newblock In Amy~P. Felty and Aart Middeldorp, editors, {\em Automated
+  Deduction - {CADE-25} - 25th International Conference on Automated Deduction,
+  Berlin, Germany, August 1-7, 2015, Proceedings}, volume 9195 of {\em Lecture
+  Notes in Computer Science}, pages 378--388. Springer, 2015.
+\newblock URL: \url{https://doi.org/10.1007/978-3-319-21401-6\_26}, \href
+  {http://dx.doi.org/10.1007/978-3-319-21401-6\_26}
+  {\path{doi:10.1007/978-3-319-21401-6\_26}}.
 
 \bibitem{givant2008introduction}
 Steven Givant and Paul Halmos.
@@ -89,14 +94,18 @@ Kurt G{\"o}del.
   24(12):556--557, 1938.
 
 \bibitem{gunther2018first}
-Emmanuel Gunther, Miguel Pagano, and Pedro~S{\'a}nchez Terraf.
+Emmanuel Gunther, Miguel Pagano, and Pedro~S{\'{a}}nchez Terraf.
 \newblock First steps towards a formalization of forcing.
-\newblock {\em arXiv preprint arXiv:1807.05174}, 2018.
+\newblock {\em CoRR}, abs/1807.05174, 2018.
+\newblock URL: \url{http://arxiv.org/abs/1807.05174}, \href
+  {http://arxiv.org/abs/1807.05174} {\path{arXiv:1807.05174}}.
 
 \bibitem{gunther2019mechanization}
-Emmanuel Gunther, Miguel Pagano, and Pedro~S{\'a}nchez Terraf.
+Emmanuel Gunther, Miguel Pagano, and Pedro~S{\'{a}}nchez Terraf.
 \newblock Mechanization of separation in generic extensions.
-\newblock {\em arXiv preprint arXiv:1901.03313}, 2019.
+\newblock {\em CoRR}, abs/1901.03313, 2019.
+\newblock URL: \url{http://arxiv.org/abs/1901.03313}, \href
+  {http://arxiv.org/abs/1901.03313} {\path{arXiv:1901.03313}}.
 
 \bibitem{hamkins2012well}
 Joel~David Hamkins and Daniel~Evan Seabold.
@@ -106,22 +115,26 @@ Joel~David Hamkins and Daniel~Evan Seabold.
 \bibitem{harrison1998formalizing}
 John Harrison.
 \newblock Formalizing basic first order model theory.
-\newblock In {\em International Conference on Theorem Proving in Higher Order
-  Logics}, pages 153--170. Springer, 1998.
+\newblock In Jim Grundy and Malcolm~C. Newey, editors, {\em Theorem Proving in
+  Higher Order Logics, 11th International Conference, TPHOLs'98, Canberra,
+  Australia, September 27 - October 1, 1998, Proceedings}, volume 1479 of {\em
+  Lecture Notes in Computer Science}, pages 153--170. Springer, 1998.
+\newblock URL: \url{https://doi.org/10.1007/BFb0055135}, \href
+  {http://dx.doi.org/10.1007/BFb0055135} {\path{doi:10.1007/BFb0055135}}.
 
 \bibitem{harrison2009handbook}
 John Harrison.
-\newblock {\em Handbook of practical logic and automated reasoning}.
+\newblock {\em Handbook of Practical Logic and Automated Reasoning}.
 \newblock Cambridge University Press, 2009.
 
 \bibitem{unitb}
 Simon Hudon.
-\newblock Temporal logic in unit-b, 2018.
+\newblock Temporal logic in {Unit-B}, 2018.
 \newblock \url{https://github.com/unitb/temporal-logic}.
 
 \bibitem{Hudon2015TheUM}
 Simon Hudon, Thai~Son Hoang, and Jonathan~S. Ostroff.
-\newblock The unit-b method: refinement guided by progress concerns.
+\newblock The {Unit-B} method: refinement guided by progress concerns.
 \newblock {\em Software \& Systems Modeling}, 15:1091--1116, 2015.
 
 \bibitem{ilik2010constructive}
@@ -136,19 +149,20 @@ Thomas Jech.
 
 \bibitem{kanamori1996mathematical}
 Akihiro Kanamori.
-\newblock The mathematical development of set theory from cantor to cohen.
+\newblock The mathematical development of set theory from {Cantor} to {Cohen}.
 \newblock {\em Bulletin of Symbolic Logic}, 2(1):1--71, 1996.
 
 \bibitem{kanamori2008higher}
 Akihiro Kanamori.
-\newblock {\em The higher infinite: large cardinals in set theory from their
+\newblock {\em The Higher Infinite: Large Cardinals in Set Theory from their
   beginnings}.
 \newblock Springer Science \& Business Media, 2008.
 
 \bibitem{kunen2014set}
 Kenneth Kunen.
-\newblock {\em Set theory an introduction to independence proofs}, volume 102.
-\newblock Elsevier, 2014.
+\newblock {\em Set theory}, volume 102 of {\em Studies in Logic and the
+  Foundations of Mathematics}.
+\newblock North-Holland Publishing Co., Amsterdam-New York, 1980.
 
 \bibitem{manin2009course}
 Yu~I Manin.
@@ -161,37 +175,58 @@ Justin~Tatch Moore.
 \newblock {\em arXiv preprint arXiv:1902.03235}, 2019.
 
 \bibitem{paulson1993set}
-Lawrence~C Paulson.
-\newblock Set theory for verification: I. from foundations to functions.
-\newblock {\em Journal of Automated Reasoning}, 11(3):353--389, 1993.
+Lawrence~C. Paulson.
+\newblock {Set Theory for Verification: I.} {From} foundations to functions.
+\newblock {\em J. Autom. Reasoning}, 11(3):353--389, 1993.
+\newblock URL: \url{https://doi.org/10.1007/BF00881873}, \href
+  {http://dx.doi.org/10.1007/BF00881873} {\path{doi:10.1007/BF00881873}}.
 
 \bibitem{paulson2002reflection}
-Lawrence~C Paulson.
-\newblock The reflection theorem: A study in meta-theoretic reasoning.
-\newblock In {\em International Conference on Automated Deduction}, pages
-  377--391. Springer, 2002.
+Lawrence~C. Paulson.
+\newblock The reflection theorem: {A} study in meta-theoretic reasoning.
+\newblock In Andrei Voronkov, editor, {\em Automated Deduction - CADE-18, 18th
+  International Conference on Automated Deduction, Copenhagen, Denmark, July
+  27-30, 2002, Proceedings}, volume 2392 of {\em Lecture Notes in Computer
+  Science}, pages 377--391. Springer, 2002.
+\newblock URL: \url{https://doi.org/10.1007/3-540-45620-1\_31}, \href
+  {http://dx.doi.org/10.1007/3-540-45620-1\_31}
+  {\path{doi:10.1007/3-540-45620-1\_31}}.
 
-\bibitem{paulson2003relative}
-Lawrence~C Paulson.
-\newblock The relative consistency of the axiom of choice mechanized using
-  isabelle/ zf.
-\newblock {\em LMS Journal of Computation and Mathematics}, 6:198--248, 2003.
+\bibitem{paulson2008relative}
+Lawrence~C. Paulson.
+\newblock The relative consistency of the axiom of choice - mechanized using
+  isabelle/zf.
+\newblock In Arnold Beckmann, Costas Dimitracopoulos, and Benedikt L{\"{o}}we,
+  editors, {\em Logic and Theory of Algorithms, 4th Conference on Computability
+  in Europe, CiE 2008, Athens, Greece, June 15-20, 2008, Proceedings}, volume
+  5028 of {\em Lecture Notes in Computer Science}, pages 486--490. Springer,
+  2008.
+\newblock URL: \url{https://doi.org/10.1007/978-3-540-69407-6\_52}, \href
+  {http://dx.doi.org/10.1007/978-3-540-69407-6\_52}
+  {\path{doi:10.1007/978-3-540-69407-6\_52}}.
 
 \bibitem{paulson1996mechanizing}
-Lawrence~C Paulson and Krzysztof Grabczewski.
+Lawrence~C. Paulson and Krzysztof Grabczewski.
 \newblock Mechanizing set theory.
-\newblock {\em Journal of Automated Reasoning}, 17(3):291--323, 1996.
+\newblock {\em J. Autom. Reasoning}, 17(3):291--323, 1996.
+\newblock URL: \url{https://doi.org/10.1007/BF00283132}, \href
+  {http://dx.doi.org/10.1007/BF00283132} {\path{doi:10.1007/BF00283132}}.
 
 \bibitem{Ridge2005AMV}
 Tom Ridge and James Margetson.
 \newblock A mechanically verified, sound and complete theorem prover for first
   order logic.
-\newblock In {\em TPHOLs}, 2005.
+\newblock In Joe Hurd and Thomas~F. Melham, editors, {\em Theorem Proving in
+  Higher Order Logics, 18th International Conference, TPHOLs 2005, Oxford, UK,
+  August 22-25, 2005, Proceedings}, volume 3603 of {\em Lecture Notes in
+  Computer Science}, pages 294--309. Springer, 2005.
+\newblock URL: \url{https://doi.org/10.1007/11541868\_19}, \href
+  {http://dx.doi.org/10.1007/11541868\_19} {\path{doi:10.1007/11541868\_19}}.
 
 \bibitem{schlichtkrull2018formalization}
 Anders Schlichtkrull.
-\newblock Formalization of logic in the isabelle proof assistant.
-\newblock 2018.
+\newblock {\em Formalization of logic in the {Isabelle} proof assistant}.
+\newblock PhD thesis, Technical University of Denmark, 2018.
 
 \bibitem{scott1967proof}
 Dana Scott.
@@ -200,20 +235,20 @@ Dana Scott.
 
 \bibitem{scott2008algebraic}
 Dana Scott.
-\newblock The algebraic intepretation of quantifiers. intuitionistic and
+\newblock The algebraic intepretation of quantifiers: intuitionistic and
   classical.
-\newblock {\em Andrzej Mostowski and foundational studies}, pages 289--312,
+\newblock {\em Andrzej Mostowski and Foundational Studies}, pages 289--312,
   2008.
+
+\bibitem{scott2014stochastic}
+Dana Scott.
+\newblock Stochastic $\lambda$-calculi.
+\newblock {\em Journal of Applied Logic}, 12(3):369--376, 2014.
 
 \bibitem{scott-solovay}
 Dana Scott and Robert Solovay.
 \newblock Boolean algebras and forcing.
 \newblock Unpublished manuscript, 1967.
-
-\bibitem{scott2014stochastic}
-Dana~S Scott.
-\newblock Stochastic $\lambda$-calculi.
-\newblock {\em Journal of Applied Logic}, 12(3):369--376, 2014.
 
 \bibitem{shankar1997metamathematics}
 Natarajan Shankar.
