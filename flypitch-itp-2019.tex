@@ -182,7 +182,7 @@ inductive preformula (L : Language.{u}) : ℕ → Type u
 A member of \lil{preformula n} is a partially applied formula.
 If applied to \lil{n} terms, it becomes a formula.
 The type of well-formed formulas \lil{formula L} is defined to be \lil{preterm L 0}.
-Implication is the only primitive binary connective and universal quantification is the only primitive quantifier. Since we use classical logic, we can define the other connectives and quantifiers these.
+Implication is the only primitive binary connective and universal quantification is the only primitive quantifier. Since we use classical logic, we can define the other connectives and quantifiers from these.
 In particular, we define negation \lil{∼ f} to be \lil{f ⟹ ⊥} and existential quantification \lil{∃' f} to be \lil{∼ ∀' ∼ f}.
 Note that implication and the universal quantifier cannot be applied to performulas that are not fully applied.
 
@@ -193,7 +193,7 @@ Of course, we could define an inductive type where the constructors \lil{rel} an
 \end{lstlisting}
 This would not even result in a nested inductive type.
 However, we found it more convenient to adapt operations and proofs from \lil{preterm} to \lil{preformula} using our definition.
-Using vectors results in some extra proof steps reasoning about vectors.
+Using vectors results in some extra proof steps for reasoning about vectors.
 Our approach also results in some extra proof steps, but they are the same as the steps in the corresponding proofs for preterms.
 
 We define the usual operations of lifting and substitution for terms and formulas.
