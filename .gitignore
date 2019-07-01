@@ -9,3 +9,5 @@
 *.fls
 *.bbl
 *~
+*.zip
+*.sh
