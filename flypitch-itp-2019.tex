@@ -224,6 +224,7 @@ We also define provability as the proposition stating that a proof tree exists.
 def provable (Γ : set (formula L)) (f : formula L) : Prop :=
 nonempty (prf Γ f)
 \end{lstlisting}
+Our current formalization does not use proof trees in an essential way, but we defined them so that we can define manipulations on proof trees (like detour elimination) in future projects.
 % We use proof trees in the definition ... % TODO: find definition which depends on prf, where provable isn't sufficient
 We then prove various meta-theoretic properties, like weakening and the substitution theorem.
 \begin{lstlisting}
