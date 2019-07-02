@@ -1,0 +1,25 @@
+#+TITLE: A formalization of forcing and the unprovability of the continuum hypothesis
+
+This repository contains the source code for the paper /A formalization of forcing and the unprovability of the continuum hypothesis/, which will appear in ITP 2019.
+
+*** Citation information
+
+#+begin_src latex
+@inproceedings{DBLP:conf/itp/2019,
+  author    = {Jesse Michael Han and Floris van Doorn},
+  title     = {A formalization of forcing and the unprovability of the continuum hypothesis},
+  editor    = {John Harrison and John O'Leary and Andrew Tolmach},
+  booktitle = {Interactive Theorem Proving - 10th International Conference, {ITP}
+               2019, Portland, OR, USA, Sep 9-12, 2019, Proceedings},
+  series    = {LIPIcs},
+  volume    = {141},
+  publisher = {Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik},
+  year      = {2019},
+  note      = {To appear}
+}
+#+end_src
+
+*** Viewing the paper
+To view the paper, grab the latest [[https://github.com/flypitch/flypitch-itp-2019/releases/][release]].
+
+
