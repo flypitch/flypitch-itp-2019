@@ -14,8 +14,7 @@ This repository contains the source code for the paper /A formalization of forci
   series    = {LIPIcs},
   volume    = {141},
   publisher = {Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik},
-  year      = {2019},
-  note      = {To appear}
+  year      = {2019}
 }
 #+end_src
 
